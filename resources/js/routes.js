@@ -76,78 +76,78 @@ let InvoiceDetails = require('./components/pos/InvoiceDetails.vue').default;
 export const routes = [
 
   //Auth Routes
-  { path: '/', component: login, name:'/' },
+  { path: '/admin/login', component: login, name:'/' },
 //   { path: '/register', component: register, name:'register' },
 //   { path: '/forget', component: forget, name:'forget' },
-  { path: '/logout', component: logout, name:'logout' },
+  { path: '/admin/logout', component: logout, name:'logout' },
 
-  { path: '/home', component: home, name:'home' },
+  { path: '/admin/home', component: home, name:'home' },
 
 
-  { path: '/invoices/list/buy', component: Invoice_buy, name:'Invoice_buy' },
-  { path: '/invoices/list/sell', component: Invoice_sell, name:'Invoice_sell' },
-  { path: '/invoice', component: Invoice, name:'Invoice' },
-  { path: '/invoices/:id', component: InvoiceDetails, name:'InvoiceDetails' },
+  { path: '/admin/invoices/list/buy', component: Invoice_buy, name:'Invoice_buy' },
+  { path: '/admin/invoices/list/sell', component: Invoice_sell, name:'Invoice_sell' },
+  { path: '/admin/invoice', component: Invoice, name:'Invoice' },
+  { path: '/admin/invoices/:id', component: InvoiceDetails, name:'InvoiceDetails' },
 
 
 
   // Employee Routes
-  { path: '/store-employee', component: storeEmployee, name:'storeEmployee' },
-  { path: '/employee', component: employee, name:'employee' },
-  { path: '/edit-employee/:id', component: editEmployee, name:'editEmployee' },
+  { path: '/admin/store-employee', component: storeEmployee, name:'storeEmployee' },
+  { path: '/admin/employee', component: employee, name:'employee' },
+  { path: '/admin/edit-employee/:id', component: editEmployee, name:'editEmployee' },
 
   // Supplier Routes
-  { path: '/store-supplier', component: storeSupplier, name:'storeSupplier' },
-  { path: '/supplier', component: supplier, name:'supplier' },
-  { path: '/edit-supplier/:id', component: editSupplier, name:'editSupplier' },
+  { path: '/admin/store-supplier', component: storeSupplier, name:'storeSupplier' },
+  { path: '/admin/supplier', component: supplier, name:'supplier' },
+  { path: '/admin/edit-supplier/:id', component: editSupplier, name:'editSupplier' },
 
   // Category Routes
-  { path: '/store-dealer', component: editdealer, name:'storedealer' },
-  { path: '/dealer', component: dealer, name:'dealer' },
-  { path: '/edit-dealer/:id', component: editdealer, name:'editdealer' },
+  { path: '/admin/store-dealer', component: editdealer, name:'storedealer' },
+  { path: '/admin/dealer', component: dealer, name:'dealer' },
+  { path: '/admin/edit-dealer/:id', component: editdealer, name:'editdealer' },
 
   // Category Routes
-  { path: '/store-category', component: editCategory, name:'storeCategory' },
-  { path: '/category', component: category, name:'category' },
-  { path: '/edit-category/:id', component: editCategory, name:'editCategory' },
+  { path: '/admin/store-category', component: editCategory, name:'storeCategory' },
+  { path: '/admin/category', component: category, name:'category' },
+  { path: '/admin/edit-category/:id', component: editCategory, name:'editCategory' },
 
   // Product Routes
-  { path: '/store-product', component: editProduct, name:'storeProduct' },
-  { path: '/product', component: product, name:'product' },
-  { path: '/product/expired', component: product_expired, name:'product_expired' },
-  { path: '/edit-product/:id', component: editProduct, name:'editProduct' },
+  { path: '/admin/store-product', component: editProduct, name:'storeProduct' },
+  { path: '/admin/product', component: product, name:'product' },
+  { path: '/admin/product/expired', component: product_expired, name:'product_expired' },
+  { path: '/admin/edit-product/:id', component: editProduct, name:'editProduct' },
 
   // Expense Routes
-  { path: '/store-expense', component: storeExpense, name:'storeExpense' },
-  { path: '/expense', component: expense, name:'expense' },
-  { path: '/edit-expense/:id', component: editExpense, name:'editExpense' },
+  { path: '/admin/store-expense', component: storeExpense, name:'storeExpense' },
+  { path: '/admin/expense', component: expense, name:'expense' },
+  { path: '/admin/edit-expense/:id', component: editExpense, name:'editExpense' },
 
   // Customer Routes
-  { path: '/store-customer', component: editCustomer, name:'storeCustomer' },
-  { path: '/customer', component: customer, name:'customer' },
-  { path: '/duecustomer', component: duecustomer, name:'duecustomer' },
-  { path: '/edit-customer/:id', component: editCustomer, name:'editCustomer' },
-  { path: '/customer/due/:id', component: customerdue, name:'customerdue' },
+  { path: '/admin/store-customer', component: editCustomer, name:'storeCustomer' },
+  { path: '/admin/customer', component: customer, name:'customer' },
+  { path: '/admin/duecustomer', component: duecustomer, name:'duecustomer' },
+  { path: '/admin/edit-customer/:id', component: editCustomer, name:'editCustomer' },
+  { path: '/admin/customer/due/:id', component: customerdue, name:'customerdue' },
 
   // Expense Routes
-  { path: '/given-salary', component: salary, name:'given-salary' },
-  { path: '/pay-salary/:id', component: paySalary, name:'paySalary' },
-  { path: '/salary', component: allSalary, name:'allSalary' },
-  { path: '/view-salary/:month', component: viewSalary, name:'viewSalary' },
-  { path: '/edit-salary/:id', component: editSalary, name:'editSalary' },
+  { path: '/admin/given-salary', component: salary, name:'given-salary' },
+  { path: '/admin/pay-salary/:id', component: paySalary, name:'paySalary' },
+  { path: '/admin/salary', component: allSalary, name:'allSalary' },
+  { path: '/admin/view-salary/:month', component: viewSalary, name:'viewSalary' },
+  { path: '/admin/edit-salary/:id', component: editSalary, name:'editSalary' },
 
   // Stock Routes
-  { path: '/stock/outofstock', component: stock, name:'stock' },
-  { path: '/stock/available', component: available, name:'available' },
+  { path: '/admin/stock/outofstock', component: stock, name:'stock' },
+  { path: '/admin/stock/available', component: available, name:'available' },
 
-  { path: '/stock/:id', component: editStock, name:'editStock' },
+  { path: '/admin/stock/:id', component: editStock, name:'editStock' },
 
   //POS Routes
-  { path: '/pos', component: pos, name:'pos' },
+  { path: '/admin/pos', component: pos, name:'pos' },
 
   //Order Routes
-  { path: '/orders', component: allOrders, name:'allOrders' },
-  { path: '/orders/:type', component: allOrders, name:'OrdersReport' },
+  { path: '/admin/orders', component: allOrders, name:'allOrders' },
+  { path: '/admin/orders/:type', component: allOrders, name:'OrdersReport' },
 //   { path: '/orders/:from/:to', component: allOrders, name:'filterOrders' },
 
 

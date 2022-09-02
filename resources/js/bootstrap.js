@@ -1,4 +1,12 @@
+import Vue from 'vue'
 window._ = require('lodash');
+
+
+// Vue.prototype.$asseturl = '/public/'
+Vue.prototype.$asseturl = '/'
+
+Vue.prototype.$localStorage = localStorage
+window.ASSETURL = Vue.prototype.$asseturl
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -8,7 +16,8 @@ window._ = require('lodash');
 
  // No ty for notification
 window.Noty = require('noty');
-
+import common from './common'
+Vue.mixin(common)
 try {
     window.Popper = require('popper.js').default;
     window.$ = window.jQuery = require('jquery');

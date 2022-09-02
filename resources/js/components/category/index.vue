@@ -14,13 +14,15 @@
 							<table class="table align-items-center table-flush">
 								<thead class="thead-light">
 									<tr>
-										<th>Category Name</th>
+										<th>সারের নাম</th>
+										<th>দাম</th>
 										<th>Action</th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr v-for="category in filtersearch" :key="category.id">
 										<td>{{ category.category_name }}</td>
+										<td>{{ category.price }}</td>
 										<td>
 											<router-link :to="{name: 'editCategory', params: {id: category.id}}" class="btn btn-sm btn-primary">Edit</router-link>
 											<!-- <a @click="deleteCategory(category.id)" class="btn btn-sm btn-danger" style="color: white">Delete</a> -->

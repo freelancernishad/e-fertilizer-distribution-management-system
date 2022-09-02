@@ -52,7 +52,7 @@ span.money {
     <div id="wrapper">
 
       <!-- Sidebar -->
-      <nav id="sidebar" v-show="$route.path === '/' || $route.path === '/register' || $route.path === 'forget' ? false : true " style="display: none;">
+      <nav id="sidebar" v-show="$route.path === '/admin/' || $route.path === '/admin/login' || $route.path === '/admin/register' || $route.path === 'forget' ? false : true " style="display: none;">
         <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
           <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ url('/') }}">
             <div class="sidebar-brand-icon">
@@ -62,7 +62,7 @@ span.money {
           </a>
           <hr class="sidebar-divider my-0">
           <li class="nav-item active">
-            <router-link class="nav-link" to="/home">
+            <router-link class="nav-link" to="/admin/home">
               <i class="fas fa-fw fa-tachometer-alt"></i>
               <span>Dashboard</span></router-link>
             </li>
@@ -105,8 +105,8 @@ span.money {
           </a>
           <div id="collapseBootstrap11" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-              <router-link class="collapse-item" to="/store-dealer">নতুন ডিলার</router-link>
-              <router-link class="collapse-item" to="/dealer">ডিলারের তালিকা </router-link>
+              <router-link class="collapse-item" to="/admin/store-dealer">নতুন ডিলার</router-link>
+              <router-link class="collapse-item" to="/admin/dealer">ডিলারের তালিকা </router-link>
             </div>
           </div>
         </li>
@@ -123,8 +123,8 @@ span.money {
           </a>
           <div id="collapseBootstrap2" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-              <router-link class="collapse-item" to="/store-category">নাম অন্তর্ভুক্ত করুন</router-link>
-              <router-link class="collapse-item" to="/category">সারের তালিকা </router-link>
+              <router-link class="collapse-item" to="/admin/store-category">নাম অন্তর্ভুক্ত করুন</router-link>
+              <router-link class="collapse-item" to="/admin/category">সারের তালিকা </router-link>
               {{-- <router-link class="collapse-item" to="/this-year-orders">মূল্য তালিকা</router-link> --}}
             </div>
           </div>
@@ -140,8 +140,8 @@ span.money {
         </a>
         <div id="collapseBootstrap3" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <router-link class="collapse-item" to="/store-product">বরাদ্দ অন্তর্ভুক্ত করুন</router-link>
-            <router-link class="collapse-item" to="/product">বরাদ্দের তালিকা</router-link>
+            <router-link class="collapse-item" to="/admin/store-product">বরাদ্দ অন্তর্ভুক্ত করুন</router-link>
+            <router-link class="collapse-item" to="/admin/product">বরাদ্দের তালিকা</router-link>
             {{-- <router-link class="collapse-item" to="/product/expired">Expired Product</router-link> --}}
           </div>
         </div>
@@ -156,8 +156,8 @@ span.money {
         </a>
         <div id="collapseBootstrapp" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <router-link class="collapse-item" to="/stock/outofstock">মজুদ শেষ</router-link>
-            <router-link class="collapse-item" to="/stock/available">মজুদ আছে</router-link>
+            <router-link class="collapse-item" to="/admin/stock/outofstock">মজুদ শেষ</router-link>
+            <router-link class="collapse-item" to="/admin/stock/available">মজুদ আছে</router-link>
           </div>
         </div>
       </li>
@@ -170,8 +170,8 @@ span.money {
     </a>
     <div id="collapseBootstrapcustomer" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
-        <router-link class="collapse-item" to="/store-customer">কৃষকের নাম অন্তর্ভুক্ত করুন</router-link>
-        <router-link class="collapse-item" to="/customer">কৃষকের তালিকা</router-link>
+        <router-link class="collapse-item" to="/admin/store-customer">কৃষকের নাম অন্তর্ভুক্ত করুন</router-link>
+        <router-link class="collapse-item" to="/admin/customer">কৃষকের তালিকা</router-link>
         {{-- <router-link class="collapse-item" :to="{name:'duecustomer'}">Due Customer</router-link> --}}
       </div>
     </div>
@@ -268,7 +268,7 @@ span.money {
 <div id="content-wrapper" class="d-flex flex-column">
   <div id="content">
     <!-- TopBar -->
-    <nav class="navbar navbar-expand navbar-light bg-navbar topbar mb-4 static-top" id="topbar" v-show="$route.path === '/' || $route.path === '/register' || $route.path === 'forget' ? false : true " style="display: none;">
+    <nav class="navbar navbar-expand navbar-light bg-navbar topbar mb-4 static-top" id="topbar" v-show="$route.path === '/admin/' ||$route.path === '/admin/login' || $route.path === '/admin/register' || $route.path === 'forget' ? false : true " style="display: none;">
       <button id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3">
         <i class="fa fa-bars"></i>
     </button>
@@ -279,7 +279,7 @@ span.money {
         aria-haspopup="true" aria-expanded="false">
         <img class="img-profile rounded-circle" src="{{ asset('backend/img/boy.png') }}" style="max-width: 60px">
         <span class="ml-2 d-none d-lg-inline text-white small">Admin</span>
-        <router-link to="/logout" class="ml-2 d-none d-lg-inline text-white small">Logout</router-link>
+        <router-link to="/admin/logout" class="ml-2 d-none d-lg-inline text-white small">Logout</router-link>
       </a>
     </li>
   </ul>

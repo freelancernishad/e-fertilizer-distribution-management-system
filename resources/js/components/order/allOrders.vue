@@ -135,13 +135,18 @@ this.routerchange();
                 this.allOrder(User.dateformat()[0]);
             }else if(pType=='weakly'){
                 this.headText = 'সাপ্তাহিক বিক্রয় প্রতিবেদন';
-                this.allOrder(User.dateformat(this.newDate,7,'desc')[0],User.dateformat()[0]);
+
+
+                console.log(User.dateformat(User.getPreviousDay(new Date(),7))[0])
+
+                this.allOrder(User.dateformat(User.getPreviousDay(new Date(),7))[0],User.dateformat()[0]);
+
             }else if(pType=='monthly'){
                 this.headText = 'মাসিক বিক্রয় প্রতিবেদন';
-                this.allOrder(User.dateformat(this.newDate,30,'desc')[0],User.dateformat()[0]);
+                this.allOrder(User.dateformat(User.getPreviousDay(new Date(),30))[0],User.dateformat()[0]);
             }else if(pType=='yearly'){
                 this.headText = 'বাৎসরিক বিক্রয় প্রতিবেদন';
-                this.allOrder(User.dateformat(this.newDate,365,'desc')[0],User.dateformat()[0]);
+                this.allOrder(User.dateformat(User.getPreviousDay(new Date(),365))[0],User.dateformat()[0]);
             }else if(pType=='all'){
 
                 this.headText = 'প্রতিবেদন';

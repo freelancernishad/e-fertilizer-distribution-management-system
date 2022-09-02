@@ -103,7 +103,7 @@ import loader from "vue-ui-preloader";
 Vue.use(loader);
 
 window.Reload = new Vue();
-
+import store from './store'
 const router = new VueRouter({
   routes,
   mode: 'history'
@@ -111,5 +111,6 @@ const router = new VueRouter({
 
 const app = new Vue({
     el: '#app',
-    router
+    router,
+    store
 });

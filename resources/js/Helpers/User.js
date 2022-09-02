@@ -4,6 +4,14 @@ import AppStorage from './AppStorage'
 
 class User{
 
+
+     getPreviousDay(date = new Date(),c=0) {
+        const previous = new Date(date.getTime());
+        previous.setDate(date.getDate() - c);
+
+        return previous;
+      }
+
     dateformat(date = '',plus=0,order='asc') {
         var dates = [];
         if (date == '') {

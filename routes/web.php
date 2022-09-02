@@ -18,9 +18,9 @@ use Meneses\LaravelMpdf\Facades\LaravelMpdf;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 Route::get('/memo', function () {
 
 
@@ -55,8 +55,14 @@ Route::get('/memo', function () {
 
 
 
-Route::get('/{vue_capture?}', function () {
-    return view('welcome');
-})->where('vue_capture', '[\/\w\.-]*');
+    Route::get('admin/{vue_capture?}', function () {
+        return view('welcome');
+    })->where('vue_capture', '[\/\w\.-]*');
+
+
+
+    Route::get('/{vue_capture?}', function () {
+        return view('frontlayout');
+    })->where('vue_capture', '[\/\w\.-]*');
 
 

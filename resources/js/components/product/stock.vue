@@ -76,9 +76,17 @@ export default {
                 { key: 'price', label: 'দাম', sortable: true },
                 { key: 'product_quantity', label: 'সারের পরিমাণ', sortable: true,
                 formatter: (value, key, item) => {
-                       return item.product_quantity+' '+item.type;
+
+                    var qty= item.product_quantity.toString().split(".");
+                    if(qty.length==2){
+                        return qty[0]+' বস্তা '+('.'+qty[1])*50+' কেজি';
+                    }else{
+                        return item.product_quantity+'বস্তা';
                     }
-            },
+
+
+
+                    } },
 
             ]
             // this.fields.push( { key: 'actions', label: 'Actions' });
