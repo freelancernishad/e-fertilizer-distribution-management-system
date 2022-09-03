@@ -9,9 +9,9 @@
 
 						<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
 
-							<h2 class="m-0 font-weight-bold text-primary">Product List</h2>
+							<h2 class="m-0 font-weight-bold text-primary">বরাদ্দের তালিকা</h2>
 
-		<router-link to="/store-product" class="btn btn-primary float-right" style="margin-top: 6px;margin-right: 6px;">Add Product</router-link>
+		<!-- <router-link to="/store-product" class="btn btn-primary float-right" style="margin-top: 6px;margin-right: 6px;">Add Product</router-link> -->
 
 						</div>
 

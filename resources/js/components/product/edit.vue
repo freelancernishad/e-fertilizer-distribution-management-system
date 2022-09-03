@@ -8,7 +8,7 @@
 							<!-- <router-link to="/product" class="btn btn-primary float-right" style="margin-top: 6px;margin-right: 6px;">All Product</router-link> -->
 							<div class="login-form">
 								<div class="text-center">
-									<h1 class="h4 text-gray-900 mb-4">Edit Product</h1>
+									<h1 class="h4 text-gray-900 mb-4">বরাদ্দ</h1>
 								</div>
 								<form @submit.prevent='updateProduct' enctype="multipart/form-data" class="row">
 

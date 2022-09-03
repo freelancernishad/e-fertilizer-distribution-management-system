@@ -80,7 +80,7 @@
                                             </router-link>
                                         </li>
                                         <li class="nav-item">
-                                            <router-link class="nav-link" :to="{ name: 'login' }">লগইন</router-link>
+                                            <a class="nav-link" href="/admin/login"">লগইন</a>
                                         </li>
                                         <li class="nav-item dropdown">
                                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"

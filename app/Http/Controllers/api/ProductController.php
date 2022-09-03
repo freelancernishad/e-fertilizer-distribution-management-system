@@ -52,7 +52,7 @@ class ProductController extends Controller
     {
 
 
-        return Product::with(['categorys'])->orderBy('id','desc')->get();
+
 
      $type = $request->type;
         if($type=='input'){
@@ -66,7 +66,7 @@ class ProductController extends Controller
 
         }
 
-
+        return Product::with(['categorys'])->orderBy('id','desc')->get();
 
         $products = DB::table('products')
         ->join('categories', 'products.category_id', 'categories.id')

@@ -6744,16 +6744,7 @@ var render = function render() {
         name: "contact"
       }
     }
-  }, [_vm._v("যোগাযোগ\n                                            ")])], 1), _vm._v(" "), _c("li", {
-    staticClass: "nav-item"
-  }, [_c("router-link", {
-    staticClass: "nav-link",
-    attrs: {
-      to: {
-        name: "login"
-      }
-    }
-  }, [_vm._v("লগইন")])], 1), _vm._v(" "), _c("li", {
+  }, [_vm._v("যোগাযোগ\n                                            ")])], 1), _vm._v(" "), _vm._m(2), _vm._v(" "), _c("li", {
     staticClass: "nav-item dropdown"
   }, [_c("a", {
     staticClass: "nav-link dropdown-toggle",
@@ -6800,7 +6791,7 @@ var render = function render() {
       onmouseout: "this.start();",
       scrolldelay: "100"
     }
-  }, [_vm._v(" Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas delectus provident iste,\n                    eligendi ipsum pariatur soluta officia tenetur velit odio quo hic, numquam minus ratione, quae\n                    dolore ad molestiae suscipit! ")]), _vm._v(" "), _vm._t("default"), _vm._v(" "), _vm._m(2)], 2), _vm._v(" "), _c("footer", [_c("div", {
+  }, [_vm._v(" Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas delectus provident iste,\n                    eligendi ipsum pariatur soluta officia tenetur velit odio quo hic, numquam minus ratione, quae\n                    dolore ad molestiae suscipit! ")]), _vm._v(" "), _vm._t("default"), _vm._v(" "), _vm._m(3)], 2), _vm._v(" "), _c("footer", [_c("div", {
     staticClass: "footer_top_bg",
     staticStyle: {
       background: "url('/assets/img/footer_top_bg.png')",
@@ -6812,7 +6803,7 @@ var render = function render() {
     staticClass: "footerBottom"
   }, [_c("div", {
     staticClass: "row"
-  }, [_vm._m(3), _vm._v(" "), _c("div", {
+  }, [_vm._m(4), _vm._v(" "), _c("div", {
     staticClass: "col-md-4"
   }, [_c("ul", {
     staticClass: "footerList"
@@ -6835,7 +6826,7 @@ var render = function render() {
       src: _vm.$asseturl + "assets/img/bd-logo.png",
       alt: ""
     }
-  }), _vm._v(" "), _vm._m(4)])])]), _vm._v(" "), _vm._m(5)])])])]), _vm._v(" "), _vm._m(6)]);
+  }), _vm._v(" "), _vm._m(5)])])]), _vm._v(" "), _vm._m(6)])])])]), _vm._v(" "), _vm._m(7)]);
 };
 
 var staticRenderFns = [function () {
@@ -6865,6 +6856,18 @@ var staticRenderFns = [function () {
   }, [_c("i", {
     staticClass: "fas fa-bars"
   })]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("li", {
+    staticClass: "nav-item"
+  }, [_c("a", {
+    staticClass: "nav-link",
+    attrs: {
+      href: "/admin/login"
+    }
+  }, [_vm._v("লগইন")])]);
 }, function () {
   var _vm = this,
       _c = _vm._self._c;
