@@ -134,6 +134,7 @@ export default {
         }
     },
 	mounted(){
+        // console.log(this.$route)
         if(this.$route.params.id){
             this.list();
         }
@@ -153,7 +154,7 @@ export default {
 			var id = this.$route.params.id
 		    var ax = 	axios.patch('/api/user/' + id, this.form)
             }else{
-		    var ax = 	axios.post('/api/user/' + id, this.form)
+		    var ax = 	axios.post('/api/user', this.form)
             }
 
 
