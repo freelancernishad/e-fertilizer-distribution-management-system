@@ -99,6 +99,7 @@ export default {
         categorys:[],
         categ:{},
         form:{
+            totalProduct: 0,
             totalAmount: 0,
             pos:'',
             customer_name:null,
@@ -118,14 +119,17 @@ export default {
   },
   updated() {
     var total = 0;
+    var totalProduct = 0;
 
     this.form.Invoices.forEach(value => {
         total += value.price*value.weight_quantity;
+        totalProduct += Number(value.weight_quantity);
         // console.log(value.price)
         // console.log(value.weight_quantity)
     });
 
     this.form.totalAmount = total;
+    this.form.totalProduct = totalProduct;
     // console.log(totalamount);
   },
   methods: {

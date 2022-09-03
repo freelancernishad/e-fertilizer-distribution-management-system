@@ -4,6 +4,9 @@ use App\Models\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\Invoice;
+use App\Models\Product;
 use Exception;
 class PosController extends Controller
 {
@@ -120,6 +123,27 @@ class PosController extends Controller
 
         return response()->json($order_id);
     }
+    public function allReport(Request $request)
+    {
+
+
+
+        $product = Product::sum('product_quantity');
+        $sell = Invoice::sum('totalProduct');
+        $category = Category::sum('product_quantity');
+
+        $data = [
+            'product'=>$product,
+            'sell'=>$sell,
+            'stock'=>$category,
+        ];
+
+
+
+        return response()->json($data);
+    }
+
+
     public function todaySell(Request $request)
     {
         $date = $request->date;

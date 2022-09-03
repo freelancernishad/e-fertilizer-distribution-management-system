@@ -34,7 +34,7 @@
                                     বরাদ্দকৃত সারের পরিমাণ
                                 </div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                    <span class="money">৳</span> {{ todaySells }}
+                                    <span class="money"></span> {{ Math.floor(row.product) }}
                                 </div>
                                 <div class="mt-2 mb-0 text-muted text-xs">
                                     <!-- <span class="text-success mr-2"><i class="fa fa-arrow-up"></i>
@@ -107,7 +107,7 @@
                                     বিক্রিত সারের পরিমাণ
                                 </div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                    <span class="money">৳</span> {{ expense }}
+                                    <span class="money"></span> {{ Math.floor(row.sell) }}
                                 </div>
                                 <div class="mt-2 mb-0 text-muted text-xs">
                                     <!-- <span class="text-danger mr-2"><i class="fas fa-arrow-down"></i>
@@ -136,7 +136,7 @@
                                     মজুদ সারের পরিমাণ
                                 </div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                     {{ totalStock }}
+                                     {{ Math.floor(row.stock) }}
                                 </div>
                                 <div class="mt-2 mb-0 text-muted text-xs">
                                     <!-- <span class="text-danger mr-2"><i class="fas fa-arrow-down"></i>
@@ -312,6 +312,9 @@ export default {
         if (!User.loggedIn()) {
             this.$router.push({ name: "/" });
         }
+
+        this.allReport();
+
     },
     props: {
         chartId: {
@@ -394,6 +397,7 @@ export default {
             monthname: "",
             yearsList: [],
             monthlist: [],
+            row: {},
             chartData: {
                 labels: [
                     "January",
@@ -481,6 +485,13 @@ this.countmonth();
             this.todayDue();
             this.expenses();
 
+        },
+
+        allReport() {
+            axios
+                .get(`/api/all/report`)
+                .then(({ data }) => (this.row = data))
+                .catch();
         },
 
         todaySell() {

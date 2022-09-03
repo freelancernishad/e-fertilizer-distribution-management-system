@@ -54,12 +54,12 @@ span.money {
       <!-- Sidebar -->
       <nav id="sidebar" v-show="$route.path === '/admin/' || $route.path === '/admin/login' || $route.path === '/admin/register' || $route.path === 'forget' ? false : true " style="display: none;">
         <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
-          <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ url('/') }}">
+          <router-link class="sidebar-brand d-flex align-items-center justify-content-center" to="/admin/home">
             <div class="sidebar-brand-icon">
               {{-- <img src="{{ asset('m.png') }}"> --}}
             </div>
             <div class="sidebar-brand-text mx-3">ডিজিটাল সার ব্যবস্থাপনা</div>
-          </a>
+          </router-link>
           <hr class="sidebar-divider my-0">
           <li class="nav-item active">
             <router-link class="nav-link" to="/admin/home">

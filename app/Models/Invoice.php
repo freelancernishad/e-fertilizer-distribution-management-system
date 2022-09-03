@@ -17,6 +17,7 @@ class Invoice extends Model
         'date',
         'type',
         'Invoices',
+        'totalProduct',
         'total_amount',
     ];
 

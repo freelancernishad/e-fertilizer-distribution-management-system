@@ -96,6 +96,7 @@ $amount = $numto->bnMoney($orders->total_amount);
        $data = [
         'Invoices'=> json_encode($request->Invoices),
         'address'=> $request->address,
+        'totalProduct'=> $request->totalProduct,
         'customer_name'=> $cusomer->name,
         'customer_id'=> $pos,
         'address'=> $cusomer->vill.', '.$cusomer->union.', '.$cusomer->thana .', '.$cusomer->district,

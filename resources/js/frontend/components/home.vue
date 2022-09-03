@@ -41,7 +41,12 @@
                             :to="{ name: 'application' }">
                             <div class="serviceBox">
                                 <div class="serviceLogo">
-                                    <img :src="$asseturl + 'assets/img/pic-10.png'" width="33%" alt="" />
+                                    <div class="reportNumber">
+
+                                        {{ Math.floor(row.product) }}
+                                    </div>
+
+                                    <!-- <img :src="$asseturl + 'assets/img/pic-10.png'" width="33%" alt="" /> -->
                                 </div>
                                 <div class="serviceTitle defaltTextColor">
                                     বরাদ্দ সংক্রান্ত তথ্য
@@ -56,7 +61,10 @@
                             :to="{ name: 'application' }">
                             <div class="serviceBox">
                                 <div class="serviceLogo">
-                                    <img :src="$asseturl + 'assets/img/pic-10.png'" width="33%" alt="" />
+                                    <div class="reportNumber">
+                                        {{ Math.floor(row.stock) }}
+                                    </div>
+                                    <!-- <img :src="$asseturl + 'assets/img/pic-10.png'" width="33%" alt="" /> -->
                                 </div>
                                 <div class="serviceTitle defaltTextColor">
                                     মজুদ সংক্রান্ত তথ্য
@@ -71,7 +79,7 @@
                             :to="{ name: 'application' }">
                             <div class="serviceBox">
                                 <div class="serviceLogo">
-                                    <img :src="$asseturl + 'assets/img/pic-10.png'" width="33%" alt="" />
+                                    <img :src="$asseturl + 'assets/img/pic-10.png'" class="imageSpin" width="33%" alt="" />
                                 </div>
                                 <div class="serviceTitle defaltTextColor">
                                     ডিলার লগইন
@@ -86,7 +94,7 @@
                             :to="{ name: 'application' }">
                             <div class="serviceBox">
                                 <div class="serviceLogo">
-                                    <img :src="$asseturl + 'assets/img/pic-10.png'" width="33%" alt="" />
+                                    <img :src="$asseturl + 'assets/img/pic-10.png'" class="imageSpin" width="33%" alt="" />
                                 </div>
                                 <div class="serviceTitle defaltTextColor">
                                     কর্তৃপক্ষ লগইন
@@ -101,7 +109,7 @@
                             :to="{ name: 'application' }">
                             <div class="serviceBox">
                                 <div class="serviceLogo">
-                                    <img :src="$asseturl + 'assets/img/pic-10.png'" width="33%" alt="" />
+                                    <img :src="$asseturl + 'assets/img/pic-10.png'" class="imageSpin" width="33%" alt="" />
                                 </div>
                                 <div class="serviceTitle defaltTextColor">
                                     সার ক্রয় করুন
@@ -115,7 +123,7 @@
                             :to="{ name: 'application' }">
                             <div class="serviceBox">
                                 <div class="serviceLogo">
-                                    <img :src="$asseturl + 'assets/img/pic-10.png'" width="33%" alt="" />
+                                    <img :src="$asseturl + 'assets/img/pic-10.png'" class="imageSpin" width="33%" alt="" />
                                 </div>
                                 <div class="serviceTitle defaltTextColor">
                                     অন্যান্য সেবা
@@ -213,16 +221,28 @@ export default {
                 "wave",
                 "zip",
             ],
+        row:{},
             //   vfCaptions: [],
         };
     },
     mounted() {
+        this.allReport();
     },
     methods: {
         sendInfo(item) {
             // console.log(item)
             this.selectedUser = item;
-        }
+        },
+
+
+
+        allReport() {
+            axios
+                .get(`/api/all/report`)
+                .then(({ data }) => (this.row = data))
+                .catch();
+        },
+
     },
 };
 </script>

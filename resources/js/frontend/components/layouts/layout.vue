@@ -65,9 +65,9 @@
                                                 role="button" data-toggle="dropdown" aria-haspopup="true"
                                                 aria-expanded="false">তালিকা</a>
                                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                                <router-link class="dropdown-item" to="/hello">ডিলারের তালিকা
+                                                <router-link class="dropdown-item" :to="{name:'deller'}">ডিলারের তালিকা
                                                 </router-link>
-                                                <router-link class="dropdown-item" to="/hello2">কৃষকের তালিকা
+                                                <router-link class="dropdown-item" :to="{name:'farmer'}">কৃষকের তালিকা
                                                 </router-link>
                                             </div>
                                         </li>

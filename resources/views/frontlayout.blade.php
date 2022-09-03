@@ -100,7 +100,28 @@ p.help.text-right {
 
 
 }
+a {
+    text-decoration: none;
+}
 
+.reportNumber {
+    width: 130px;
+    margin: 0 auto;
+    height: 130px;
+    border: 4px solid #34A96B;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: #34A96B;
+}
+
+
+.serviceBox:hover .serviceLogo img.imageSpin {
+    transform: rotate(720deg);
+    transition:all 0.5s;
+}
 
 </style>
 
