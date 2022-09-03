@@ -6835,7 +6835,7 @@ var staticRenderFns = [function () {
 
   return _c("div", {
     staticClass: "topheaderItem col-md-6 col-6"
-  }, [_c("span", [_vm._v("ইউনিয়ন পরিষদ ডিজিটাল সেবা সিস্টেমে\n                                স্বাগতম")])]);
+  }, [_c("span", [_vm._v("ডিজিটাল সার ব্যবস্থাপনা সিস্টেমে স্বাগতম")])]);
 }, function () {
   var _vm = this,
       _c = _vm._self._c;
