@@ -2,8 +2,8 @@ import Vue from 'vue'
 window._ = require('lodash');
 
 
-// Vue.prototype.$asseturl = '/public/'
-Vue.prototype.$asseturl = '/'
+Vue.prototype.$asseturl = '/public/'
+// Vue.prototype.$asseturl = '/'
 
 Vue.prototype.$localStorage = localStorage
 window.ASSETURL = Vue.prototype.$asseturl

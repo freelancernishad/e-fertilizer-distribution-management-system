@@ -7841,9 +7841,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
 /* harmony import */ var _common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./common */ "./resources/js/common.js");
 
-window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js"); // Vue.prototype.$asseturl = '/public/'
+window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+vue__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.$asseturl = '/public/'; // Vue.prototype.$asseturl = '/'
 
-vue__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.$asseturl = '/';
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.$localStorage = localStorage;
 window.ASSETURL = vue__WEBPACK_IMPORTED_MODULE_0__["default"].prototype.$asseturl;
 /**
