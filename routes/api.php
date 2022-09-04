@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CountryApi;
 // use App\Http\Controllers\AuthController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\api\PosController;
 use App\Http\Controllers\InvoiceController;
@@ -93,7 +94,17 @@ Route::apiResources([
     'expense' => ExpenseController::class,
     'customer' => CustomerController::class,
     'invoice' => InvoiceController::class,
+
+    'country' => CountryApi::class,
+
 ]);
+
+Route::get('/divisions',[CountryApi::class,'divisions']);
+Route::get('/districts',[CountryApi::class,'districts']);
+
+
+
+
 Route::get('/customers/search',[CustomerController::class,'search']);
 Route::get('/products/search',[ProductController::class,'search']);
 Route::get('/products/stockcheck',[ProductController::class,'stockCheck']);
@@ -171,6 +182,9 @@ Route::post('/due-order/{id}',  [OrderController::class,'DueOrderupdate']);
 
 
 
+/////////////////// country api
+
+    // Route::get('');
 
 
 

@@ -43,7 +43,7 @@
                                 <div class="serviceLogo">
                                     <div class="reportNumber">
 
-                                        {{ Math.floor(row.product) }}
+                                        {{ row.product }}
                                     </div>
 
                                     <!-- <img :src="$asseturl + 'assets/img/pic-10.png'" width="33%" alt="" /> -->
@@ -62,7 +62,7 @@
                             <div class="serviceBox">
                                 <div class="serviceLogo">
                                     <div class="reportNumber">
-                                        {{ Math.floor(row.stock) }}
+                                        {{ row.stock }}
                                     </div>
                                     <!-- <img :src="$asseturl + 'assets/img/pic-10.png'" width="33%" alt="" /> -->
                                 </div>
