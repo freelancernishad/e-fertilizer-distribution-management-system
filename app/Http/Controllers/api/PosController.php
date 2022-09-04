@@ -126,16 +126,75 @@ class PosController extends Controller
     public function allReport(Request $request)
     {
 
+        $uriaSell = 0;
+        $DAPSell = 0;
+        $MOPSell = 0;
+        $TSPSell = 0;
+        $other = 0;
+
+         $sellall = Invoice::all();
+        foreach ($sellall as $value) {
+            foreach (json_decode($value->Invoices) as $invoice) {
+                # code...
+                // print_r($invoice);
+
+                if($invoice->name=='ইউরিয়া'){
+                    $uriaSell+=$invoice->weight_quantity;
+                }elseif($invoice->name=='ডিএপি'){
+                    $DAPSell+=$invoice->weight_quantity;
+                }elseif($invoice->name=='এমওপি'){
+                    $MOPSell+=$invoice->weight_quantity;
+                }elseif($invoice->name=='টিএসপি'){
+                    $TSPSell+=$invoice->weight_quantity;
+                }else{
+                    $other += 0;
+                }
+
+            }
+        }
+
+// die();
+        $sell = Invoice::sum('totalProduct');
+
 
 
         $product = Product::sum('product_quantity');
-        $sell = Invoice::sum('totalProduct');
+
+
+        $uriaBoraddo = int_en_to_bn(Product::where('category_name','ইউরিয়া')->sum('product_quantity'));
+        $DAPBoraddo = int_en_to_bn(Product::where('category_name','ডিএপি')->sum('product_quantity'));
+        $MOPBoraddo = int_en_to_bn(Product::where('category_name','এমওপি')->sum('product_quantity'));
+        $TSPBoraddo = int_en_to_bn(Product::where('category_name','টিএসপি')->sum('product_quantity'));
+
+        $uriaMjud = int_en_to_bn(Category::where('category_name','ইউরিয়া')->sum('product_quantity'));
+        $DAPMjud = int_en_to_bn(Category::where('category_name','ডিএপি')->sum('product_quantity'));
+        $MOPMjud = int_en_to_bn(Category::where('category_name','এমওপি')->sum('product_quantity'));
+        $TSPMjud = int_en_to_bn(Category::where('category_name','টিএসপি')->sum('product_quantity'));
+
         $category = Category::sum('product_quantity');
+
+
+
+
+
+
 
         $data = [
             'product'=>int_en_to_bn($product),
             'sell'=>int_en_to_bn($sell),
             'stock'=>int_en_to_bn($category),
+            'uriaMjud'=>$uriaMjud,
+            'DAPMjud'=>$DAPMjud,
+            'MOPMjud'=>$MOPMjud,
+            'TSPMjud'=>$TSPMjud,
+            'uriaSell'=>int_en_to_bn($uriaSell),
+            'DAPSell'=>int_en_to_bn($DAPSell),
+            'MOPSell'=>int_en_to_bn($MOPSell),
+            'TSPSell'=>int_en_to_bn($TSPSell),
+            'uriaBoraddo'=>int_en_to_bn($uriaBoraddo),
+            'DAPBoraddo'=>int_en_to_bn($DAPBoraddo),
+            'MOPBoraddo'=>int_en_to_bn($MOPBoraddo),
+            'TSPBoraddo'=>int_en_to_bn($TSPBoraddo),
         ];
 
 

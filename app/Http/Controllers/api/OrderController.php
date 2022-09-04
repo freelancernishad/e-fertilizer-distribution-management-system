@@ -233,6 +233,7 @@ $amount = $numto->bnMoney($orders->totalAmount);
 //  echo $this->invoice1($orders,$orderDetails,$duepaymets,$amount,$custom_order_details,'left');
         $mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => 'A4-L','default_font' => 'bangla',]);
 
+        // $mpdf->WriteHTML( $this->invoice1($orders,$amount,'left'));
         $mpdf->WriteHTML( $this->invoice1($orders,$amount,'right'));
 // $memo = $orders->memo;
 //         if($memo=='memo1'){
@@ -282,7 +283,7 @@ $amount = $numto->bnMoney($orders->totalAmount);
            }
 
         .memoborder{
-            width: 49%;
+            width: 48%;
         }
 
         .memobg {
@@ -381,10 +382,12 @@ $amount = $numto->bnMoney($orders->totalAmount);
 
     <div id='body'>
 
-    <div class='memoborder' style='float:$float' >
+    <div class='memoborder' style='float:left' >
     <div class='memobg memobg1'>
             <div class='memo'>
             <div class='memoHead'>
+            <div style='text-align:right'>(ডিলারের কপি)</div>
+            
             <h1 class='companiname'>মেসার্স এলাহী ট্রেডার্স</h1>
             <p class='defalttext'>প্রোঃ শাহ্‌ আলম</p>
             <p class='defalttext'>বি. সি. আই. সি. অনুমদিত সার দিলার</p>
@@ -425,8 +428,8 @@ $amount = $numto->bnMoney($orders->totalAmount);
                             <thead class='thead'>
                                 <tr class='tr'>
                                     <th class='th defaltfont' width='10%'>সংখ্যা</th>
-                                    <th class='th defaltfont' width='45%'>বিবরন</th>
-                                    <th class='th defaltfont' width='15%'>পরিমান</th>
+                                    <th class='th defaltfont' width='45%'>বিবরণ</th>
+                                    <th class='th defaltfont' width='15%'>পরিমাণ</th>
                                     <th class='th defaltfont' width='15%'>দর</th>
                                     <th class='th defaltfont' width='15%'>টাকা</th>
                                 </tr>
@@ -494,13 +497,141 @@ $amount = $numto->bnMoney($orders->totalAmount);
 
                                 $html .=" </tfoot>
                         </table>
-                        <p style='margin-top:15px;padding:0 15px' class='defaltfont'>কথাই : $amount</p>
+                        <p style='margin-top:15px;padding:0 15px' class='defaltfont'>কথায় : $amount</p>
                     </div>
                 </div>
                 <div class='memofooter' style='margin-top:25px'>
-                    <p style='float:left;width:30%;padding:10px 15px' class='defaltfont'>ক্রেতার সাক্ষর</p>
+                    <p style='float:left;width:30%;padding:10px 15px' class='defaltfont'>ক্রেতার স্বাক্ষর</p>
                     <p style='float:right;width:30%;text-align:right;padding:10px 15px' class='defaltfont'>বিক্রেতার
-                        সাক্ষর</p>
+                    স্বাক্ষর</p>
+                </div>
+            </div>
+        </div>
+        </div>
+
+
+
+    <div class='memoborder' style='float:$float' >
+    <div class='memobg memobg1'>
+            <div class='memo'>
+            <div class='memoHead'>
+            <div style='text-align:right'>(গ্রাহকের কপি)</div>
+            <h1 class='companiname'>মেসার্স এলাহী ট্রেডার্স</h1>
+            <p class='defalttext'>প্রোঃ শাহ্‌ আলম</p>
+            <p class='defalttext'>বি. সি. আই. সি. অনুমদিত সার দিলার</p>
+            <p class='defalttext address'>কালীগঞ্জ বাজার, দেবিগঞ্জ, পঞ্চগড় </p>
+            <p class='defalttext'>মোবাইল নং : ০১৭৪০৯২৯৩০২ </p>
+
+            <div style='display:flex; margin-top:20px'>
+
+            </div>
+
+        </div>
+
+                <div class='memobody' style='position: relative;'>
+                    <table width='100%' style='border: 1px solid #2F77A5;margin-bottom:20px' cellspacing='0'>
+                        <tr>
+                            <td style='background:#2F77A5;padding:10px 5px;color:white;padding:5px 5px;width:15%;float:left;border-bottom:1px solid #2F77A5;text-align:left'
+                                class='defaltfont'>নাম</td>
+                            <td style='border-bottom:1px solid #2F77A5;padding-left:6px;color:#2F77A5;text-align:left'
+                                class='defaltfont'> ".$orders->customers->name." </td>
+                            <td width='10%'
+                                style='background:#2F77A5;padding:10px 5px;color:white;padding:5px 5px;width:15%;float:left;border-bottom:1px solid #2F77A5;text-align:left'
+                                class='defaltfont'>ক্রমিক নং</td>
+                            <td width='20%' style='border-bottom:1px solid #2F77A5;padding-left:6px;color:#2F77A5;text-align:left'
+                                class='defaltfont'> $orders->orderId</td>
+                        </tr>
+                        <tr>
+                            <td style='background:#935E6C;padding:10px 5px;color:white;padding:5px 5px;width:15%;float:left;text-align:left'
+                                class='defaltfont'>ঠিকানা</td>
+                            <td class='defaltfont' style='padding-left:6px;color:#2F77A5;text-align:left'> $orders->address</td>
+                            <td style='background:#935E6C;padding:10px 5px;color:white;padding:5px 5px;width:15%;float:left;text-align:left'
+                                class='defaltfont'>তারিখ</td>
+                            <td class='defaltfont' style='padding-left:6px;color:#2F77A5;text-align:left'>$orders->created_at
+                            </td>
+                        </tr>
+                    </table>
+                    <div class='productDetails'>
+                        <table class='table' style='border:1px solid #444B8F;width:100%' cellspacing='0'>
+                            <thead class='thead'>
+                                <tr class='tr'>
+                                    <th class='th defaltfont' width='10%'>সংখ্যা</th>
+                                    <th class='th defaltfont' width='45%'>বিবরণ</th>
+                                    <th class='th defaltfont' width='15%'>পরিমাণ</th>
+                                    <th class='th defaltfont' width='15%'>দর</th>
+                                    <th class='th defaltfont' width='15%'>টাকা</th>
+                                </tr>
+                            </thead>
+                            <tbody class='tbody'>";
+
+
+                                    $subtotal = $orders->totalAmount;
+                                    // $totalpay = $orders->pay;
+                                    // $totaldue = $orders->due;
+                                    $index = 1;
+
+                                $orderDetails = json_decode($orders->Invoices);
+
+                                foreach($orderDetails as $product){
+                                  $html .="  <tr class='tr'>
+                                        <td class='td defaltfont'>".int_en_to_bn($index)."</td>
+                                        <td class='td defaltfont'>$product->name</td>
+                                        <td class='td defaltfont'>$product->weight_quantity</td>
+                                        <td class='td defaltfont'>$product->price</td>
+                                        <td class='td defaltfont'>".$product->weight_quantity*$product->price."</td>
+                                    </tr>";
+
+                                        $index++;
+                                        // $subtotal += $product->pay;
+
+                                }
+
+
+                                    $totalrow = 16-$index;
+                                    for ($i=0; $i <$totalrow ; $i++) {
+                                        $html .=" <tr class='tr'>
+                                        <td class='td defaltfont'>".int_en_to_bn($i+$index)."</td>
+                                        <td class='td defaltfont'></td>
+                                        <td class='td defaltfont'></td>
+                                        <td class='td defaltfont'></td>
+                                        <td class='td defaltfont'></td>
+                                    </tr>";
+                                    }
+
+
+
+                                $html .=" </tbody>
+                            <tfoot class='tfoot'>";
+
+
+
+
+
+                            $html .="
+                            <tr class='tr'>
+                            <td colspan='4' class='defalttext td defaltfont'style='text-align:right;    padding: 0 13px;'><p> মোট </p></td>
+                            <td class='td defaltfont'>$subtotal</td>
+                    </tr>
+
+
+                            ";
+
+
+
+
+
+
+
+
+                                $html .=" </tfoot>
+                        </table>
+                        <p style='margin-top:15px;padding:0 15px' class='defaltfont'>কথায় : $amount</p>
+                    </div>
+                </div>
+                <div class='memofooter' style='margin-top:25px'>
+                    <p style='float:left;width:30%;padding:10px 15px' class='defaltfont'>ক্রেতার স্বাক্ষর</p>
+                    <p style='float:right;width:30%;text-align:right;padding:10px 15px' class='defaltfont'>বিক্রেতার
+                    স্বাক্ষর</p>
                 </div>
             </div>
         </div>
@@ -640,7 +771,7 @@ $amount = $numto->bnMoney($orders->totalAmount);
                 <p class='defalttext'>বিসমিল্লাহির রাহমানির রাহিম</p>
                 <table>
                     <tr>
-                        <td width='155px'><img style='position:fixed;width:50px;top:0px;left:0px' src='".base64('m.png')."'></td>
+                        <td width='155px'>(ডিলারের কপি)</td>
                         <td><h1 class='companiname'> মেসার্স রনি ট্রেডার্স</h1></td>
                     </tr>
                 </table>
@@ -680,8 +811,8 @@ $amount = $numto->bnMoney($orders->totalAmount);
                             <thead class='thead'>
                                 <tr class='tr'>
                                     <th class='th defaltfont' width='10%'>সংখ্যা</th>
-                                    <th class='th defaltfont' width='45%'>বিবরন</th>
-                                    <th class='th defaltfont' width='15%'>পরিমান</th>
+                                    <th class='th defaltfont' width='45%'>বিবরণ</th>
+                                    <th class='th defaltfont' width='15%'>পরিমাণ</th>
                                     <th class='th defaltfont' width='15%'>দর</th>
                                     <th class='th defaltfont' width='15%'>টাকা</th>
                                 </tr>
@@ -827,13 +958,13 @@ $payable = $orders->pay-$previousDue;
                             };
                 $html .=" </tfoot>
                         </table>
-                        <p style='margin-top:20px;padding:0 15px' class='defaltfont'>কথাই : $amount</p>
+                        <p style='margin-top:20px;padding:0 15px' class='defaltfont'>কথায় : $amount</p>
                     </div>
                 </div>
                 <div class='memofooter' style='margin-top:25px'>
-                    <p style='float:left;width:30%;padding:10px 15px' class='defaltfont'>ক্রেতার সাক্ষর</p>
+                    <p style='float:left;width:30%;padding:10px 15px' class='defaltfont'>ক্রেতার স্বাক্ষর</p>
                     <p style='float:right;width:30%;text-align:right;padding:10px 15px' class='defaltfont'>বিক্রেতার
-                        সাক্ষর</p>
+                    স্বাক্ষর</p>
                 </div>
             </div>
         </div>

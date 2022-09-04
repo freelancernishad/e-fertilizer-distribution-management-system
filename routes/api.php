@@ -99,8 +99,10 @@ Route::apiResources([
 
 ]);
 
-Route::get('/divisions',[CountryApi::class,'divisions']);
-Route::get('/districts',[CountryApi::class,'districts']);
+// Route::get('/divisions',[CountryApi::class,'divisions']);
+// Route::get('/districts',[CountryApi::class,'districts']);
+// Route::get('/upazilas',[CountryApi::class,'upazilas']);
+// Route::get('/unions',[CountryApi::class,'unions']);
 
 
 

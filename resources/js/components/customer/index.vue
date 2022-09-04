@@ -56,7 +56,19 @@ export default {
                 { key: 'phone', label: 'মোবাইল', sortable: true },
                 { key: 'nidNo', label: 'এন.আই.ডি নং', sortable: true },
                 { key: 'fatherName', label: 'পিতার নাম', sortable: true },
-                { key: 'vill', label: 'ঠিকানা', sortable: true },
+
+                // { key: 'vill', label: 'ঠিকানা', sortable: true,
+                // formatter: async (value, key, item) => {
+                //     var district = await this.callApi('get',`/api/districts?id=${item.district}`,[]);
+                //     var thana = await this.callApi('get',`/api/upazilas?id=${item.thana}`,[]);
+                //     var union = await this.callApi('get',`/api/unions?id=${item.union}`,[]);
+                //     return district.data;
+
+                //        return value.category_name
+                //     }
+            
+            
+                // },
                 { key: 'wordNo', label: 'ওয়ার্ড', sortable: true },
                 { key: 'Block', label: 'ব্লক', sortable: true },
                 { key: 'landArea', label: 'জমির পরিমাণ', sortable: true },

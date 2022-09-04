@@ -16,6 +16,7 @@
   <link href="{{ asset('backend/vendors/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
   <link href="{{ asset('backend/vendors/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
   <link href="{{ asset('backend/css/ruang-admin.min.css') }}" rel="stylesheet">
+  <link href="https://fonts.maateen.me/kalpurush/font.css" rel="stylesheet">
   <style>
       nav#sidebar {
     max-width: 200px;
@@ -55,11 +56,26 @@ span.money {
     color: green !important;
     }
 
+    .boraddoHead{
+      width: 200px;
+    margin: 0 auto;
+    }
+    .boraddoHead:after {
+    z-index: 1;
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 90px;
+    width: 15px;
+    height: 15px;
+    background: #6777ef;
+    transform: rotate(45deg);
+}
   </style>
 </head>
 
 
-<body id="page-top">
+<body id="page-top" style="font-family: 'Kalpurush', sans-serif;">
   <div id="app">
     <div id="wrapper">
 
@@ -314,7 +330,7 @@ span.money {
     <i class="fas fa-angle-up"></i>
 </a>
 
-<script src="{{ asset('js/app.js?ver=1.4') }}"></script>
+<script src="{{ asset('js/app.js?ver=1.5') }}"></script>
 {{-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js"> </script> --}}
 <script src="{{ asset('backend/vendors/jquery/jquery.min.js') }}"></script>
 <script src="{{ asset('backend/vendors/bootstrap/js/bootstrap.bundle.min.js') }}"></script>

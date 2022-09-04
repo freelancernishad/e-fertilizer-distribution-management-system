@@ -25,7 +25,7 @@
                             <li class="list-group-item"><b>নাম : </b>{{ orders.customer_name }}</li>
                             <li class="list-group-item"><b>জাতীয় পরিচয় পত্র নং : </b>{{orders.customers.nidNo }}</li>
                             <!-- <li class="list-group-item"><b>Phone : </b>{{ orders.phone }}</li> -->
-                            <li class="list-group-item"><b>Address : </b>{{ orders.customers.vill+', '+orders.customers.union +', '+orders.customers.thana +', '+orders.customers.district }}</li>
+                            <li class="list-group-item"><b>Address : </b>{{ orders.address }}</li>
                             <li class="list-group-item"><b>ওয়ার্ড নং : </b>{{ orders.customers.wordNo }}</li>
                             <li class="list-group-item"><b>ব্লক : </b>{{ orders.customers.mouja }}</li>
                             <li class="list-group-item"><b>মৌজা : </b>{{ orders.customers.mouja }}</li>
@@ -102,6 +102,7 @@ export default {
                 address:"",
                 created_at:"",
                 customer_name:"",
+                customers:{},
                 date:"",
                 id:null,
                 total_amount:"",
@@ -114,6 +115,11 @@ export default {
 			errors: {},
             previousDue:0,
             pramid:'',
+            address:{
+                district:'',
+                thana:'',
+                union:'',
+            },
 		}
 	},
 
@@ -121,7 +127,14 @@ export default {
         let id = this.$route.params.id;
         this.pramid = id;
         axios.get(`/api/invoice/${id}`)
-            .then(({data}) => (this.orders = data))
+            .then(({data}) => {
+                
+                this.orders = data
+                this.districtsFun(data.customers.district);
+                this.upazilasFun(data.customers.thana);
+                this.unionsFun(data.customers.union);
+            
+            })
             .catch(console.log('error'))
 
 
@@ -137,6 +150,33 @@ export default {
 	},
 
 	methods: {
+
+
+
+        async districtsFun(id){
+            var res = await this.callApi('get',`/api/districts?won_id=${id}`,[]);
+            console.log(res.data.bn_name)
+            this.address.district =  res.data.bn_name;
+        },
+
+
+
+
+        async upazilasFun(id){
+
+            var res = await this.callApi('get',`/api/upazilas?won_id=${id}`,[]);
+            this.address.thana =  res.data.bn_name;
+        },
+
+
+
+        async unionsFun(id){
+
+            var res = await this.callApi('get',`/api/unions?won_id=${id}`,[]);
+            this.address.union =  res.data.bn_name;
+        },
+
+
 
 	}
 }

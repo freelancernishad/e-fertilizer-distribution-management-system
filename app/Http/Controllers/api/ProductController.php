@@ -103,6 +103,7 @@ class ProductController extends Controller
 
              $data = $request->except('product_quantity');
              $data['product_quantity'] = int_bn_to_en($request->product_quantity);
+             $data['category_name'] = Category::find($request->category_id)->category_name;
 
 
 

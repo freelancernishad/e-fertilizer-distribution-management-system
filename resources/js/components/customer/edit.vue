@@ -74,6 +74,13 @@
                                         <div class="form-group">
                                             <label class="inputLabel" for="">জেলা</label>
                                                 <input type="text" class="form-control" v-model="form.district">
+<!-- 
+                                            <select class="form-control" v-model="form.district" @change="upazilasFun">
+                                            
+                                                <option value="">জেলা নির্বাচন করুন</option>
+                                                <option v-for="dis in districts" :value="dis.id">{{ dis.bn_name }}</option>
+                                            </select> -->
+                                                
                                             </div>
                                     </div>
 
@@ -82,6 +89,13 @@
                                         <div class="form-group">
                                             <label class="inputLabel" for="">উপজেলা</label>
                                                 <input type="text" class="form-control" v-model="form.thana">
+<!-- 
+                                        <select class="form-control" v-model="form.thana" @change="unionsFun">
+                                            
+                                            <option value="">উপজেলা নির্বাচন করুন</option>
+                                            <option v-for="upo in upazilas" :value="upo.id">{{ upo.bn_name }}</option>
+                                        </select> -->
+
                                             </div>
                                     </div>
 
@@ -92,6 +106,14 @@
                                         <div class="form-group">
                                             <label class="inputLabel" for="">ইউনিয়ন</label>
                                                 <input type="text" class="form-control" v-model="form.union">
+
+
+                                        <!-- <select class="form-control" v-model="form.union">
+                                            
+                                            <option value="">ইউনিয়ন নির্বাচন করুন</option>
+                                            <option v-for="uni in unions" :value="uni.id">{{ uni.bn_name }}</option>
+                                        </select> -->
+
                                             </div>
                                     </div>
 
@@ -191,6 +213,12 @@ export default {
 		if (!User.loggedIn()) {
 			this.$router.push({name: '/'})
 		}
+        this.form.district= 53;
+
+        this.upazilasFun();
+        
+    
+
 	},
 
 	data () {
@@ -211,7 +239,10 @@ export default {
 				landArea: '',
 				photo: '',
 			},
-			errors: {}
+			errors: {},
+			districts: {},
+			upazilas: {},
+			unions: {},
 		}
 	},
         watch: {
@@ -243,8 +274,48 @@ export default {
         if(this.$route.params.id){
             this.list();
         }
+        this.districtsFun();
 	},
 	methods:{
+
+
+
+
+        async districtsFun(){
+            var res = await this.callApi('get',`/api/districts`,[]);
+            this.districts = res.data;
+        },
+
+
+
+
+        async upazilasFun(){
+
+            var res = await this.callApi('get',`/api/upazilas?id=${this.form.district}`,[]);
+            this.upazilas = res.data;
+          
+			this.unions= [];
+            setTimeout(() => {
+                
+                if(this.$route.params.id){
+                    this.unionsFun();
+                }
+            }, 1000);
+
+        },
+
+
+
+        async unionsFun(){
+
+            var res = await this.callApi('get',`/api/unions?id=${this.form.thana}`,[]);
+            this.unions = res.data;
+        },
+
+
+
+
+
 
 
         list(){
@@ -252,6 +323,7 @@ export default {
 		    axios.get('/api/customer/' + id)
 			 .then(({data}) => (this.form = data))
 			 .catch(console.log('error'))
+            
         },
 
 
