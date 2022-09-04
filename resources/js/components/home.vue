@@ -34,7 +34,7 @@
                                     বরাদ্দকৃত সারের পরিমাণ
                                 </div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                    <span class="money"></span> {{ Math.floor(row.product) }}
+                                    <span class="money"></span> {{ row.product }}
                                 </div>
                                 <div class="mt-2 mb-0 text-muted text-xs">
                                     <!-- <span class="text-success mr-2"><i class="fa fa-arrow-up"></i>
@@ -107,7 +107,7 @@
                                     বিক্রিত সারের পরিমাণ
                                 </div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                    <span class="money"></span> {{ Math.floor(row.sell) }}
+                                    <span class="money"></span> {{ row.sell }}
                                 </div>
                                 <div class="mt-2 mb-0 text-muted text-xs">
                                     <!-- <span class="text-danger mr-2"><i class="fas fa-arrow-down"></i>
@@ -136,7 +136,7 @@
                                     মজুদ সারের পরিমাণ
                                 </div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                     {{ Math.floor(row.stock) }}
+                                     {{ row.stock }}
                                 </div>
                                 <div class="mt-2 mb-0 text-muted text-xs">
                                     <!-- <span class="text-danger mr-2"><i class="fas fa-arrow-down"></i>

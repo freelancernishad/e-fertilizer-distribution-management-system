@@ -133,9 +133,9 @@ class PosController extends Controller
         $category = Category::sum('product_quantity');
 
         $data = [
-            'product'=>$product,
-            'sell'=>$sell,
-            'stock'=>$category,
+            'product'=>int_en_to_bn($product),
+            'sell'=>int_en_to_bn($sell),
+            'stock'=>int_en_to_bn($category),
         ];
 
 

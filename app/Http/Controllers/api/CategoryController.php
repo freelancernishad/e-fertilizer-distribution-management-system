@@ -32,7 +32,8 @@ class CategoryController extends Controller
             'category_name' => 'required|unique:categories|max:50',
         ]);
 
-        $data = $request->all();
+        $data = $request->except('price');
+        $data['price'] = int_bn_to_en($request->price);
 
         return Category::create($data);
 

@@ -16,7 +16,7 @@ class ProductsExport implements FromView
 
     public function view(): View
     {
-        return view('productExport', ['Products' =>  DB::table('products')->join('categories', 'products.category_id', 'categories.id')->select('products.*', 'categories.category_name')->orderBy('products.product_code', 'asc')->get()
+        return view('productExport', ['Products' =>  Product::with(['categorys'])->orderBy('id','desc')->get()
         ]);
     }
 }

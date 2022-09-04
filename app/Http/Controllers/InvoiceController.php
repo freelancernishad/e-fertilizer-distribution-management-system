@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Customer;
 use App\Models\Invoice;
 use Illuminate\Http\Request;
@@ -107,8 +108,17 @@ $amount = $numto->bnMoney($orders->total_amount);
         $total_amount = 0;
         foreach ($request->Invoices as $key => $value) {
         $total_amount += $value['weight_quantity']*$value['price'];
+            // return $value['weight_quantity'];
+            $category = Category::where(['category_name'=>$value['name']])->first();
+             $product_quantity = $category->product_quantity-$value['weight_quantity'];
+            $category->update(['product_quantity'=>$product_quantity]);
+
+
         }
         $data['total_amount'] = $total_amount;
+
+
+
 
         return Invoice::create($data);
 

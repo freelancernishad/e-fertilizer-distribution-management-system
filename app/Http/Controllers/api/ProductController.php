@@ -91,13 +91,19 @@ class ProductController extends Controller
         $type = $request->type;
          $cat = Category::find($category_id);
         if($type=='বস্তা'){
-              $product_quantity = $cat->product_quantity+$request->product_quantity;
+              $product_quantity = $cat->product_quantity+int_bn_to_en($request->product_quantity);
         }else{
-            $req_qty = $request->product_quantity/50;
-            $product_quantity = $cat->product_quantity+$req_qty;
+            // $req_qty = int_bn_to_en($request->product_quantity)/50;
+            $req_qty = int_bn_to_en($request->product_quantity);
+             $product_quantity = $cat->product_quantity+$req_qty;
         }
+
+
        $cat->update(['product_quantity'=>$product_quantity]);
-             $data = $request->all();
+
+             $data = $request->except('product_quantity');
+             $data['product_quantity'] = int_bn_to_en($request->product_quantity);
+
 
 
             return Product::create($data);
