@@ -6,10 +6,10 @@
 
         <div class="col-md-6">
             <div class="form-group">
-                <label for="">কৃষক</label>
+                <label for="">ক্রেতা/কৃষকের নাম ও ঠিকানা</label>
 
 
- <Select2 v-model="form.pos"  :options="customers" :settings="{ placeholder: 'Pos' }"   @change="posidchange($event)"/>
+ <Select2 v-model="form.pos"  :options="customers" :settings="{ placeholder: 'নির্বাচন করুন' }"   @change="posidchange($event)"/>
 
             </div>
         </div>
@@ -41,9 +41,9 @@
                 <thead>
                     <tr>
                         <th width="200px">নাম</th>
-                        <th>ওজন/পরিমাণ</th>
-                        <th>ইউনিট দাম</th>
-                        <th>মোট দাম</th>
+                        <th>সারের পরিমাণ (কেজি)</th>
+                        <th>দর</th>
+                        <th>টাকার পরিমাণ</th>
                         <th><button type="button" class="flex justify-start ml-2 rounded-md border px-3 py-2 bg-pink-600 text-white" @click="addMore()">Add More</button></th>
                     </tr>
                 </thead>
@@ -51,12 +51,12 @@
                 <tbody>
                     <tr  v-for="(Invoice, index) in form.Invoices" :key="index">
                         <td >
-                            <Select2 v-model="categ[index]"  :options="categorys" :settings="{ placeholder: 'Pos' }" @change="getFullDetails($event,index)" />
+                            <Select2 v-model="categ[index]"  :options="categorys" :settings="{ placeholder: 'নির্বাচন করুন' }" @change="getFullDetails($event,index)" />
 
                             <!-- <input v-model="Invoice.name" placeholder="প্রোডাক্ট এর নাম" class="form-control w-full py-2 border border-indigo-500 rounded"/> -->
                             </td>
-                        <td><input type="number" v-model="Invoice.weight_quantity" placeholder="প্রোডাক্ট এর ওজন/পরিমাণ" class="form-control w-full py-2 border border-indigo-500 rounded" min="0" step="5"/></td>
-                        <td><input type="number" v-model="Invoice.price" placeholder="ইউনিট দাম" class="form-control w-full py-2 border border-indigo-500 rounded" min="0" step="5"/></td>
+                        <td><input type="number" v-model="Invoice.weight_quantity" placeholder="সারের পরিমাণ লিখুন" class="form-control w-full py-2 border border-indigo-500 rounded" min="0" step="5"/></td>
+                        <td><input type="number" v-model="Invoice.price" placeholder="একক দর" class="form-control w-full py-2 border border-indigo-500 rounded" min="0" step="5" readonly v-on=""/></td>
                         <td><input type="number" v-model="Invoice.price*Invoice.weight_quantity" placeholder="মোট দাম" class="form-control w-full py-2 border border-indigo-500 rounded" readonly/></td>
 
                         <td><button type="button" class="ml-2 rounded-md border px-3 py-2 bg-red-600 text-white" @click="remove(index)" v-show="index != 0">Remove</button></td>
@@ -64,7 +64,7 @@
 
                     <tr>
                         <td colspan="2"></td>
-                        <td>মোট</td>
+                        <td>সর্বমোট টাকার পরিমাণ = </td>
                         <td colspan="2" class="text-left">{{ form.totalAmount }}</td>
                     </tr>
 

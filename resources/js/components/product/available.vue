@@ -72,17 +72,24 @@ export default {
 
         this.fields =  [
 
-                { key: 'category_name', label: 'নাম', sortable: true },
-                { key: 'price', label: 'দাম', sortable: true },
+                { key: 'category_name', label: 'সারের নাম', sortable: true },
+
+                // { key: 'price', label: 'সারের মূল্য (প্রতি কেজি) [ সরকার কর্তৃক নির্ধারিত ]', sortable: true,
+                // formatter: (value, key, item) => {
+                //    return this.int_en_to_bn_fun(value)+' টাকা';
+                //  }
+                // },
+
                 { key: 'product_quantity', label: 'সারের পরিমাণ', sortable: true,
                 formatter: (value, key, item) => {
+                    return this.int_en_to_bn_fun(value)+' কেজি';
 
-                    var qty= item.product_quantity.toString().split(".");
-                    if(qty.length==2){
-                        return qty[0]+' বস্তা '+('.'+qty[1])*50+' কেজি';
-                    }else{
-                        return item.product_quantity+'বস্তা';
-                    }
+                    // var qty= item.product_quantity.toString().split(".");
+                    // if(qty.length==2){
+                    //     return qty[0]+' বস্তা '+('.'+qty[1])*50+' কেজি';
+                    // }else{
+                    //     return item.product_quantity+'বস্তা';
+                    // }
 
 
 

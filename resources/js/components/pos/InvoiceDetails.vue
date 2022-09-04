@@ -45,32 +45,32 @@
             <div class="col-xl-12 col-lg-12">
               <div class="card mb-4">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h5 class="m-0 font-weight-bold text-primary">বিক্রয় সারের বিবরন</h5>
+                  <h5 class="m-0 font-weight-bold text-primary">বিক্রয়কৃত সারের বিবরন</h5>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table align-items-center table-flush">
                             <thead class="thead-light">
                                 <tr>
-                                    <th>নাম</th>
-                                    <th>ওজন/পরিমাণ</th>
-                                    <th>ইউনিট দাম</th>
-                                    <th>মোট দাম</th>
+                                    <th>সারের নাম</th>
+                                    <th>সারের পরিমাণ (কেজি)</th>
+                                    <th>দর</th>
+                                    <th>টাকার পরিমাণ</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr v-for="product in JSON.parse(orders.Invoices)" :key="details.id">
                                     <td>{{ product.name }}</td>
-                                    <td>{{ product.weight_quantity }}</td>
-                                    <td>{{ product.price }}</td>
-                                    <td>{{ (product.weight_quantity*product.price) }}</td>
+                                    <td>{{ int_en_to_bn_fun(product.weight_quantity) }} কেজি</td>
+                                    <td>{{ int_en_to_bn_fun(product.price) }} টাকা</td>
+                                    <td>{{ (Number(product.weight_quantity)*Number(product.price)) }}</td>
 
                                 </tr>
 
                                 <tr >
 
-                                    <td colspan="3" class="text-right">মোট</td>
-                                    <td >{{ (orders.totalAmount) }}</td>
+                                    <td colspan="3" class="text-right">সর্বমোট টাকার পরিমাণ =</td>
+                                    <td >{{ int_en_to_bn_fun((orders.totalAmount)) }} </td>
 
                                 </tr>
                             </tbody>

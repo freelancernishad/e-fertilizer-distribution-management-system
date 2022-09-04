@@ -8,22 +8,22 @@
 							<!-- <router-link to="/category" class="btn btn-primary float-right" style="margin-top: 6px;margin-right: 6px;">All Category</router-link> -->
 							<div class="login-form">
 								<div class="text-center">
-									<h1 class="h4 text-gray-900 mb-4">সার সম্পর্কিত ফর্ম</h1>
+									<h1 class="h4 text-gray-900 mb-4 fromTitle">সার সম্পর্কিত ফর্ম</h1>
 								</div>
 								<form @submit.prevent='updateCategory' class="row">
 
                                 <div class="col-md-6">
 									<div class="form-group">
-                                        <label for="">সারের নাম</label>
-										<input type="text" class="form-control" id="exampleInputFirstName" placeholder="Enter Your Full Name" v-model="form.category_name">
+                                        <label class="inputLabel" for="">সারের নাম</label>
+										<input type="text" class="form-control" id="exampleInputFirstName"  v-model="form.category_name">
 										<small class="text-danger" v-if="errors.category_name"> {{ errors.category_name[0] }} </small>
 									</div>
                                 </div>
 
                                 <div class="col-md-6">
 									<div class="form-group">
-                                        <label for="">সারের দাম</label>
-										<input type="text" class="form-control" id="exampleInputFirstName" placeholder="Enter Your Full Name" v-model="form.price">
+                                        <label class="inputLabel" for="">সারের দাম (প্রতি কেজি)</label>
+										<input type="text" class="form-control" id="exampleInputFirstName"  v-model="form.price">
 										<small class="text-danger" v-if="errors.price"> {{ errors.price[0] }} </small>
 									</div>
                                 </div>

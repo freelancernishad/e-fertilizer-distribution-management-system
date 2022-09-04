@@ -43,6 +43,18 @@ td {
 span.money {
     font-size: 25px;
 }
+
+    .inputLabel{
+        font-weight: 600;
+    color: blue;
+    }
+    .fromTitle{
+        font-weight: bold;
+    border-bottom: 3px solid green;
+    padding: 9px 1px;
+    color: green !important;
+    }
+
   </style>
 </head>
 
@@ -76,11 +88,11 @@ span.money {
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap1"
                 aria-expanded="true" aria-controls="collapseBootstrap1">
                 <i class="far fa-fw fa-window-maximize"></i>
-                <span>বিক্রয় রশিদ </span>
+                <span>বিক্রয় সম্পর্কিত</span>
               </a>
               <div id="collapseBootstrap1" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                  <router-link class="collapse-item" :to="{name:'Invoice'}">রশিদ প্রদান করুন</router-link>
+                  <router-link class="collapse-item" :to="{name:'Invoice'}">রশিদ প্রদান</router-link>
                   <router-link class="collapse-item" :to="{name:'Invoice_sell'}">রশিদের তালিকা</router-link>
                   {{-- <router-link class="collapse-item" :to="{name:'Invoice_sell'}">Sell Invoice</router-link> --}}
 

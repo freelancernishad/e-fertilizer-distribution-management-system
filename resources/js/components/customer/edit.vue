@@ -8,13 +8,13 @@
 							<router-link to="/customer" class="btn btn-primary float-right" style="margin-top: 6px;margin-right: 6px;">All Customer</router-link>
 							<div class="login-form">
 								<div class="text-center">
-									<h1 class="h4 text-gray-900 mb-4">কৃষক ফর্ম</h1>
+									<h1 class="h4 text-gray-900 mb-4 fromTitle">কৃষক ফর্ম</h1>
 								</div>
 								<form @submit.prevent='updateCustomer' enctype="multipart/form-data" class="row">
 
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label for="">ছবি</label>
+                                            <label class="inputLabel" for="">ছবি</label>
                                                 <div class="form-row">
                                                     <div class="col-md-6">
                                                         <div class="custom-file" style="margin-top: 16px;">
@@ -34,14 +34,14 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="">নাম</label>
+                                            <label class="inputLabel" for="">নাম</label>
                                                 <input type="text" class="form-control" v-model="form.name">
                                             </div>
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="">মোবাইল</label>
+                                            <label class="inputLabel" for="">মোবাইল</label>
                                                 <input type="text" class="form-control" v-model="form.phone">
                                             </div>
                                     </div>
@@ -50,7 +50,7 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="">জাতীয় পরিচয় পত্র নং</label>
+                                            <label class="inputLabel" for="">জাতীয় পরিচয় পত্র নং</label>
                                                 <input type="text" class="form-control" v-model="form.nidNo">
                                             </div>
                                     </div>
@@ -60,62 +60,27 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="">পিতার নাম</label>
+                                            <label class="inputLabel" for="">পিতার নাম</label>
                                                 <input type="text" class="form-control" v-model="form.fatherName">
                                             </div>
                                     </div>
 
 
+
+
+
+
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="">গ্রাম</label>
-                                                <input type="text" class="form-control" v-model="form.vill">
+                                            <label class="inputLabel" for="">জেলা</label>
+                                                <input type="text" class="form-control" v-model="form.district">
                                             </div>
                                     </div>
 
 
-
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="">ওয়ার্ড নং</label>
-                                                <input type="text" class="form-control" v-model="form.wordNo">
-                                            </div>
-                                    </div>
-
-
-
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="">ব্লক নং</label>
-                                                <input type="text" class="form-control" v-model="form.Block">
-                                            </div>
-                                    </div>
-
-
-
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="">মৌজা</label>
-                                                <input type="text" class="form-control" v-model="form.mouja">
-                                            </div>
-                                    </div>
-
-
-
-
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="">ইউনিয়ন</label>
-                                                <input type="text" class="form-control" v-model="form.union">
-                                            </div>
-                                    </div>
-
-
-
-
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="">উপজেলা</label>
+                                            <label class="inputLabel" for="">উপজেলা</label>
                                                 <input type="text" class="form-control" v-model="form.thana">
                                             </div>
                                     </div>
@@ -125,8 +90,19 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="">জেলা</label>
-                                                <input type="text" class="form-control" v-model="form.district">
+                                            <label class="inputLabel" for="">ইউনিয়ন</label>
+                                                <input type="text" class="form-control" v-model="form.union">
+                                            </div>
+                                    </div>
+
+
+
+
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="inputLabel" for="">গ্রাম</label>
+                                                <input type="text" class="form-control" v-model="form.vill">
                                             </div>
                                     </div>
 
@@ -134,7 +110,56 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="">জমির পরিমাণ</label>
+                                            <label class="inputLabel" for="">ওয়ার্ড নং</label>
+                                                <!-- <input type="text" class="form-control" v-model="form.wordNo"> -->
+
+                                                <select class="form-control" v-model="form.wordNo">
+                                                    <option value="">নির্বাচন করুন</option>
+                                                    <option>১</option>
+                                                    <option>২</option>
+                                                    <option>৩</option>
+                                                    <option>৪</option>
+                                                    <option>৫</option>
+                                                    <option>৬</option>
+                                                    <option>৭</option>
+                                                    <option>৮</option>
+                                                    <option>৯</option>
+                                                </select>
+
+
+                                            </div>
+                                    </div>
+
+
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="inputLabel" for="">ব্লক নং</label>
+                                                <input type="text" class="form-control" v-model="form.Block">
+                                            </div>
+                                    </div>
+
+
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="inputLabel" for="">মৌজা</label>
+                                                <input type="text" class="form-control" v-model="form.mouja">
+                                            </div>
+                                    </div>
+
+
+
+
+
+
+
+
+
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="inputLabel" for="">জমির পরিমাণ</label>
                                                 <input type="text" class="form-control" v-model="form.landArea">
                                             </div>
                                     </div>

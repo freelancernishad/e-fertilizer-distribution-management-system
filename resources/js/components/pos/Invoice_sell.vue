@@ -6,7 +6,7 @@
 					<!-- Simple Tables -->
 					<div class="card">
 						<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-							<h2 class="m-0 font-weight-bold text-primary">Invoice Sell List</h2>
+							<h2 class="m-0 font-weight-bold text-primary"> বিক্রয়কৃত রশিদের তালিকা</h2>
 						</div>
 
 
@@ -36,10 +36,24 @@ export default {
 		}
 
         this.fields =  [
-                { key: 'customer_name', label: 'Name', sortable: true },
-                { key: 'address', label: 'Address', sortable: true },
-                { key: 'total_amount', label: 'Total Amount', sortable: true },
-                { key: 'date', label: 'Date', sortable: true },
+                { key: 'customer_name', label: 'ক্রেতার নাম', sortable: true },
+                { key: 'address', label: 'ঠিকানা', sortable: true },
+                { key: 'totalProduct', label: 'সারের পরিমাণ', sortable: true,
+                formatter: (value, key, item) => {
+                   return this.int_en_to_bn_fun(value)+' কেজি';
+                 }
+                },
+                { key: 'total_amount', label: 'মোট দাম', sortable: true,
+                formatter: (value, key, item) => {
+                   return this.int_en_to_bn_fun(value)+' টাকা';
+                 }
+                },
+                { key: 'date', label: 'তারিখ', sortable: true,
+
+                formatter: (value, key, item) => {
+                   return this.int_en_to_bn_fun(value);
+                 }
+             },
             ]
             this.fields.push( { key: 'actions', label: 'Actions' });
 

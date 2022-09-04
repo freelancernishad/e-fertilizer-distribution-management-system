@@ -8,17 +8,19 @@
 							<!-- <router-link to="/product" class="btn btn-primary float-right" style="margin-top: 6px;margin-right: 6px;">All Product</router-link> -->
 							<div class="login-form">
 								<div class="text-center">
-									<h1 class="h4 text-gray-900 mb-4">বরাদ্দ</h1>
+									<h1 class="h4 text-gray-900 mb-4 fromTitle">বরাদ্দ</h1>
 								</div>
 								<form @submit.prevent='updateProduct' enctype="multipart/form-data" class="row">
 
                                     		<div class="col-md-6">
-												<label for="exampleFormControlSelect1">তারিখ</label>
+                                                <div class="form-group">
+												<label class="inputLabel" for="exampleFormControlSelect1">তারিখ</label>
                                                 <input type="date" v-model="form.buying_date" class="form-control">
+                                            </div>
 											</div>
 
                                     		<div class="col-md-6">
-												<label for="exampleFormControlSelect1">ম্যামো নং</label>
+												<label class="inputLabel" for="exampleFormControlSelect1">ম্যামো নং</label>
                                                 <input type="text" v-model="form.memoNong" class="form-control">
 											</div>
 
@@ -26,21 +28,32 @@
 
 
                                     		<div class="col-md-6">
-												<label for="exampleFormControlSelect1">সারের নাম</label>
+                                                <div class="form-group">
+												<label class="inputLabel" for="exampleFormControlSelect1">সারের নাম</label>
 												<select class="form-control" id="exampleFormControlSelect1" v-model="form.category_id">
 													<option v-for="category in categories" :value="category.id">{{ category.category_name }}</option>
 												</select>
 											</div>
+											</div>
 
      		                                <div class="col-md-6">
-												<label for="exampleFormControlSelect1">পরিমাণ</label>
-                                                <div class="d-flex">
-                                                <input type="text" v-model="form.product_quantity" class="form-control">
-                                                <select class="form-control" v-model="form.type">
+                                                <div class="form-group">
+												<label class="inputLabel" for="exampleFormControlSelect1">পরিমাণ</label>
+                                                <div class="d-flex align-items-center">
+
+                                                <input type="number" v-model="matrikton" class="form-control">
+                                                  <span style="    padding: 0 8px;">&nbsp; = &nbsp;</span> 
+                                                <input type="text" v-model="form.product_quantity=matrikton*matriktonP" class="form-control" readonly>
+                                              
+
+                                                <!-- <select class="form-control" v-model="form.type">
                                                     <option value="">Select</option>
                                                     <option value="কেজি">কেজি</option>
                                                     <option value="বস্তা">বস্তা</option>
                                                 </select>
+ -->
+
+                                                </div>
                                                 </div>
 
 											</div>
@@ -87,14 +100,16 @@ export default {
 				selling_price: '',
 				buying_date: '',
 				product_quantity: '',
-				type: '',
+				type: 'কেজি',
 				image: '',
 				newImage: ''
 			},
 			errors: {},
 			categories: {},
 			suppliers: {},
-			image: ''
+			image: '',
+			matrikton: 0,
+			matriktonP: 1000,
 		}
 	},
     watch: {

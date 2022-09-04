@@ -2,7 +2,7 @@ import { mapGetters } from 'vuex'
 export default {
     data(){
         return {
-            numbers: {
+            numbersen: {
                 0: "০",
                 1: "১",
                 2: "২",
@@ -13,6 +13,18 @@ export default {
                 7: "৭",
                 8: "৮",
                 9: "৯",
+              },
+              numbersbn:{
+                '০': 0,
+                '১': 1,
+                '২': 2,
+                '৩': 3,
+                '৪': 4,
+                '৫': 5,
+                '৬': 6,
+                '৭': 7,
+                '৮': 8,
+                '৯': 9
               }
         }
     },
@@ -37,18 +49,32 @@ export default {
         },
 
 
-        // int_en_to_bn(input=0){
-        //     var output = [];
-        //     for (var i = 0; i < input.length; ++i) {
-        //       if (numbers.hasOwnProperty(input[i])) {
-        //         output.push(numbers[input[i]]);
-        //       } else {
-        //         output.push(input[i]);
-        //       }
-        //     }
-        //     return output.join('');
 
-        // },
+
+        int_en_to_bn_fun(input) {
+            var output = [];
+            for (var i = 0; i < input.length; ++i) {
+              if (this.numbersen.hasOwnProperty(input[i])) {
+                output.push(this.numbersen[input[i]]);
+              } else {
+                output.push(input[i]);
+              }
+            }
+            return output.join('');
+          },
+
+
+        int_bn_to_en_fun(input) {
+            var output = [];
+            for (var i = 0; i < input.length; ++i) {
+              if (this.numbersbn.hasOwnProperty(input[i])) {
+                output.push(this.numbersbn[input[i]]);
+              } else {
+                output.push(input[i]);
+              }
+            }
+            return output.join('');
+          },
 
 
         int_en_to_bn(text=0) {
@@ -135,6 +161,10 @@ export default {
         //      return this.checkUserPermission('delete')
         //  },
 
+    },
+    mounted() {
+        // console.log(this.int_bn_to_en_fun('১১১'))
+        // console.log(this.int_en_to_bn_fun('১১১'))
     },
 
 
