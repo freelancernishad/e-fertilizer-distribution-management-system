@@ -146,7 +146,7 @@ a {
 
 
 
-    <script src="{{ asset('js/frontend.js?ver=1.1') }}" async ></script>
+    <script src="{{ asset('js/frontend.js?ver=1.2') }}" async ></script>
 {{--
 <script>
 

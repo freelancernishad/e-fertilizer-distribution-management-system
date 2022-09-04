@@ -98,7 +98,7 @@ export default {
 				var id = this.$route.params.id
 			 var ax = 	axios.patch('/api/category/' + id, this.form)
             }else{
-		    var ax = 	axios.post('/api/category/', this.form)
+		    var ax = 	axios.post('/api/category', this.form)
             }
 
 
