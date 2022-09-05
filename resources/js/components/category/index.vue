@@ -16,14 +16,14 @@
 									<tr>
 										<th>সারের নাম</th>
 										<th>সারের মূল্য (প্রতি কেজি) [ সরকার কর্তৃক নির্ধারিত ]</th>
-										<th>Action</th>
+										<th v-show="$localStorage.getItem('role')=='admin'">Action</th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr v-for="category in filtersearch" :key="category.id">
 										<td>{{ category.category_name }}</td>
 										<td>{{ int_en_to_bn_fun(category.price) }} টাকা</td>
-										<td>
+										<td v-show="$localStorage.getItem('role')=='admin'">
 											<router-link :to="{name: 'editCategory', params: {id: category.id}}" class="btn btn-sm btn-primary">Edit</router-link>
 											<!-- <a @click="deleteCategory(category.id)" class="btn btn-sm btn-danger" style="color: white">Delete</a> -->
 										</td>

@@ -477,11 +477,13 @@ $amount = $numto->bnMoney($orders->totalAmount);
 
                                 $html .=" </tfoot>
                         </table>
-                        <p style='margin-top:15px;padding:0 15px' class='defaltfont'>কথায় : $amount</p>
+                        <p style='margin-top:15px;padding:0 15px;' class='defaltfont'>কথায় : $amount</p>
+
                     </div>
                 </div>
                 <div class='memofooter' style='margin-top:25px'>
                     <p style='float:left;width:30%;padding:10px 15px' class='defaltfont'>ক্রেতার স্বাক্ষর</p>
+
                     <p style='float:right;width:30%;text-align:right;padding:10px 15px' class='defaltfont'>বিক্রেতার
                     স্বাক্ষর</p>
                 </div>

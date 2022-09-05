@@ -71,6 +71,40 @@ span.money {
     background: #6777ef;
     transform: rotate(45deg);
 }
+
+
+.uriaText {
+    color: white !important;
+}
+
+.uria {
+    background: #276258;
+}
+
+.Dap {
+    background: #a553cf;
+}
+
+.DapText {
+    color: white !important;
+}
+
+.Mop {
+    background: #666411;
+}
+
+.MopText {
+    color: white !important;
+}
+
+.TspText {
+    color: white !important;
+}
+
+.Tsp {
+    background: #223560;
+}
+
   </style>
 </head>
 
@@ -143,7 +177,7 @@ span.money {
 
 
 
-          <li class="nav-item" v-show="$localStorage.getItem('role')!='admin'">
+          <li class="nav-item" >
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap2"
             aria-expanded="true" aria-controls="collapseBootstrap2">
             <i class="far fa fa-list"></i>
@@ -151,7 +185,7 @@ span.money {
           </a>
           <div id="collapseBootstrap2" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-              <router-link class="collapse-item" to="/admin/store-category">নাম অন্তর্ভুক্ত করুন</router-link>
+              <router-link class="collapse-item" to="/admin/store-category" v-show="$localStorage.getItem('role')=='admin'">নাম অন্তর্ভুক্ত করুন</router-link>
               <router-link class="collapse-item" to="/admin/category">সারের তালিকা </router-link>
               {{-- <router-link class="collapse-item" to="/this-year-orders">মূল্য তালিকা</router-link> --}}
             </div>
@@ -160,7 +194,7 @@ span.money {
 
 
 
-        <li class="nav-item" v-show="$localStorage.getItem('role')!='admin'">
+        <li class="nav-item">
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap3"
           aria-expanded="true" aria-controls="collapseBootstrap3">
           <i class="far fa fa-shopping-bag"></i>
@@ -168,7 +202,7 @@ span.money {
         </a>
         <div id="collapseBootstrap3" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <router-link class="collapse-item" to="/admin/store-product">বরাদ্দ অন্তর্ভুক্ত করুন</router-link>
+            <router-link class="collapse-item" to="/admin/store-product" v-show="$localStorage.getItem('role')=='admin'">বরাদ্দ অন্তর্ভুক্ত করুন</router-link>
             <router-link class="collapse-item" to="/admin/product">বরাদ্দের তালিকা</router-link>
             {{-- <router-link class="collapse-item" to="/product/expired">Expired Product</router-link> --}}
           </div>
@@ -190,7 +224,7 @@ span.money {
         </div>
       </li>
 
-    <li class="nav-item" v-show="$localStorage.getItem('role')!='admin'">
+    <li class="nav-item" >
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrapcustomer"
       aria-expanded="true" aria-controls="collapseBootstrapcustomer">
       <i class="far fa fa-user"></i>
@@ -198,7 +232,7 @@ span.money {
     </a>
     <div id="collapseBootstrapcustomer" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
-        <router-link class="collapse-item" to="/admin/store-customer">কৃষকের নাম অন্তর্ভুক্ত করুন</router-link>
+        <router-link class="collapse-item" to="/admin/store-customer" v-show="$localStorage.getItem('role')=='admin'">কৃষকের নাম অন্তর্ভুক্ত করুন</router-link>
         <router-link class="collapse-item" to="/admin/customer">কৃষকের তালিকা</router-link>
         {{-- <router-link class="collapse-item" :to="{name:'duecustomer'}">Due Customer</router-link> --}}
       </div>
@@ -330,7 +364,7 @@ span.money {
     <i class="fas fa-angle-up"></i>
 </a>
 
-<script src="{{ asset('js/app.js?ver=1.7') }}"></script>
+<script src="{{ asset('js/app.js?ver=1.8') }}"></script>
 {{-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js"> </script> --}}
 <script src="{{ asset('backend/vendors/jquery/jquery.min.js') }}"></script>
 <script src="{{ asset('backend/vendors/bootstrap/js/bootstrap.bundle.min.js') }}"></script>

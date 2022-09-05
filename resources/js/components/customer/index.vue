@@ -73,7 +73,11 @@ export default {
                 { key: 'Block', label: 'ব্লক', sortable: true },
                 { key: 'landArea', label: 'জমির পরিমাণ', sortable: true },
             ]
-            this.fields.push( { key: 'actions', label: 'Actions' });
+           if(localStorage.getItem('role')=='admin'){
+               this.fields.push( { key: 'actions', label: 'Actions' });
+
+           }
+
 
 	},
 
@@ -141,7 +145,7 @@ export default {
                 var dillerId = localStorage.getItem('dillerId');
             }
 
-			axios.get(`/api/customer?type=${this.type}&dillerId=${dillerId}`)
+			axios.get(`/api/customer?type=${this.type}`)
 			.then(({data}) => {
                 this.items = data
                 this.tableloader = false

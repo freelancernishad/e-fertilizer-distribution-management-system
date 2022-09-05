@@ -144,7 +144,7 @@ export default {
             }
 
 
-            axios.get(`/api/customer?type=input&dillerId=${dillerId}`)
+            axios.get(`/api/customer?type=input`)
                 .then(({ data }) => (this.customers = data))
                 .catch();
 

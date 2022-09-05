@@ -33,15 +33,15 @@
                 <div class="col-md-12 text-center">
 
 
-                    <div class="card h-100 boraddoHead">
+                    <div class="card h-100 boraddoHead uria">
                         <div class="card-body">
                             <div class="row align-items-center">
                                 <div class="col mr-2">
-                                    <h3>ইউরিয়া</h3>
-                                    <div class="text-xs font-weight-bold text-uppercase mb-1">
+                                    <h3 class="uriaText">ইউরিয়া</h3>
+                                    <div class="text-xs font-weight-bold text-uppercase mb-1 uriaText">
                                         বরাদ্দকৃত সারের পরিমাণ
                                     </div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800 uriaText">
                                         <span class="money"></span> {{ row.uriaBoraddo }}
                                     </div>
 
@@ -58,14 +58,14 @@
 
                 </div>
                 <div class="col-xl-6 col-md-6 mb-4">
-                    <div class="card h-100">
+                    <div class="card h-100 uria">
                         <div class="card-body">
                             <div class="row align-items-center">
                                 <div class="col mr-2">
-                                    <div class="text-xs font-weight-bold text-uppercase mb-1">
+                                    <div class="text-xs font-weight-bold text-uppercase mb-1 uriaText">
                                         বিক্রিত সারের পরিমাণ
                                     </div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800 uriaText">
                                         <span class="money"></span> {{ row.uriaSell }}
                                     </div>
                                     <div class="mt-2 mb-0 text-muted text-xs">
@@ -75,7 +75,7 @@
                                     </div>
                                 </div>
                                 <div class="col-auto">
-                                    <i class="fas fa-calendar fa-2x text-primary"></i>
+                                    <i class="fas fa-calendar fa-2x text-white"></i>
                                 </div>
                             </div>
                         </div>
@@ -84,14 +84,14 @@
                 </div>
 
                 <div class="col-xl-6 col-md-6 mb-4">
-                    <div class="card h-100">
+                    <div class="card h-100 uria">
                         <div class="card-body">
                             <div class="row align-items-center">
                                 <div class="col mr-2">
-                                    <div class="text-xs font-weight-bold text-uppercase mb-1">
+                                    <div class="text-xs font-weight-bold text-uppercase mb-1 uriaText">
                                         মজুদ সারের পরিমাণ
                                     </div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800 uriaText">
                                         <span class="money"></span> {{ row.uriaMjud }}
                                     </div>
                                     <div class="mt-2 mb-0 text-muted text-xs">
@@ -101,7 +101,7 @@
                                     </div>
                                 </div>
                                 <div class="col-auto">
-                                    <i class="fas fa-calendar fa-2x text-primary"></i>
+                                    <i class="fas fa-calendar fa-2x text-white"></i>
                                 </div>
                             </div>
                         </div>
@@ -116,15 +116,15 @@
                 <div class="col-md-12 text-center">
 
 
-                    <div class="card h-100 boraddoHead">
+                    <div class="card h-100 boraddoHead Dap">
                         <div class="card-body">
                             <div class="row align-items-center">
                                 <div class="col mr-2">
-                                    <h3>ডিএপি</h3>
-                                    <div class="text-xs font-weight-bold text-uppercase mb-1">
+                                    <h3 class="DapText">ডিএপি</h3>
+                                    <div class="text-xs font-weight-bold text-uppercase mb-1 DapText">
                                         বরাদ্দকৃত সারের পরিমাণ
                                     </div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800 DapText">
                                         <span class="money"></span> {{ row.DAPBoraddo }}
                                     </div>
 
@@ -135,14 +135,14 @@
                     </div>
                 </div>
                 <div class="col-xl-6 col-md-6 mb-4">
-                    <div class="card h-100">
+                    <div class="card h-100 Dap">
                         <div class="card-body">
                             <div class="row align-items-center">
                                 <div class="col mr-2">
-                                    <div class="text-xs font-weight-bold text-uppercase mb-1">
+                                    <div class="text-xs font-weight-bold text-uppercase mb-1 DapText">
                                         বিক্রিত সারের পরিমাণ
                                     </div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800 DapText">
                                         <span class="money"></span> {{ row.DAPSell }}
                                     </div>
                                     <div class="mt-2 mb-0 text-muted text-xs">
@@ -152,7 +152,7 @@
                                     </div>
                                 </div>
                                 <div class="col-auto">
-                                    <i class="fas fa-calendar fa-2x text-primary"></i>
+                                    <i class="fas fa-calendar fa-2x text-white"></i>
                                 </div>
                             </div>
                         </div>
@@ -161,14 +161,14 @@
                 </div>
 
                 <div class="col-xl-6 col-md-6 mb-4">
-                    <div class="card h-100">
+                    <div class="card h-100 Dap">
                         <div class="card-body">
                             <div class="row align-items-center">
                                 <div class="col mr-2">
-                                    <div class="text-xs font-weight-bold text-uppercase mb-1">
+                                    <div class="text-xs font-weight-bold text-uppercase mb-1 DapText">
                                         মজুদ সারের পরিমাণ
                                     </div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800 DapText">
                                         <span class="money"></span> {{ row.DAPMjud }}
                                     </div>
                                     <div class="mt-2 mb-0 text-muted text-xs">
@@ -178,7 +178,7 @@
                                     </div>
                                 </div>
                                 <div class="col-auto">
-                                    <i class="fas fa-calendar fa-2x text-primary"></i>
+                                    <i class="fas fa-calendar fa-2x text-white"></i>
                                 </div>
                             </div>
                         </div>
@@ -195,15 +195,15 @@
 
 
 
-                    <div class="card h-100 boraddoHead">
+                    <div class="card h-100 boraddoHead Mop">
                         <div class="card-body">
                             <div class="row align-items-center">
                                 <div class="col mr-2">
-                                    <h3>এমওপি</h3>
-                                    <div class="text-xs font-weight-bold text-uppercase mb-1">
+                                    <h3 class="MopText">এমওপি</h3>
+                                    <div class="text-xs font-weight-bold text-uppercase mb-1 MopText">
                                         বরাদ্দকৃত সারের পরিমাণ
                                     </div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800 MopText">
                                         <span class="money"></span> {{ row.MOPBoraddo }}
                                     </div>
 
@@ -214,14 +214,14 @@
                     </div>
                 </div>
                 <div class="col-xl-6 col-md-6 mb-4">
-                    <div class="card h-100">
+                    <div class="card h-100 Mop">
                         <div class="card-body">
                             <div class="row align-items-center">
                                 <div class="col mr-2">
-                                    <div class="text-xs font-weight-bold text-uppercase mb-1">
+                                    <div class="text-xs font-weight-bold text-uppercase mb-1 MopText">
                                         বিক্রিত সারের পরিমাণ
                                     </div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800 MopText">
                                         <span class="money"></span> {{ row.MOPSell }}
                                     </div>
                                     <div class="mt-2 mb-0 text-muted text-xs">
@@ -231,7 +231,7 @@
                                     </div>
                                 </div>
                                 <div class="col-auto">
-                                    <i class="fas fa-calendar fa-2x text-primary"></i>
+                                    <i class="fas fa-calendar fa-2x text-white"></i>
                                 </div>
                             </div>
                         </div>
@@ -240,14 +240,14 @@
                 </div>
 
                 <div class="col-xl-6 col-md-6 mb-4">
-                    <div class="card h-100">
+                    <div class="card h-100 Mop">
                         <div class="card-body">
                             <div class="row align-items-center">
                                 <div class="col mr-2">
-                                    <div class="text-xs font-weight-bold text-uppercase mb-1">
+                                    <div class="text-xs font-weight-bold text-uppercase mb-1 MopText">
                                         মজুদ সারের পরিমাণ
                                     </div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800 MopText">
                                         <span class="money"></span> {{ row.MOPMjud }}
                                     </div>
                                     <div class="mt-2 mb-0 text-muted text-xs">
@@ -257,7 +257,7 @@
                                     </div>
                                 </div>
                                 <div class="col-auto">
-                                    <i class="fas fa-calendar fa-2x text-primary"></i>
+                                    <i class="fas fa-calendar fa-2x text-white"></i>
                                 </div>
                             </div>
                         </div>
@@ -273,15 +273,15 @@
 
 
 
-                    <div class="card h-100 boraddoHead">
+                    <div class="card h-100 boraddoHead Tsp">
                         <div class="card-body">
                             <div class="row align-items-center">
                                 <div class="col mr-2">
-                                    <h3>টিএসপি</h3>
-                                    <div class="text-xs font-weight-bold text-uppercase mb-1">
+                                    <h3 class="TspText">টিএসপি</h3>
+                                    <div class="text-xs font-weight-bold text-uppercase mb-1 TspText">
                                         বরাদ্দকৃত সারের পরিমাণ
                                     </div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800 TspText">
                                         <span class="money"></span> {{ row.TSPBoraddo }}
                                     </div>
 
@@ -293,14 +293,14 @@
 
                 </div>
                 <div class="col-xl-6 col-md-6 mb-4">
-                    <div class="card h-100">
+                    <div class="card h-100 Tsp">
                         <div class="card-body">
                             <div class="row align-items-center">
                                 <div class="col mr-2">
-                                    <div class="text-xs font-weight-bold text-uppercase mb-1">
+                                    <div class="text-xs font-weight-bold text-uppercase mb-1 TspText">
                                         বিক্রিত সারের পরিমাণ
                                     </div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800 TspText">
                                         <span class="money"></span> {{ row.TSPSell }}
                                     </div>
                                     <div class="mt-2 mb-0 text-muted text-xs">
@@ -310,7 +310,7 @@
                                     </div>
                                 </div>
                                 <div class="col-auto">
-                                    <i class="fas fa-calendar fa-2x text-primary"></i>
+                                    <i class="fas fa-calendar fa-2x text-white"></i>
                                 </div>
                             </div>
                         </div>
@@ -319,14 +319,14 @@
                 </div>
 
                 <div class="col-xl-6 col-md-6 mb-4">
-                    <div class="card h-100">
+                    <div class="card h-100 Tsp">
                         <div class="card-body">
                             <div class="row align-items-center">
                                 <div class="col mr-2">
-                                    <div class="text-xs font-weight-bold text-uppercase mb-1">
+                                    <div class="text-xs font-weight-bold text-uppercase mb-1 TspText">
                                         মজুদ সারের পরিমাণ
                                     </div>
-                                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800 TspText">
                                         <span class="money"></span> {{ row.TSPMjud }}
                                     </div>
                                     <div class="mt-2 mb-0 text-muted text-xs">
@@ -336,7 +336,7 @@
                                     </div>
                                 </div>
                                 <div class="col-auto">
-                                    <i class="fas fa-calendar fa-2x text-primary"></i>
+                                    <i class="fas fa-calendar fa-2x text-white"></i>
                                 </div>
                             </div>
                         </div>
