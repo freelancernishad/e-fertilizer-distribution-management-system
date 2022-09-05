@@ -110,7 +110,7 @@ export default {
 	methods: {
 		allOrder(){
             this.tableloader = true;
-			axios.get(`/api/invoice`)
+			axios.get(`/api/invoice?dillerId=${localStorage.getItem('dillerId')}`)
 			.then(({data}) => {
                 this.items = data
                 this.tableloader = false;

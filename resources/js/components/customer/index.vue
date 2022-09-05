@@ -66,8 +66,8 @@ export default {
 
                 //        return value.category_name
                 //     }
-            
-            
+
+
                 // },
                 { key: 'wordNo', label: 'ওয়ার্ড', sortable: true },
                 { key: 'Block', label: 'ব্লক', sortable: true },
@@ -132,7 +132,7 @@ export default {
 
 		allCustomer(){
             this.tableloader = true
-			axios.get(`/api/customer?type=${this.type}`)
+			axios.get(`/api/customer?type=${this.type}&dillerId=${localStorage.getItem('dillerId')}`)
 			.then(({data}) => {
                 this.items = data
                 this.tableloader = false

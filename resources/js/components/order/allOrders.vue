@@ -159,12 +159,12 @@ this.routerchange();
             this.tableloader = true
 
             if(from!='' && to!==''){
-                var ax = axios.get(`/api/invoice?from=${from}&to=${to}`)
+                var ax = axios.get(`/api/invoice?from=${from}&to=${to}&dillerId=${localStorage.getItem('dillerId')}`)
             }else if(from!=''){
-                var ax = axios.get(`/api/invoice?from=${from}`)
+                var ax = axios.get(`/api/invoice?from=${from}&dillerId=${localStorage.getItem('dillerId')}`)
             }else{
 
-                var ax = axios.get(`/api/invoice`)
+                var ax = axios.get(`/api/invoice?dillerId=${localStorage.getItem('dillerId')}`)
             }
 
 

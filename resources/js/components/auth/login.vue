@@ -75,7 +75,7 @@ export default {
 			// alert('done')
 			axios.post('/api/auth/login', this.form)
 			.then(res => {
-                console.log(res);
+                // console.log(res);
 				User.responseAfterLogin(res)
 
 				Toast.fire({

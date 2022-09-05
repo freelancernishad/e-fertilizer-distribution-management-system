@@ -55,6 +55,8 @@ class ProductController extends Controller
 
 
      $type = $request->type;
+     $dillerId = $request->dillerId;
+
         if($type=='input'){
 
              $product = Category::orderBy('id','DESC')->get();
@@ -66,16 +68,16 @@ class ProductController extends Controller
 
         }
 
-        return Product::with(['categorys'])->orderBy('id','desc')->get();
+        return Product::with(['categorys'])->where(['dillerId'=>$dillerId])->orderBy('id','desc')->get();
 
-        $products = DB::table('products')
-        ->join('categories', 'products.category_id', 'categories.id')
-        // ->join('suppliers', 'products.supplier_id', 'suppliers.id')
-        ->select('products.*', 'categories.category_name')
-        ->orderBy('products.id', 'desc')
-        ->paginate(25);
+        // $products = DB::table('products')
+        // ->join('categories', 'products.category_id', 'categories.id')
+        // // ->join('suppliers', 'products.supplier_id', 'suppliers.id')
+        // ->select('products.*', 'categories.category_name')
+        // ->orderBy('products.id', 'desc')
+        // ->paginate(25);
 
-        return response()->json($products);
+        // return response()->json($products);
     }
 
     /**
@@ -298,14 +300,13 @@ class ProductController extends Controller
 
     public function stockCheck(Request $request)
     {
+        $dillerId = $request->dillerId;
         if($request->availble==true){
-            return Category::where('product_quantity','>',0)->orderBy('id','desc')->get();
-
-
+            return Category::where('product_quantity','>',0)->where(['dillerId'=>$dillerId])->orderBy('id','desc')->get();
         }else{
             $product_quantity = $request->product_quantity;
             // return Product::with(['categorys'])->where('product_quantity','=',$product_quantity)->orderBy('id','desc')->get();
-            return Category::where('product_quantity','<=',$product_quantity)->orderBy('id','desc')->get();
+            return Category::where('product_quantity','<=',$product_quantity)->where(['dillerId'=>$dillerId])->orderBy('id','desc')->get();
         }
 
 

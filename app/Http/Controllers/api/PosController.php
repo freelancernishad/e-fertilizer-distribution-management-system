@@ -125,6 +125,7 @@ class PosController extends Controller
     }
     public function allReport(Request $request)
     {
+        $dillerId = $request->dillerId;
 
         $uriaSell = 0;
         $DAPSell = 0;
@@ -132,7 +133,7 @@ class PosController extends Controller
         $TSPSell = 0;
         $other = 0;
 
-         $sellall = Invoice::all();
+         $sellall = Invoice::where(['dillerId'=>$dillerId])->get();
         foreach ($sellall as $value) {
             foreach (json_decode($value->Invoices) as $invoice) {
                 # code...
@@ -154,24 +155,24 @@ class PosController extends Controller
         }
 
 // die();
-        $sell = Invoice::sum('totalProduct');
+        $sell = Invoice::where(['dillerId'=>$dillerId])->sum('totalProduct');
 
 
 
-        $product = Product::sum('product_quantity');
+        $product = Product::where(['dillerId'=>$dillerId])->sum('product_quantity');
 
 
-        $uriaBoraddo = int_en_to_bn(Product::where('category_name','ইউরিয়া')->sum('product_quantity'));
-        $DAPBoraddo = int_en_to_bn(Product::where('category_name','ডিএপি')->sum('product_quantity'));
-        $MOPBoraddo = int_en_to_bn(Product::where('category_name','এমওপি')->sum('product_quantity'));
-        $TSPBoraddo = int_en_to_bn(Product::where('category_name','টিএসপি')->sum('product_quantity'));
+        $uriaBoraddo = int_en_to_bn(Product::where(['dillerId'=>$dillerId])->where('category_name','ইউরিয়া')->sum('product_quantity'));
+        $DAPBoraddo = int_en_to_bn(Product::where(['dillerId'=>$dillerId])->where('category_name','ডিএপি')->sum('product_quantity'));
+        $MOPBoraddo = int_en_to_bn(Product::where(['dillerId'=>$dillerId])->where('category_name','এমওপি')->sum('product_quantity'));
+        $TSPBoraddo = int_en_to_bn(Product::where(['dillerId'=>$dillerId])->where('category_name','টিএসপি')->sum('product_quantity'));
 
-        $uriaMjud = int_en_to_bn(Category::where('category_name','ইউরিয়া')->sum('product_quantity'));
-        $DAPMjud = int_en_to_bn(Category::where('category_name','ডিএপি')->sum('product_quantity'));
-        $MOPMjud = int_en_to_bn(Category::where('category_name','এমওপি')->sum('product_quantity'));
-        $TSPMjud = int_en_to_bn(Category::where('category_name','টিএসপি')->sum('product_quantity'));
+        $uriaMjud = int_en_to_bn(Category::where(['dillerId'=>$dillerId])->where('category_name','ইউরিয়া')->sum('product_quantity'));
+        $DAPMjud = int_en_to_bn(Category::where(['dillerId'=>$dillerId])->where('category_name','ডিএপি')->sum('product_quantity'));
+        $MOPMjud = int_en_to_bn(Category::where(['dillerId'=>$dillerId])->where('category_name','এমওপি')->sum('product_quantity'));
+        $TSPMjud = int_en_to_bn(Category::where(['dillerId'=>$dillerId])->where('category_name','টিএসপি')->sum('product_quantity'));
 
-        $category = Category::sum('product_quantity');
+        $category = Category::where(['dillerId'=>$dillerId])->sum('product_quantity');
 
 
 

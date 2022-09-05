@@ -42,9 +42,9 @@
                                                 <div class="d-flex align-items-center">
 
                                                 <input type="number" v-model="matrikton" class="form-control">
-                                                  <span style="    padding: 0 8px;">&nbsp; = &nbsp;</span> 
+                                                  <span style="    padding: 0 8px;">&nbsp; = &nbsp;</span>
                                                 <input type="text" v-model="form.product_quantity=matrikton*matriktonP" class="form-control" readonly>
-                                              
+
 
                                                 <!-- <select class="form-control" v-model="form.type">
                                                     <option value="">Select</option>
@@ -184,7 +184,7 @@ export default {
 		},
 		updateProduct(){
 
-
+            this.form['dillerId'] = localStorage.getItem('dillerId');
             if(this.$route.params.id){
 				var id = this.$route.params.id
 			 var ax = 	axios.patch('/api/product/' + id, this.form)

@@ -87,8 +87,11 @@ class User{
 	responseAfterLogin(res){
 		const access_token = res.data.access_token
 		const username = res.data.name
+		const role = res.data.role
+		const dillerId = res.data.dillerId
+
 		if (Token.isValid(access_token)) {
-			AppStorage.store(access_token,username)
+			AppStorage.store(access_token,username,role,dillerId)
 		}
 	}
 

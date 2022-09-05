@@ -42,6 +42,8 @@ class authController extends Controller
             'token_type' => 'bearer',
             'expires_in' => 60,
 
+            'dillerId' => auth()->user()->dillerId,
+            'role' => auth()->user()->role,
             'user_id' => auth()->user()->id,
             'name' => auth()->user()->name,
             'email' => auth()->user()->email,

@@ -50,7 +50,13 @@ class UserController extends Controller
     {
 
         $data = $request->all();
-        $data['password'] =  Hash::make(time());
+        $data['dillerId'] = time();
+        if($request->password){
+            $data['password'] =  Hash::make($request->password);
+        }else{
+            $data['password'] =  Hash::make(time());
+        }
+
 
         return User::create($data);
     }

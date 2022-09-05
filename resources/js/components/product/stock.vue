@@ -73,7 +73,7 @@ export default {
         this.fields =  [
 
         { key: 'category_name', label: 'সারের নাম', sortable: true },
-               
+
         // { key: 'price', label: 'সারের মূল্য (প্রতি কেজি) [ সরকার কর্তৃক নির্ধারিত ]', sortable: true,
         //         formatter: (value, key, item) => {
         //            return this.int_en_to_bn_fun(value)+' টাকা';
@@ -173,7 +173,7 @@ export default {
         },
 		allProduct(){
             this.tableloader = true
-			axios.get('/api/products/stockcheck?product_quantity=0')
+			axios.get(`/api/products/stockcheck?product_quantity=0&dillerId=${localStorage.getItem('dillerId')}`)
 			.then(({data}) => {
                 this.items = data
                 this.tableloader = false

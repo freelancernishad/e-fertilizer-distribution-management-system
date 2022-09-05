@@ -8,9 +8,18 @@ class AppStorage{
 		localStorage.setItem('user',user);
 	}
 
-	store(token,user){
+	storeRole(role){
+		localStorage.setItem('role',role);
+	}
+	storeDillerId(dillerId){
+		localStorage.setItem('dillerId',dillerId);
+	}
+
+	store(token,user,role,dillerId){
 		this.storeToken(token)
 		this.storeUser(user)
+		this.storeRole(role)
+		this.storeDillerId(dillerId)
 	}
 
 	clear(){

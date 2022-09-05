@@ -25,7 +25,7 @@
                                     <div class="col-md-6">
 									<div class="form-group">
                                         <label class="inputLabel" for="">প্রতিষ্ঠানের নাম</label>
-										<input type="text" class="form-control" id="exampleInputFirstName" placeholder="প্রতিষ্ঠানের নাম লিখুন" v-model="form.Mobile">
+										<input type="text" class="form-control" id="exampleInputFirstName" placeholder="প্রতিষ্ঠানের নাম লিখুন" v-model="form.organization">
 										<small class="text-danger" v-if="errors.Mobile"> {{ errors.Mobile[0] }} </small>
 									</div>
                                     </div>
@@ -76,6 +76,15 @@
                                     </div>
 
 
+                                    <div class="col-md-6" v-if="!this.$route.params.id">
+									<div class="form-group">
+                                        <label class="inputLabel" for="">পাসওয়ার্ড</label>
+										<input type="text" class="form-control" id="exampleInputFirstName" placeholder="ইমেইল লিখুন" v-model="form.password">
+										<small class="text-danger" v-if="errors.password"> {{ errors.password[0] }} </small>
+									</div>
+                                    </div>
+
+
 
 									<div class="form-group">
 										<button type="submit" class="btn btn-primary btn-block">Submit</button>
@@ -105,6 +114,7 @@ export default {
 		return {
 			form:{
 				name: '',
+				organization: '',
 				Mobile: '',
 				bazarName: '',
 				unioun: '',

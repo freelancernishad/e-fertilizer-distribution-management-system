@@ -163,7 +163,7 @@ export default {
         },
 		allProduct(){
             this.tableloader = true
-			axios.get('/api/product')
+			axios.get(`/api/product?dillerId=${localStorage.getItem('dillerId')}`)
 			.then(({data}) => {
                 this.items = data
                 this.tableloader = false

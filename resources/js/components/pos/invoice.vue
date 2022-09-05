@@ -168,6 +168,7 @@ export default {
             }
         },
     formsubmit(){
+        this.form['dillerId'] = localStorage.getItem('dillerId');
 
         axios.post(`/api/invoice/create`,this.form).then(({data})=>{
 

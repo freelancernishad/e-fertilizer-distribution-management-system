@@ -24,17 +24,16 @@ class InvoiceController extends Controller
 
         $from = $request->from;
         $to = $request->to;
+         $dillerId = $request->dillerId;
         if($from && $to){
-          // return 'sss';
-
-            return Invoice::with(['customers'])->whereBetween('date', [$from, $to])->orderBy('id','desc')->get();
+            return Invoice::with(['customers'])->where(['dillerId'=>$dillerId])->whereBetween('date', [$from, $to])->orderBy('id','desc')->get();
         }elseif($from){
 
-            return Invoice::with(['customers'])->where('date',$from)->orderBy('id','desc')->get();
+            return Invoice::with(['customers'])->where(['dillerId'=>$dillerId])->where('date',$from)->orderBy('id','desc')->get();
 
         }else{
 
-            return Invoice::with(['customers'])->orderBy('id','desc')->get();
+            return Invoice::with(['customers'])->where(['dillerId'=>$dillerId])->orderBy('id','desc')->get();
         }
 
         // return Invoice::with(['customers'])->orderBy('id','desc')->get();
@@ -95,6 +94,7 @@ $amount = $numto->bnMoney($orders->total_amount);
 
 
        $data = [
+           'dillerId'=> $request->dillerId,
         'Invoices'=> json_encode($request->Invoices),
         'address'=> $request->address,
         'totalProduct'=> $request->totalProduct,

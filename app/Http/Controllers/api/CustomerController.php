@@ -18,12 +18,13 @@ class CustomerController extends Controller
      */
     public function index(Request $request)
     {
+        $dillerId = $request->dillerId;
         $type = $request->type;
 if($type==''){
-    $customers = Customer::orderBy('id','DESC')->get();
+    $customers = Customer::where(['dillerId'=>$dillerId])->orderBy('id','DESC')->get();
 }if($type=='input'){
 
-    $customers = Customer::orderBy('id','DESC')->get();
+    $customers = Customer::where(['dillerId'=>$dillerId])->orderBy('id','DESC')->get();
     $data =[];
     foreach ($customers as $value) {
     array_push($data,['id'=>$value->id,'text'=>$value->name.' '. $value->phone.' '. $value->nidNo]);
@@ -31,7 +32,7 @@ if($type==''){
     return response()->json($data);
 
 }else{
-    $customers = Customer::where('email',$type)->orderBy('id','DESC')->get();
+    $customers = Customer::where(['dillerId'=>$dillerId])->where('email',$type)->orderBy('id','DESC')->get();
 }
 
         return response()->json($customers);
@@ -80,6 +81,7 @@ if($type==''){
         //     'phone' => 'required|unique:customers',
         // ]);
         $data = $request->except(['photo']);
+
         $imageCount =  count(explode(';', $request->photo));
 
         if ($imageCount > 1) {

@@ -658,8 +658,12 @@ this.countmonth();
         },
 
         allReport() {
+
+            var dillerId = localStorage.getItem('dillerId');
+
+
             axios
-                .get(`/api/all/report`)
+                .get(`/api/all/report?dillerId=${dillerId}`)
                 .then(({ data }) => (this.row = data))
                 .catch();
         },

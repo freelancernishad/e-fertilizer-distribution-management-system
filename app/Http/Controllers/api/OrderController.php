@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Models\Invoice;
+use App\Models\User;
 use Meneses\LaravelMpdf\Facades\LaravelMpdf;
 use Rakibhstu\Banglanumber\NumberToBangla;
 
@@ -191,35 +192,8 @@ if($datacount>0){
 
           $orders = $this->orders($id);
 
-
-        // $orders = $orders->getContent();
-        // $orders = json_decode($orders);
-
-
-
-
-        // $orderDetails = $this->orderDetails($id);
-        // $orderDetails = $orderDetails->getContent();
-        // $orderDetails = json_decode($orderDetails);
-
-
-
-        // $custom_order_details = $this->custom_order_details($id);
-        // $custom_order_details = $custom_order_details->getContent();
-        // $custom_order_details = json_decode($custom_order_details);
-
-
-        // $duepaymets = $this->orderduepay($id);
-        // $duepaymets = $duepaymets->getContent();
-        // $duepaymets = json_decode($duepaymets);
-
-//         print_r($orderDetails);
-//  die();
-
-
-
-
-
+        $dillerId = $orders->dillerId;
+        $deller = User::where('dillerId',$dillerId)->first();
 
 $numto = new NumberToBangla();
 $amount = $numto->bnMoney($orders->totalAmount);
@@ -234,7 +208,7 @@ $amount = $numto->bnMoney($orders->totalAmount);
         $mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => 'A4-L','default_font' => 'bangla',]);
 
         // $mpdf->WriteHTML( $this->invoice1($orders,$amount,'left'));
-        $mpdf->WriteHTML( $this->invoice1($orders,$amount,'right'));
+        $mpdf->WriteHTML( $this->invoice1($orders,$amount,$deller,'right'));
 // $memo = $orders->memo;
 //         if($memo=='memo1'){
 
@@ -273,7 +247,13 @@ $amount = $numto->bnMoney($orders->totalAmount);
 
 
 
-    public function invoice1($orders,$amount,$float){
+    public function invoice1($orders,$amount,$deller,$float){
+
+
+        $organization =$deller->organization;
+        $name =$deller->name;
+        $address =$deller->bazarName.','.$deller->thana.','.$deller->Distric;
+        $Mobile =$deller->Mobile;
 
         $html = "
 
@@ -387,12 +367,12 @@ $amount = $numto->bnMoney($orders->totalAmount);
             <div class='memo'>
             <div class='memoHead'>
             <div style='text-align:right'>(ডিলারের কপি)</div>
-            
-            <h1 class='companiname'>মেসার্স এলাহী ট্রেডার্স</h1>
-            <p class='defalttext'>প্রোঃ শাহ্‌ আলম</p>
+
+            <h1 class='companiname'>$organization</h1>
+            <p class='defalttext'>$name</p>
             <p class='defalttext'>বি. সি. আই. সি. অনুমদিত সার দিলার</p>
-            <p class='defalttext address'>কালীগঞ্জ বাজার, দেবিগঞ্জ, পঞ্চগড় </p>
-            <p class='defalttext'>মোবাইল নং : ০১৭৪০৯২৯৩০২ </p>
+            <p class='defalttext address'>$address </p>
+            <p class='defalttext'>মোবাইল নং : ". int_en_to_bn($Mobile) ." </p>
 
             <div style='display:flex; margin-top:20px'>
 
@@ -427,7 +407,7 @@ $amount = $numto->bnMoney($orders->totalAmount);
                         <table class='table' style='border:1px solid #444B8F;width:100%' cellspacing='0'>
                             <thead class='thead'>
                                 <tr class='tr'>
-                                    <th class='th defaltfont' width='10%'>সংখ্যা</th>
+                                    <th class='th defaltfont' width='10%'>ক্রমিক নং</th>
                                     <th class='th defaltfont' width='45%'>বিবরণ</th>
                                     <th class='th defaltfont' width='15%'>পরিমাণ</th>
                                     <th class='th defaltfont' width='15%'>দর</th>
@@ -448,9 +428,9 @@ $amount = $numto->bnMoney($orders->totalAmount);
                                   $html .="  <tr class='tr'>
                                         <td class='td defaltfont'>".int_en_to_bn($index)."</td>
                                         <td class='td defaltfont'>$product->name</td>
-                                        <td class='td defaltfont'>$product->weight_quantity</td>
-                                        <td class='td defaltfont'>$product->price</td>
-                                        <td class='td defaltfont'>".$product->weight_quantity*$product->price."</td>
+                                        <td class='td defaltfont'>".int_en_to_bn($product->weight_quantity)." কেজি</td>
+                                        <td class='td defaltfont'>".int_en_to_bn($product->price)."</td>
+                                        <td class='td defaltfont'>".int_en_to_bn($product->weight_quantity*$product->price)."</td>
                                     </tr>";
 
                                         $index++;
@@ -482,7 +462,7 @@ $amount = $numto->bnMoney($orders->totalAmount);
                             $html .="
                             <tr class='tr'>
                             <td colspan='4' class='defalttext td defaltfont'style='text-align:right;    padding: 0 13px;'><p> মোট </p></td>
-                            <td class='td defaltfont'>$subtotal</td>
+                            <td class='td defaltfont'>".int_en_to_bn($subtotal)."</td>
                     </tr>
 
 
@@ -516,11 +496,11 @@ $amount = $numto->bnMoney($orders->totalAmount);
             <div class='memo'>
             <div class='memoHead'>
             <div style='text-align:right'>(গ্রাহকের কপি)</div>
-            <h1 class='companiname'>মেসার্স এলাহী ট্রেডার্স</h1>
-            <p class='defalttext'>প্রোঃ শাহ্‌ আলম</p>
+            <h1 class='companiname'>$organization</h1>
+            <p class='defalttext'>$name</p>
             <p class='defalttext'>বি. সি. আই. সি. অনুমদিত সার দিলার</p>
-            <p class='defalttext address'>কালীগঞ্জ বাজার, দেবিগঞ্জ, পঞ্চগড় </p>
-            <p class='defalttext'>মোবাইল নং : ০১৭৪০৯২৯৩০২ </p>
+            <p class='defalttext address'>$address </p>
+            <p class='defalttext'>মোবাইল নং : ".int_en_to_bn($Mobile)." </p>
 
             <div style='display:flex; margin-top:20px'>
 
@@ -555,7 +535,7 @@ $amount = $numto->bnMoney($orders->totalAmount);
                         <table class='table' style='border:1px solid #444B8F;width:100%' cellspacing='0'>
                             <thead class='thead'>
                                 <tr class='tr'>
-                                    <th class='th defaltfont' width='10%'>সংখ্যা</th>
+                                    <th class='th defaltfont' width='10%'>ক্রমিক নং</th>
                                     <th class='th defaltfont' width='45%'>বিবরণ</th>
                                     <th class='th defaltfont' width='15%'>পরিমাণ</th>
                                     <th class='th defaltfont' width='15%'>দর</th>
@@ -574,11 +554,11 @@ $amount = $numto->bnMoney($orders->totalAmount);
 
                                 foreach($orderDetails as $product){
                                   $html .="  <tr class='tr'>
-                                        <td class='td defaltfont'>".int_en_to_bn($index)."</td>
-                                        <td class='td defaltfont'>$product->name</td>
-                                        <td class='td defaltfont'>$product->weight_quantity</td>
-                                        <td class='td defaltfont'>$product->price</td>
-                                        <td class='td defaltfont'>".$product->weight_quantity*$product->price."</td>
+                                            <td class='td defaltfont'>".int_en_to_bn($index)."</td>
+                                            <td class='td defaltfont'>$product->name</td>
+                                            <td class='td defaltfont'>".int_en_to_bn($product->weight_quantity)." কেজি</td>
+                                            <td class='td defaltfont'>".int_en_to_bn($product->price)."</td>
+                                            <td class='td defaltfont'>".int_en_to_bn($product->weight_quantity*$product->price)."</td>
                                     </tr>";
 
                                         $index++;
@@ -610,7 +590,7 @@ $amount = $numto->bnMoney($orders->totalAmount);
                             $html .="
                             <tr class='tr'>
                             <td colspan='4' class='defalttext td defaltfont'style='text-align:right;    padding: 0 13px;'><p> মোট </p></td>
-                            <td class='td defaltfont'>$subtotal</td>
+                            <td class='td defaltfont'>".int_en_to_bn($subtotal)."</td>
                     </tr>
 
 
