@@ -55,7 +55,7 @@
 
                             <!-- <input v-model="Invoice.name" placeholder="প্রোডাক্ট এর নাম" class="form-control w-full py-2 border border-indigo-500 rounded"/> -->
                             </td>
-                        <td><input type="number" v-model="Invoice.weight_quantity" placeholder="সারের পরিমাণ লিখুন" class="form-control w-full py-2 border border-indigo-500 rounded" min="0" step="5"/></td>
+                        <td><input type="number" v-model="Invoice.weight_quantity" placeholder="সারের পরিমাণ লিখুন" class="form-control w-full py-2 border border-indigo-500 rounded" min="0"  step="5"/></td>
                         <td><input type="number" v-model="Invoice.price" placeholder="একক দর" class="form-control w-full py-2 border border-indigo-500 rounded" min="0" step="5" readonly v-on=""/></td>
                         <td><input type="number" v-model="Invoice.price*Invoice.weight_quantity" placeholder="মোট দাম" class="form-control w-full py-2 border border-indigo-500 rounded" readonly/></td>
 
@@ -136,14 +136,21 @@ export default {
 
         allCustomers() {
 
+            var role = localStorage.getItem('role');
+            if(role=='admin'){
+                var dillerId = '';
+            }else{
+                var dillerId = localStorage.getItem('dillerId');
+            }
 
-            axios.get("/api/customer?type=input")
+
+            axios.get(`/api/customer?type=input&dillerId=${dillerId}`)
                 .then(({ data }) => (this.customers = data))
                 .catch();
 
 
 
-            axios.get("/api/product?type=input")
+            axios.get(`/api/product?type=input&dillerId=${dillerId}`)
                 .then(({ data }) => (this.categorys = data))
                 .catch();
 

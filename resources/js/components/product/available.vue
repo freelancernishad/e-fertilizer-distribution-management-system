@@ -173,7 +173,15 @@ export default {
         },
 		allProduct(){
             this.tableloader = true
-			axios.get(`/api/products/stockcheck?availble=true&dillerId=${localStorage.getItem('dillerId')}`)
+
+            var role = localStorage.getItem('role');
+            if(role=='admin'){
+                var dillerId = '';
+            }else{
+                var dillerId = localStorage.getItem('dillerId');
+            }
+
+			axios.get(`/api/products/stockcheck?availble=true&dillerId=${dillerId}`)
 			.then(({data}) => {
                 this.items = data
                 this.tableloader = false

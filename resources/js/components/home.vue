@@ -659,8 +659,12 @@ this.countmonth();
 
         allReport() {
 
-            var dillerId = localStorage.getItem('dillerId');
-
+            var role = localStorage.getItem('role');
+            if(role=='admin'){
+                var dillerId = '';
+            }else{
+                var dillerId = localStorage.getItem('dillerId');
+            }
 
             axios
                 .get(`/api/all/report?dillerId=${dillerId}`)

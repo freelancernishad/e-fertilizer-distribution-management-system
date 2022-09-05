@@ -25,16 +25,30 @@ class InvoiceController extends Controller
         $from = $request->from;
         $to = $request->to;
          $dillerId = $request->dillerId;
-        if($from && $to){
-            return Invoice::with(['customers'])->where(['dillerId'=>$dillerId])->whereBetween('date', [$from, $to])->orderBy('id','desc')->get();
-        }elseif($from){
 
-            return Invoice::with(['customers'])->where(['dillerId'=>$dillerId])->where('date',$from)->orderBy('id','desc')->get();
-
+        if($dillerId){
+            if($from && $to){
+                return Invoice::with(['customers','Dellars'])->where(['dillerId'=>$dillerId])->whereBetween('date', [$from, $to])->orderBy('id','desc')->get();
+            }elseif($from){
+                return Invoice::with(['customers','Dellars'])->where(['dillerId'=>$dillerId])->where('date',$from)->orderBy('id','desc')->get();
+            }else{
+                return Invoice::with(['customers','Dellars'])->where(['dillerId'=>$dillerId])->orderBy('id','desc')->get();
+            }
         }else{
 
-            return Invoice::with(['customers'])->where(['dillerId'=>$dillerId])->orderBy('id','desc')->get();
+            if($from && $to){
+                return Invoice::with(['customers','Dellars'])->whereBetween('date', [$from, $to])->orderBy('id','desc')->get();
+            }elseif($from){
+
+                return Invoice::with(['customers','Dellars'])->where('date',$from)->orderBy('id','desc')->get();
+
+            }else{
+
+                return Invoice::with(['customers','Dellars'])->orderBy('id','desc')->get();
+            }
         }
+
+
 
         // return Invoice::with(['customers'])->orderBy('id','desc')->get();
     }

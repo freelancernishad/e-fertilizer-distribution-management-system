@@ -158,13 +158,20 @@ this.routerchange();
 		allOrder(from='',to=''){
             this.tableloader = true
 
+            var role = localStorage.getItem('role');
+            if(role=='admin'){
+                var dillerId = '';
+            }else{
+                var dillerId = localStorage.getItem('dillerId');
+            }
+
             if(from!='' && to!==''){
-                var ax = axios.get(`/api/invoice?from=${from}&to=${to}&dillerId=${localStorage.getItem('dillerId')}`)
+                var ax = axios.get(`/api/invoice?from=${from}&to=${to}&dillerId=${dillerId}`)
             }else if(from!=''){
-                var ax = axios.get(`/api/invoice?from=${from}&dillerId=${localStorage.getItem('dillerId')}`)
+                var ax = axios.get(`/api/invoice?from=${from}&dillerId=${dillerId}`)
             }else{
 
-                var ax = axios.get(`/api/invoice?dillerId=${localStorage.getItem('dillerId')}`)
+                var ax = axios.get(`/api/invoice?dillerId=${dillerId}`)
             }
 
 

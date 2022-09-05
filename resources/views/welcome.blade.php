@@ -100,7 +100,7 @@ span.money {
                 <span>POS</span></router-link>
               </li> --}}
 
-              <li class="nav-item">
+              <li class="nav-item" v-show="$localStorage.getItem('role')!='admin'">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap1"
                 aria-expanded="true" aria-controls="collapseBootstrap1">
                 <i class="far fa-fw fa-window-maximize"></i>
@@ -125,7 +125,7 @@ span.money {
 
 
 
-          <li class="nav-item">
+          <li class="nav-item" v-show="$localStorage.getItem('role')=='admin'">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap11"
             aria-expanded="true" aria-controls="collapseBootstrap11">
             <i class="far fa fa-list"></i>
@@ -143,7 +143,7 @@ span.money {
 
 
 
-          <li class="nav-item">
+          <li class="nav-item" v-show="$localStorage.getItem('role')!='admin'">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap2"
             aria-expanded="true" aria-controls="collapseBootstrap2">
             <i class="far fa fa-list"></i>
@@ -160,7 +160,7 @@ span.money {
 
 
 
-        <li class="nav-item">
+        <li class="nav-item" v-show="$localStorage.getItem('role')!='admin'">
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap3"
           aria-expanded="true" aria-controls="collapseBootstrap3">
           <i class="far fa fa-shopping-bag"></i>
@@ -176,7 +176,7 @@ span.money {
       </li>
 
 
-      <li class="nav-item">
+      <li class="nav-item" v-show="$localStorage.getItem('role')!='admin'">
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrapp"
           aria-expanded="true" aria-controls="collapseBootstrapp">
           <i class="far fa fa-credit-card"></i>
@@ -190,7 +190,7 @@ span.money {
         </div>
       </li>
 
-    <li class="nav-item">
+    <li class="nav-item" v-show="$localStorage.getItem('role')!='admin'">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrapcustomer"
       aria-expanded="true" aria-controls="collapseBootstrapcustomer">
       <i class="far fa fa-user"></i>
@@ -330,7 +330,7 @@ span.money {
     <i class="fas fa-angle-up"></i>
 </a>
 
-<script src="{{ asset('js/app.js?ver=1.6') }}"></script>
+<script src="{{ asset('js/app.js?ver=1.7') }}"></script>
 {{-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js"> </script> --}}
 <script src="{{ asset('backend/vendors/jquery/jquery.min.js') }}"></script>
 <script src="{{ asset('backend/vendors/bootstrap/js/bootstrap.bundle.min.js') }}"></script>

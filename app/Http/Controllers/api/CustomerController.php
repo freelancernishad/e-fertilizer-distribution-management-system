@@ -19,23 +19,40 @@ class CustomerController extends Controller
     public function index(Request $request)
     {
         $dillerId = $request->dillerId;
+
         $type = $request->type;
-if($type==''){
-    $customers = Customer::where(['dillerId'=>$dillerId])->orderBy('id','DESC')->get();
-}if($type=='input'){
+        if($dillerId){
+            if($type==''){
+                $customers = Customer::with(['Dellars'])->where(['dillerId'=>$dillerId])->orderBy('id','DESC')->get();
+            }if($type=='input'){
+                $customers = Customer::with(['Dellars'])->where(['dillerId'=>$dillerId])->orderBy('id','DESC')->get();
+                $data =[];
+                foreach ($customers as $value) {
+                array_push($data,['id'=>$value->id,'text'=>$value->name.' '. $value->phone.' '. $value->nidNo]);
+                }
+                return response()->json($data);
+            }else{
+                $customers = Customer::with(['Dellars'])->where(['dillerId'=>$dillerId])->where('email',$type)->orderBy('id','DESC')->get();
+            }
+                    return response()->json($customers);
+        }else{
+            if($type==''){
+                $customers = Customer::with(['Dellars'])->orderBy('id','DESC')->get();
+            }if($type=='input'){
+                $customers = Customer::with(['Dellars'])->orderBy('id','DESC')->get();
+                $data =[];
+                foreach ($customers as $value) {
+                array_push($data,['id'=>$value->id,'text'=>$value->name.' '. $value->phone.' '. $value->nidNo]);
+                }
+                return response()->json($data);
+            }else{
+                $customers = Customer::with(['Dellars'])->where('email',$type)->orderBy('id','DESC')->get();
+            }
+                    return response()->json($customers);
+        }
 
-    $customers = Customer::where(['dillerId'=>$dillerId])->orderBy('id','DESC')->get();
-    $data =[];
-    foreach ($customers as $value) {
-    array_push($data,['id'=>$value->id,'text'=>$value->name.' '. $value->phone.' '. $value->nidNo]);
-    }
-    return response()->json($data);
 
-}else{
-    $customers = Customer::where(['dillerId'=>$dillerId])->where('email',$type)->orderBy('id','DESC')->get();
-}
 
-        return response()->json($customers);
     }
 
     public function CustomerDue(Request $request,$id)

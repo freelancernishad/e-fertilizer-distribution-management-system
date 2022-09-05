@@ -14,9 +14,16 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $categories = Category::orderBy('id','desc')->get();
+        $dillerId = $request->dillerId;
+        if($dillerId){
+
+            $categories = Category::with(['Dellars'])->where(['dillerId'=>$dillerId])->orderBy('id','desc')->get();
+        }else{
+            $categories = Category::with(['Dellars'])->orderBy('id','desc')->get();
+
+        }
         return response()->json($categories);
     }
 

@@ -11,4 +11,10 @@ class Category extends Model
         'price',
         'product_quantity',
     ];
+
+
+
+    public function Dellars(){
+        return $this->belongsTo(User::class, 'dillerId', 'dillerId');
+    }
 }

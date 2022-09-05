@@ -27,4 +27,10 @@ class Invoice extends Model
     public function customers(){
         return $this->belongsTo(Customer::class, 'customer_id', 'id');
     }
+
+
+    public function Dellars(){
+        return $this->belongsTo(User::class, 'dillerId', 'dillerId');
+    }
+
 }

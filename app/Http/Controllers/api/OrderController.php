@@ -20,7 +20,7 @@ class OrderController extends Controller
 
 
 
-        return Invoice::with(['customers'])->orderBy('id','desc')->get();
+        return Invoice::with(['customers','Dellars'])->orderBy('id','desc')->get();
 
 
     	$orders = DB::table('orders')

@@ -132,7 +132,16 @@ export default {
 
 		allCustomer(){
             this.tableloader = true
-			axios.get(`/api/customer?type=${this.type}&dillerId=${localStorage.getItem('dillerId')}`)
+
+
+            var role = localStorage.getItem('role');
+            if(role=='admin'){
+                var dillerId = '';
+            }else{
+                var dillerId = localStorage.getItem('dillerId');
+            }
+
+			axios.get(`/api/customer?type=${this.type}&dillerId=${dillerId}`)
 			.then(({data}) => {
                 this.items = data
                 this.tableloader = false

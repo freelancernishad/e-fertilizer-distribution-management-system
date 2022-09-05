@@ -57,18 +57,35 @@ class ProductController extends Controller
      $type = $request->type;
      $dillerId = $request->dillerId;
 
+     if($dillerId){
         if($type=='input'){
 
-             $product = Category::orderBy('id','DESC')->get();
-            $data =[];
-            foreach ($product as $value) {
-            array_push($data,['id'=>$value->id,'text'=>$value->category_name]);
-            }
-            return response()->json($data);
+            $product = Category::with(['Dellars'])->where('product_quantity','>',0)->orderBy('id','DESC')->get();
+           $data =[];
+           foreach ($product as $value) {
+           array_push($data,['id'=>$value->id,'text'=>$value->category_name]);
+           }
+           return response()->json($data);
 
-        }
+       }
 
-        return Product::with(['categorys'])->where(['dillerId'=>$dillerId])->orderBy('id','desc')->get();
+       return Product::with(['categorys'])->where(['dillerId'=>$dillerId])->orderBy('id','desc')->get();
+     }else{
+        if($type=='input'){
+
+            $product = Category::with(['Dellars'])->where('product_quantity','>',0)->orderBy('id','DESC')->get();
+           $data =[];
+           foreach ($product as $value) {
+           array_push($data,['id'=>$value->id,'text'=>$value->category_name]);
+           }
+           return response()->json($data);
+
+       }
+
+       return Product::with(['categorys'])->orderBy('id','desc')->get();
+     }
+
+
 
         // $products = DB::table('products')
         // ->join('categories', 'products.category_id', 'categories.id')
@@ -301,13 +318,27 @@ class ProductController extends Controller
     public function stockCheck(Request $request)
     {
         $dillerId = $request->dillerId;
-        if($request->availble==true){
-            return Category::where('product_quantity','>',0)->where(['dillerId'=>$dillerId])->orderBy('id','desc')->get();
+        if($dillerId){
+            if($request->availble==true){
+                return Category::with(['Dellars'])->where('product_quantity','>',0)->where(['dillerId'=>$dillerId])->orderBy('id','desc')->get();
+            }else{
+                $product_quantity = $request->product_quantity;
+                // return Product::with(['categorys'])->where('product_quantity','=',$product_quantity)->orderBy('id','desc')->get();
+                return Category::with(['Dellars'])->where('product_quantity','<=',$product_quantity)->where(['dillerId'=>$dillerId])->orderBy('id','desc')->get();
+            }
         }else{
-            $product_quantity = $request->product_quantity;
-            // return Product::with(['categorys'])->where('product_quantity','=',$product_quantity)->orderBy('id','desc')->get();
-            return Category::where('product_quantity','<=',$product_quantity)->where(['dillerId'=>$dillerId])->orderBy('id','desc')->get();
+            if($request->availble==true){
+                return Category::with(['Dellars'])->where('product_quantity','>',0)->orderBy('id','desc')->get();
+            }else{
+                $product_quantity = $request->product_quantity;
+                // return Product::with(['categorys'])->where('product_quantity','=',$product_quantity)->orderBy('id','desc')->get();
+                return Category::with(['Dellars'])->where('product_quantity','<=',$product_quantity)->orderBy('id','desc')->get();
+            }
         }
+
+
+
+
 
 
     }

@@ -14,4 +14,10 @@ class Product extends Model
     public function categorys(){
         return $this->belongsTo(Category::class, 'category_id', 'id');
     }
+
+
+    public function Dellars(){
+        return $this->belongsTo(User::class, 'dillerId', 'dillerId');
+    }
+
 }
