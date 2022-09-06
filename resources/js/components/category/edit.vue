@@ -104,7 +104,7 @@ export default {
 
 
 			ax.then(() => {
-				this.$router.push({name: 'category'})
+				// this.$router.push({name: 'category'})
 				Notification.success()
 			})
 			.catch(error => this.errors = error.response.data.errors)

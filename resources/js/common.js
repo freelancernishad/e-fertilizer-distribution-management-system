@@ -1,5 +1,8 @@
 import { mapGetters } from 'vuex'
 export default {
+    created() {
+
+    },
     data(){
         return {
             numbersen: {
@@ -25,7 +28,8 @@ export default {
                 '৭': 7,
                 '৮': 8,
                 '৯': 9
-              }
+              },
+
         }
     },
 
@@ -107,6 +111,7 @@ export default {
 
 
 
+
         checkUserPermission(key){
             if(!this.userPermission) return true
             let isPermitted = false;
@@ -163,6 +168,7 @@ export default {
 
     },
     mounted() {
+
         // console.log(this.int_bn_to_en_fun('১১১'))
         // console.log(this.int_en_to_bn_fun('১১১'))
     },

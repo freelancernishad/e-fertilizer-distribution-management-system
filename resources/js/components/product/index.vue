@@ -11,6 +11,10 @@
 
 							<h2 class="m-0 font-weight-bold text-primary">বরাদ্দের তালিকা</h2>
 
+                            <select v-model="search" class="form-control float-right"  v-show="$localStorage.getItem('role')!='diller'" style="width:200px" @change="filterdeller">
+                                <option value="">নির্বাচন করুন</option>
+                                <option v-for="dd in dellers" :value="dd.dillerId">{{ dd.organization }}</option>
+                            </select>
 		<!-- <router-link to="/store-product" class="btn btn-primary float-right" style="margin-top: 6px;margin-right: 6px;">Add Product</router-link> -->
 
 						</div>
@@ -87,7 +91,7 @@ export default {
                 { key: 'memoNong', label: 'ম্যামো নং', sortable: true },
                 { key: 'categorys', label: 'সারের নাম', sortable: true,
                 formatter: (value, key, item) => {
-                       return value.category_name
+                       return item.categorys.category_name
                     } },
                 { key: 'product_quantity', label: 'সারের পরিমাণ', sortable: true,
 
@@ -127,6 +131,7 @@ export default {
             TotalRows: '1',
             headText: 'প্রতিবেদন',
             Type: '',
+            search: '',
 
             newDate: new Date(),
             unionsInfos: {
@@ -139,6 +144,7 @@ export default {
 
 			products: [],
 			allitems: {},
+            dellers:{},
 			searchTerm:"",
             barcodeValue: 'test',
             modalShow: false,
@@ -172,15 +178,27 @@ export default {
            this.barcodeid = id
              this.modalShow = true
         },
-		allProduct(){
+
+
+        filterdeller(){
+            this.allProduct(this.search);
+        },
+
+		allProduct(search=''){
             this.tableloader = true
 
-            var role = localStorage.getItem('role');
+            if(search){
+                var dillerId = search
+            }else{
+                var role = localStorage.getItem('role');
             if(role=='diller'){
                 var dillerId = localStorage.getItem('dillerId');
             }else{
                 var dillerId = '';
             }
+            }
+
+
 
 			axios.get(`/api/product?dillerId=${dillerId}`)
 			.then(({data}) => {
@@ -244,10 +262,24 @@ export default {
 
 				}
 			})
-		}
+		},
+
+		allDeler(){
+
+        axios.get('/api/user?type=diller')
+        .then(({data}) => {
+            this.dellers = data
+
+
+        })
+        .catch()
+        },
+
 	},
 	mounted(){
 		this.allProduct();
+		this.allDeler();
+
 	}
 }
 </script>

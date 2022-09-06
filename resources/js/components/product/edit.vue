@@ -13,6 +13,23 @@
 								<form @submit.prevent='updateProduct' enctype="multipart/form-data" class="row">
 
                                     		<div class="col-md-6">
+
+                                                <div class="form-group">
+
+
+
+
+												<label class="inputLabel" for="exampleFormControlSelect1">ডিলার</label>
+                                                <select v-model="form.dillerId" class="form-control float-right"  v-show="$localStorage.getItem('role')!='diller'">
+                                                    <option value="">নির্বাচন করুন</option>
+                                                    <option v-for="dd in dellers" :value="dd.dillerId">{{ dd.organization }}</option>
+                                                </select>
+                                            </div>
+											</div>
+
+
+
+                                    		<div class="col-md-6">
                                                 <div class="form-group">
 												<label class="inputLabel" for="exampleFormControlSelect1">তারিখ</label>
                                                 <input type="date" v-model="form.buying_date" class="form-control">
@@ -90,6 +107,7 @@ export default {
 	data () {
 		return {
 			form:{
+				dillerId: '',
 				category_id: '',
 				supplier_id: '',
 				product_name: '',
@@ -110,6 +128,7 @@ export default {
 			image: '',
 			matrikton: 0,
 			matriktonP: 1000,
+            dellers:{},
 		}
 	},
     watch: {
@@ -140,6 +159,7 @@ export default {
 		if(this.$route.params.id){
             this.list();
         }
+        this.allDeler();
         },
 	created(){
 
@@ -183,8 +203,8 @@ export default {
 			}
 		},
 		updateProduct(){
+            if(localStorage.getItem('role')=='diller')this.form['dillerId'] = localStorage.getItem('dillerId');
 
-            this.form['dillerId'] = localStorage.getItem('dillerId');
             if(this.$route.params.id){
 				var id = this.$route.params.id
 			 var ax = 	axios.patch('/api/product/' + id, this.form)
@@ -202,7 +222,17 @@ export default {
 				Notification.success()
 			})
 			.catch(error => this.errors = error.response.data.errors)
-		}
+		},
+
+
+		allDeler(){
+            axios.get('/api/user?type=diller')
+            .then(({data}) => {
+                this.dellers = data
+            })
+            .catch()
+        },
+
 	}
 }
 </script>

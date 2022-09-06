@@ -79,7 +79,7 @@
                             :to="{ name: 'application' }">
                             <div class="serviceBox">
                                 <div class="serviceLogo">
-                                    <img :src="$asseturl + 'assets/img/pic-10.png'" class="imageSpin" width="33%" alt="" />
+                                    <img :src="$asseturl + 'assets/img/icons8-anti-phishing-secure-login-64.png'" class="imageSpin" width="33%" alt="" />
                                 </div>
                                 <div class="serviceTitle defaltTextColor">
                                     ডিলার লগইন
@@ -94,7 +94,7 @@
                             :to="{ name: 'application' }">
                             <div class="serviceBox">
                                 <div class="serviceLogo">
-                                    <img :src="$asseturl + 'assets/img/pic-10.png'" class="imageSpin" width="33%" alt="" />
+                                    <img :src="$asseturl + 'assets/img/icons8-login-64.png'" class="imageSpin" width="33%" alt="" />
                                 </div>
                                 <div class="serviceTitle defaltTextColor">
                                     কর্তৃপক্ষ লগইন

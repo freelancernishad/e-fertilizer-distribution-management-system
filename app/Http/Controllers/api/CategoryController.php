@@ -5,6 +5,7 @@ namespace App\Http\Controllers\api;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\User;
 
 class CategoryController extends Controller
 {
@@ -18,11 +19,9 @@ class CategoryController extends Controller
     {
         $dillerId = $request->dillerId;
         if($dillerId){
-
-            $categories = Category::with(['Dellars'])->where(['dillerId'=>$dillerId])->orderBy('id','desc')->get();
+            $categories = Category::with(['Dellars'])->distinct()->where(['dillerId'=>$dillerId])->orderBy('id','desc')->get()->unique('category_name');
         }else{
-            $categories = Category::with(['Dellars'])->orderBy('id','desc')->get();
-
+            $categories = Category::with(['Dellars'])->distinct()->orderBy('id','desc')->get()->unique('category_name');
         }
         return response()->json($categories);
     }
@@ -35,6 +34,10 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+
+
+
+
         $request->validate([
             'category_name' => 'required|unique:categories|max:50',
         ]);
@@ -70,13 +73,32 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $category = Category::findOrFail($id);
+        $data = $request->all();
+        $delars =  User::where(['role'=>'diller'])->get();
+
+        foreach ($delars as $value) {
+            $data['dillerId'] = $value->dillerId;
+            $sarcount = Category::where(['dillerId'=>$value->dillerId,'category_name'=>$category->category_name])->count();
+            $sars = Category::where(['dillerId'=>$value->dillerId,'category_name'=>$category->category_name])->first();
+            if($sarcount){
+
+                $sars->update($data);
+            }else{
+
+                return Category::create($data);
+            }
+
+
+        }
+die();
+
         // $request->validate([
         //     'category_name' => 'required|unique:categories|max:80',
         // ]);
         $data = $request->all();
-
         $category = Category::findOrFail($id);
-
         $category->update($data);
 
         // $category->category_name = $request->category_name;

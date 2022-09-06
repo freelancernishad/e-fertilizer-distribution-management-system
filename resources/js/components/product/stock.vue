@@ -11,7 +11,11 @@
 
 							<h2 class="m-0 font-weight-bold text-primary">মজুদ শেষ</h2>
 
-		<router-link to="/store-product" class="btn btn-primary float-right" style="margin-top: 6px;margin-right: 6px;">Add Product</router-link>
+                            <select v-model="search" class="form-control float-right"  v-show="$localStorage.getItem('role')!='diller'" style="width:200px" @change="filterdeller">
+                                <option value="">নির্বাচন করুন</option>
+                                <option v-for="dd in dellers" :value="dd.dillerId">{{ dd.organization }}</option>
+                            </select>
+		<!-- <router-link to="/store-product" class="btn btn-primary float-right" style="margin-top: 6px;margin-right: 6px;">Add Product</router-link> -->
 
 						</div>
 
@@ -154,6 +158,8 @@ this.fields.push(
             barcodeid: '',
              timeout: null,
              todaydate: null,
+             search: '',
+             dellers:{},
 
 		}
 	},
@@ -181,15 +187,24 @@ this.fields.push(
            this.barcodeid = id
              this.modalShow = true
         },
-		allProduct(){
+
+        filterdeller(){
+            this.allProduct(this.search);
+        },
+
+		allProduct(search=''){
             this.tableloader = true
 
+            if(search){
+                var dillerId = search
+            }else{
             var role = localStorage.getItem('role');
             if(role=='diller'){
                 var dillerId = localStorage.getItem('dillerId');
             }else{
                 var dillerId = '';
             }
+        }
 
 			axios.get(`/api/products/stockcheck?product_quantity=0&dillerId=${dillerId}`)
 			.then(({data}) => {
@@ -253,10 +268,23 @@ this.fields.push(
 
 				}
 			})
-		}
+		},
+
+		allDeler(){
+
+            axios.get('/api/user?type=diller')
+            .then(({data}) => {
+                this.dellers = data
+
+
+            })
+            .catch()
+            },
+
 	},
 	mounted(){
 		this.allProduct();
+        this.allDeler();
 	}
 }
 </script>
