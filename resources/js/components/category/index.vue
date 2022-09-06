@@ -14,6 +14,7 @@
 							<table class="table align-items-center table-flush">
 								<thead class="thead-light">
 									<tr>
+										<th v-show="$localStorage.getItem('role')!='diller'">প্রতিষ্ঠানের নাম</th>
 										<th>সারের নাম</th>
 										<th>সারের মূল্য (প্রতি কেজি) [ সরকার কর্তৃক নির্ধারিত ]</th>
 										<th v-show="$localStorage.getItem('role')=='admin'">Action</th>
@@ -21,6 +22,7 @@
 								</thead>
 								<tbody>
 									<tr v-for="category in filtersearch" :key="category.id">
+										<td v-show="$localStorage.getItem('role')!='diller'">{{ category.dellars.organization }}</td>
 										<td>{{ category.category_name }}</td>
 										<td>{{ int_en_to_bn_fun(category.price) }} টাকা</td>
 										<td v-show="$localStorage.getItem('role')=='admin'">
@@ -66,10 +68,10 @@ export default {
 
 
             var role = localStorage.getItem('role');
-            if(role=='admin'){
-                var dillerId = '';
-            }else{
+            if(role=='diller'){
                 var dillerId = localStorage.getItem('dillerId');
+            }else{
+                var dillerId = '';
             }
 
 			axios.get(`/api/category?dillerId=${dillerId}`)

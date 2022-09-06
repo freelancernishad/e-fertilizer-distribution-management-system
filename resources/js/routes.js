@@ -17,6 +17,11 @@ let supplier = require('./components/supplier/index.vue').default;
 let editSupplier = require('./components/supplier/edit.vue').default;
 
 // Category Components
+let storeusers = require('./components/users/create.vue').default;
+let users = require('./components/users/index.vue').default;
+let editusers = require('./components/users/edit.vue').default;
+
+// Category Components
 let storedealer = require('./components/dealer/create.vue').default;
 let dealer = require('./components/dealer/index.vue').default;
 let editdealer = require('./components/dealer/edit.vue').default;
@@ -100,6 +105,11 @@ export const routes = [
   { path: '/admin/store-supplier', component: storeSupplier, name:'storeSupplier' },
   { path: '/admin/supplier', component: supplier, name:'supplier' },
   { path: '/admin/edit-supplier/:id', component: editSupplier, name:'editSupplier' },
+
+  // Category Routes
+  { path: '/admin/store-users', component: editusers, name:'storeusers' },
+  { path: '/admin/users', component: users, name:'users' },
+  { path: '/admin/edit-users/:id', component: editusers, name:'editusers' },
 
   // Category Routes
   { path: '/admin/store-dealer', component: editdealer, name:'storedealer' },

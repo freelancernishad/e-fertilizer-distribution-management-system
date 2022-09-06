@@ -21,8 +21,11 @@ class UserController extends Controller
     public function index(Request $request)
     {
         $type = $request->type;
+        if($type){
 
-      return User::where('role',$type)->get();
+            return User::where('role',$type)->get();
+        }
+        return User::all();
     }
 
 

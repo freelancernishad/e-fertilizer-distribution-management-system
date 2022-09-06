@@ -68,9 +68,18 @@ export default {
 		if (!User.loggedIn()) {
 			this.$router.push({name: '/'})
 		}
+        this.fields = [];
 
+if(localStorage.getItem('role')!='diller'){
+this.fields.push({ key: 'Dellars', label: 'প্রতিষ্ঠানের নাম',
 
-        this.fields =  [
+    formatter: (value, key, item) => {
+               return item.dellars.organization;
+        }
+});
+}
+
+this.fields.push(
 
                 { key: 'category_name', label: 'সারের নাম', sortable: true },
 
@@ -95,7 +104,7 @@ export default {
 
                     } },
 
-            ]
+)
             // this.fields.push( { key: 'actions', label: 'Actions' });
 
 	},
@@ -175,10 +184,10 @@ export default {
             this.tableloader = true
 
             var role = localStorage.getItem('role');
-            if(role=='admin'){
-                var dillerId = '';
-            }else{
+            if(role=='diller'){
                 var dillerId = localStorage.getItem('dillerId');
+            }else{
+                var dillerId = '';
             }
 
 			axios.get(`/api/products/stockcheck?availble=true&dillerId=${dillerId}`)

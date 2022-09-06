@@ -159,10 +159,10 @@ this.routerchange();
             this.tableloader = true
 
             var role = localStorage.getItem('role');
-            if(role=='admin'){
-                var dillerId = '';
-            }else{
+            if(role=='diller'){
                 var dillerId = localStorage.getItem('dillerId');
+            }else{
+                var dillerId = '';
             }
 
             if(from!='' && to!==''){

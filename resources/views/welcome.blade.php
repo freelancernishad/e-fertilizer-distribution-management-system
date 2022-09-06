@@ -134,7 +134,7 @@ span.money {
                 <span>POS</span></router-link>
               </li> --}}
 
-              <li class="nav-item" v-show="$localStorage.getItem('role')!='admin'">
+              <li class="nav-item" v-show="$localStorage.getItem('role')=='diller'">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap1"
                 aria-expanded="true" aria-controls="collapseBootstrap1">
                 <i class="far fa-fw fa-window-maximize"></i>
@@ -156,6 +156,22 @@ span.money {
                 Features
               </div>
 
+
+
+
+          <li class="nav-item" v-show="$localStorage.getItem('role')=='admin'">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap12"
+            aria-expanded="true" aria-controls="collapseBootstrap12">
+            <i class="far fa fa-list"></i>
+            <span>ইউজার সম্পর্কিত</span>
+          </a>
+          <div id="collapseBootstrap12" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <router-link class="collapse-item" to="/admin/store-users">নতুন ইউজার</router-link>
+              <router-link class="collapse-item" to="/admin/users">ইউজার তালিকা </router-link>
+            </div>
+          </div>
+        </li>
 
 
 
@@ -185,7 +201,7 @@ span.money {
           </a>
           <div id="collapseBootstrap2" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-              <router-link class="collapse-item" to="/admin/store-category" v-show="$localStorage.getItem('role')=='admin'">নাম অন্তর্ভুক্ত করুন</router-link>
+              <router-link class="collapse-item" to="/admin/store-category" v-show="$localStorage.getItem('role')=='admin' || $localStorage.getItem('role')=='Agriculture_Office'">নাম অন্তর্ভুক্ত করুন</router-link>
               <router-link class="collapse-item" to="/admin/category">সারের তালিকা </router-link>
               {{-- <router-link class="collapse-item" to="/this-year-orders">মূল্য তালিকা</router-link> --}}
             </div>
@@ -202,7 +218,7 @@ span.money {
         </a>
         <div id="collapseBootstrap3" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <router-link class="collapse-item" to="/admin/store-product" v-show="$localStorage.getItem('role')=='admin'">বরাদ্দ অন্তর্ভুক্ত করুন</router-link>
+            <router-link class="collapse-item" to="/admin/store-product" v-show="$localStorage.getItem('role')=='admin' || $localStorage.getItem('role')=='Agriculture_Office'">বরাদ্দ অন্তর্ভুক্ত করুন</router-link>
             <router-link class="collapse-item" to="/admin/product">বরাদ্দের তালিকা</router-link>
             {{-- <router-link class="collapse-item" to="/product/expired">Expired Product</router-link> --}}
           </div>
@@ -210,7 +226,7 @@ span.money {
       </li>
 
 
-      <li class="nav-item" v-show="$localStorage.getItem('role')!='admin'">
+      <li class="nav-item">
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrapp"
           aria-expanded="true" aria-controls="collapseBootstrapp">
           <i class="far fa fa-credit-card"></i>
@@ -232,7 +248,7 @@ span.money {
     </a>
     <div id="collapseBootstrapcustomer" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
-        <router-link class="collapse-item" to="/admin/store-customer" v-show="$localStorage.getItem('role')=='admin'">কৃষকের নাম অন্তর্ভুক্ত করুন</router-link>
+        <router-link class="collapse-item" to="/admin/store-customer" v-show="$localStorage.getItem('role')=='admin' || $localStorage.getItem('role')=='Agriculture_Office'">কৃষকের নাম অন্তর্ভুক্ত করুন</router-link>
         <router-link class="collapse-item" to="/admin/customer">কৃষকের তালিকা</router-link>
         {{-- <router-link class="collapse-item" :to="{name:'duecustomer'}">Due Customer</router-link> --}}
       </div>
@@ -364,7 +380,7 @@ span.money {
     <i class="fas fa-angle-up"></i>
 </a>
 
-<script src="{{ asset('js/app.js?ver=1.8') }}"></script>
+<script src="{{ asset('js/app.js?ver=1.9') }}"></script>
 {{-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js"> </script> --}}
 <script src="{{ asset('backend/vendors/jquery/jquery.min.js') }}"></script>
 <script src="{{ asset('backend/vendors/bootstrap/js/bootstrap.bundle.min.js') }}"></script>

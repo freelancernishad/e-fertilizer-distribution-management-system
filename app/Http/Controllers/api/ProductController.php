@@ -69,7 +69,7 @@ class ProductController extends Controller
 
        }
 
-       return Product::with(['categorys'])->where(['dillerId'=>$dillerId])->orderBy('id','desc')->get();
+       return Product::with(['categorys','Dellars'])->where(['dillerId'=>$dillerId])->orderBy('id','desc')->get();
      }else{
         if($type=='input'){
 
@@ -82,7 +82,7 @@ class ProductController extends Controller
 
        }
 
-       return Product::with(['categorys'])->orderBy('id','desc')->get();
+       return Product::with(['categorys','Dellars'])->orderBy('id','desc')->get();
      }
 
 

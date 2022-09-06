@@ -112,10 +112,10 @@ export default {
             this.tableloader = true;
 
             var role = localStorage.getItem('role');
-            if(role=='admin'){
-                var dillerId = '';
-            }else{
+            if(role=='diller'){
                 var dillerId = localStorage.getItem('dillerId');
+            }else{
+                var dillerId = '';
             }
 
 			axios.get(`/api/invoice?dillerId=${dillerId}`)
