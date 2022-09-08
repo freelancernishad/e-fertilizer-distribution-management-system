@@ -123,6 +123,38 @@ a {
     transition:all 0.5s;
 }
 
+.uriaText {
+    color: white !important;
+}
+
+.uria {
+    background: #276258;
+}
+
+.Dap {
+    background: #a553cf;
+}
+
+.DapText {
+    color: white !important;
+}
+
+.Mop {
+    background: #666411;
+}
+
+.MopText {
+    color: white !important;
+}
+
+.TspText {
+    color: white !important;
+}
+
+.Tsp {
+    background: #223560;
+}
+
 </style>
 
 
@@ -146,7 +178,7 @@ a {
 
 
 
-    <script src="{{ asset('js/frontend.js?ver=2.0') }}" async ></script>
+    <script src="{{ asset('js/frontend.js?ver=2.1') }}" async ></script>
 {{--
 <script>
 

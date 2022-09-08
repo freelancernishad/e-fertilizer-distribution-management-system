@@ -23,9 +23,7 @@
                     </vue-flux>
                     <!--        <img width="100%" src="assets/img/National-Portal-Card-PM.jpeg" alt=""> --->
                 </div>
-                <b-modal id="myModal">
-                    <union-select :custom-url="selectedUser" />
-                </b-modal>
+
                 <div class="services mt-3">
                     <div class="row">
                         <div class="col-md-12">
@@ -36,47 +34,347 @@
 
 
 
-
-                        <router-link class="col-lg-6 col-md-6 col-sm-4 col-6 mt-3 mb-3 text-center"
-                            :to="{ name: 'application' }">
-                            <div class="serviceBox">
-                                <div class="serviceLogo">
-                                    <div class="reportNumber">
-
-                                        {{ row.product }}
-                                    </div>
-
-                                    <!-- <img :src="$asseturl + 'assets/img/pic-10.png'" width="33%" alt="" /> -->
-                                </div>
-                                <div class="serviceTitle defaltTextColor">
-                                    বরাদ্দ সংক্রান্ত তথ্য
-                                </div>
-                            </div>
-                        </router-link>
+                    </div>
 
 
 
 
-                        <router-link class="col-lg-6 col-md-6 col-sm-4 col-6 mt-3 mb-3 text-center"
-                            :to="{ name: 'application' }">
-                            <div class="serviceBox">
-                                <div class="serviceLogo">
-                                    <div class="reportNumber">
-                                        {{ row.stock }}
-                                    </div>
-                                    <!-- <img :src="$asseturl + 'assets/img/pic-10.png'" width="33%" alt="" /> -->
-                                </div>
-                                <div class="serviceTitle defaltTextColor">
-                                    মজুদ সংক্রান্ত তথ্য
-                                </div>
-                            </div>
-                        </router-link>
+                    <div class="row">
+
+<div class="col-md-6 row">
+    <div class="col-md-12 text-center">
+
+
+        <div class="card h-100 boraddoHead uria">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col mr-2">
+                        <h3 class="uriaText">ইউরিয়া</h3>
+                        <div class="text-xs font-weight-bold text-uppercase mb-1 uriaText">
+                            বরাদ্দকৃত সারের পরিমাণ
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800 uriaText">
+                            <span class="money"></span> {{ row.uriaBoraddo }}
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
 
 
 
 
-                        <router-link class="col-lg-6 col-md-6 col-sm-4 col-6 mt-3 mb-3 text-center"
-                            :to="{ name: 'application' }">
+
+
+    </div>
+    <div class="col-xl-6 col-md-6 mb-4">
+        <div class="card h-100 uria">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-uppercase mb-1 uriaText">
+                            বিক্রিত সারের পরিমাণ
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800 uriaText">
+                            <span class="money"></span> {{ row.uriaSell }}
+                        </div>
+                        <div class="mt-2 mb-0 text-muted text-xs">
+                            <!-- <span class="text-success mr-2"><i class="fa fa-arrow-up"></i>
+                            3.48%</span>
+                        <span>Since last month</span> -->
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-calendar fa-2x text-white"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-xl-6 col-md-6 mb-4">
+        <div class="card h-100 uria">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-uppercase mb-1 uriaText">
+                            মজুদ সারের পরিমাণ
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800 uriaText">
+                            <span class="money"></span> {{ row.uriaMjud }}
+                        </div>
+                        <div class="mt-2 mb-0 text-muted text-xs">
+                            <!-- <span class="text-success mr-2"><i class="fa fa-arrow-up"></i>
+                            3.48%</span>
+                        <span>Since last month</span> -->
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-calendar fa-2x text-white"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="col-md-6 row">
+    <div class="col-md-12 text-center">
+
+
+        <div class="card h-100 boraddoHead Dap">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col mr-2">
+                        <h3 class="DapText">ডিএপি</h3>
+                        <div class="text-xs font-weight-bold text-uppercase mb-1 DapText">
+                            বরাদ্দকৃত সারের পরিমাণ
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800 DapText">
+                            <span class="money"></span> {{ row.DAPBoraddo }}
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6 col-md-6 mb-4">
+        <div class="card h-100 Dap">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-uppercase mb-1 DapText">
+                            বিক্রিত সারের পরিমাণ
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800 DapText">
+                            <span class="money"></span> {{ row.DAPSell }}
+                        </div>
+                        <div class="mt-2 mb-0 text-muted text-xs">
+                            <!-- <span class="text-success mr-2"><i class="fa fa-arrow-up"></i>
+                            3.48%</span>
+                        <span>Since last month</span> -->
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-calendar fa-2x text-white"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-xl-6 col-md-6 mb-4">
+        <div class="card h-100 Dap">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-uppercase mb-1 DapText">
+                            মজুদ সারের পরিমাণ
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800 DapText">
+                            <span class="money"></span> {{ row.DAPMjud }}
+                        </div>
+                        <div class="mt-2 mb-0 text-muted text-xs">
+                            <!-- <span class="text-success mr-2"><i class="fa fa-arrow-up"></i>
+                            3.48%</span>
+                        <span>Since last month</span> -->
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-calendar fa-2x text-white"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="col-md-6 row">
+    <div class="col-md-12 text-center">
+
+
+
+
+        <div class="card h-100 boraddoHead Mop">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col mr-2">
+                        <h3 class="MopText">এমওপি</h3>
+                        <div class="text-xs font-weight-bold text-uppercase mb-1 MopText">
+                            বরাদ্দকৃত সারের পরিমাণ
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800 MopText">
+                            <span class="money"></span> {{ row.MOPBoraddo }}
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-6 col-md-6 mb-4">
+        <div class="card h-100 Mop">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-uppercase mb-1 MopText">
+                            বিক্রিত সারের পরিমাণ
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800 MopText">
+                            <span class="money"></span> {{ row.MOPSell }}
+                        </div>
+                        <div class="mt-2 mb-0 text-muted text-xs">
+                            <!-- <span class="text-success mr-2"><i class="fa fa-arrow-up"></i>
+                            3.48%</span>
+                        <span>Since last month</span> -->
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-calendar fa-2x text-white"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-xl-6 col-md-6 mb-4">
+        <div class="card h-100 Mop">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-uppercase mb-1 MopText">
+                            মজুদ সারের পরিমাণ
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800 MopText">
+                            <span class="money"></span> {{ row.MOPMjud }}
+                        </div>
+                        <div class="mt-2 mb-0 text-muted text-xs">
+                            <!-- <span class="text-success mr-2"><i class="fa fa-arrow-up"></i>
+                            3.48%</span>
+                        <span>Since last month</span> -->
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-calendar fa-2x text-white"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="col-md-6 row">
+    <div class="col-md-12 text-center">
+
+
+
+        <div class="card h-100 boraddoHead Tsp">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col mr-2">
+                        <h3 class="TspText">টিএসপি</h3>
+                        <div class="text-xs font-weight-bold text-uppercase mb-1 TspText">
+                            বরাদ্দকৃত সারের পরিমাণ
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800 TspText">
+                            <span class="money"></span> {{ row.TSPBoraddo }}
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-xl-6 col-md-6 mb-4">
+        <div class="card h-100 Tsp">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-uppercase mb-1 TspText">
+                            বিক্রিত সারের পরিমাণ
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800 TspText">
+                            <span class="money"></span> {{ row.TSPSell }}
+                        </div>
+                        <div class="mt-2 mb-0 text-muted text-xs">
+                            <!-- <span class="text-success mr-2"><i class="fa fa-arrow-up"></i>
+                            3.48%</span>
+                        <span>Since last month</span> -->
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-calendar fa-2x text-white"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-xl-6 col-md-6 mb-4">
+        <div class="card h-100 Tsp">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-uppercase mb-1 TspText">
+                            মজুদ সারের পরিমাণ
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800 TspText">
+                            <span class="money"></span> {{ row.TSPMjud }}
+                        </div>
+                        <div class="mt-2 mb-0 text-muted text-xs">
+                            <!-- <span class="text-success mr-2"><i class="fa fa-arrow-up"></i>
+                            3.48%</span>
+                        <span>Since last month</span> -->
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-calendar fa-2x text-white"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+</div>
+
+
+                        <div class="row">
+
+
+
+
+
+                        <a class="col-lg-6 col-md-6 col-sm-4 col-6 mt-3 mb-3 text-center"
+                        href="/admin/login">
                             <div class="serviceBox">
                                 <div class="serviceLogo">
                                     <img :src="$asseturl + 'assets/img/icons8-anti-phishing-secure-login-64.png'" class="imageSpin" width="33%" alt="" />
@@ -85,13 +383,13 @@
                                     ডিলার লগইন
                                 </div>
                             </div>
-                        </router-link>
+                        </a>
 
 
 
 
-                        <router-link class="col-lg-6 col-md-6 col-sm-4 col-6 mt-3 mb-3 text-center"
-                            :to="{ name: 'application' }">
+                        <a class="col-lg-6 col-md-6 col-sm-4 col-6 mt-3 mb-3 text-center"
+                            href="/admin/login">
                             <div class="serviceBox">
                                 <div class="serviceLogo">
                                     <img :src="$asseturl + 'assets/img/icons8-login-64.png'" class="imageSpin" width="33%" alt="" />
@@ -100,13 +398,13 @@
                                     কর্তৃপক্ষ লগইন
                                 </div>
                             </div>
-                        </router-link>
+                        </a>
 
 
 
 
                         <router-link class="col-lg-6 col-md-6 col-sm-4 col-6 mt-3 mb-3 text-center"
-                            :to="{ name: 'application' }">
+                        to="">
                             <div class="serviceBox">
                                 <div class="serviceLogo">
                                     <img :src="$asseturl + 'assets/img/pic-10.png'" class="imageSpin" width="33%" alt="" />

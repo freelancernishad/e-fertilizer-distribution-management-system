@@ -123,11 +123,15 @@ span.money {
             <div class="sidebar-brand-text mx-3">ডিজিটাল সার ব্যবস্থাপনা</div>
           </router-link>
           <hr class="sidebar-divider my-0">
+
           <li class="nav-item active">
             <router-link class="nav-link" to="/admin/home">
               <i class="fas fa-fw fa-tachometer-alt"></i>
               <span>Dashboard</span></router-link>
             </li>
+
+
+
             {{-- <li class="nav-item">
               <router-link class="nav-link" to="/pos">
                 <i class="fas fa-fw fa-table"></i>
@@ -272,6 +276,11 @@ span.money {
   </div>
 </div>
 </li>
+<li class="nav-item active">
+    <router-link class="nav-link" to="/admin/Settings">
+      <i class="fas fa-fw fa-tachometer-alt"></i>
+      <span>Settings</span></router-link>
+    </li>
 
 {{--
 
@@ -380,7 +389,7 @@ span.money {
     <i class="fas fa-angle-up"></i>
 </a>
 
-<script src="{{ asset('js/app.js?ver=2.0') }}"></script>
+<script src="{{ asset('js/app.js?ver=2.1') }}"></script>
 {{-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js"> </script> --}}
 <script src="{{ asset('backend/vendors/jquery/jquery.min.js') }}"></script>
 <script src="{{ asset('backend/vendors/bootstrap/js/bootstrap.bundle.min.js') }}"></script>

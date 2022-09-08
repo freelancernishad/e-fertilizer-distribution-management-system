@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\api\PosController;
 use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\api\CartController;
 use  App\Http\Controllers\api\authController;
 use App\Http\Controllers\api\OrderController;
@@ -94,6 +95,7 @@ Route::apiResources([
     'expense' => ExpenseController::class,
     'customer' => CustomerController::class,
     'invoice' => InvoiceController::class,
+    'setting' => SettingController::class,
 
     'country' => CountryApi::class,
 

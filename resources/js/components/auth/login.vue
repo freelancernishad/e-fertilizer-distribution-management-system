@@ -7,7 +7,8 @@
 						<div class="col-lg-12">
 							<div class="login-form">
 								<div class="text-center">
-									<h1 class="h4 text-gray-900 mb-4">Login</h1>
+                                    <img width="50px" :src="$asseturl+'assets/img/bangladesh-govt.png'" alt="">
+									<h1 class="h4 text-gray-900 mb-4">লগইন</h1>
 								</div>
 								<form class="user" @submit.prevent='login'>
 									<div class="form-group">
@@ -39,7 +40,7 @@
 								</div> -->
 
 								<div class="text-center">
-                                     Developed By <a href="https://api.whatsapp.com/send?phone=8801909756552&text=I%27m%20interested%20in%20your%20services"> Freelancer Nishad</a>
+                                    উপজেলা প্রশাসন, তেঁতুলিয়া
 								</div>
 							</div>
 						</div>
@@ -66,7 +67,7 @@ export default {
 				password: null
 			},
 			errors:{},
-			buttonText:'Login'
+			buttonText:'লগইন'
 		}
 	},
 	methods:{
@@ -82,7 +83,7 @@ export default {
 					icon: 'success',
 					title: 'Signed in successfully'
 				})
-  this.buttonText = 'Login';
+  this.buttonText = 'লগইন';
 				this.$router.push({name: 'home'})
 			})
 			.catch(error => this.errors = error.response.data.errors)

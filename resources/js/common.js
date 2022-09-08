@@ -30,6 +30,7 @@ export default {
                 '৯': 9
               },
 
+
         }
     },
 

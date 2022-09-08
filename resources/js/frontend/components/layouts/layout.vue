@@ -109,9 +109,7 @@
                 <marquee direction="left" onmouseover="this.stop();" onmouseout="this.start();" scrolldelay="100" style="background: var(--defaultColor);
 color: white;
 font-size: 18px;
-padding: 3px 11px;"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas delectus provident iste,
-                    eligendi ipsum pariatur soluta officia tenetur velit odio quo hic, numquam minus ratione, quae
-                    dolore ad molestiae suscipit! </marquee>
+padding: 3px 11px;"> {{ settings.notice }}</marquee>
                 <slot></slot>
                 <div class="row">
                     <div class="col-md-12 mt-3 mb-3">
@@ -303,6 +301,7 @@ padding: 3px 11px;"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Vo
 export default {
     props: ['user'],
     async created() {
+        this.settingFun();
     },
     data() {
         return {
@@ -312,6 +311,7 @@ export default {
             visitors: '',
             categorys: {},
             ff: {},
+            settings:{},
         }
     },
     watch: {
@@ -324,6 +324,15 @@ export default {
         }
     },
     methods: {
+
+        async settingFun(){
+
+
+
+var res = await this.callApi('get',`/api/setting/1`,[]);
+this.settings = res.data;
+},
+
         sendInfo(item) {
             // console.log(item)
             this.selectedUser = item;
