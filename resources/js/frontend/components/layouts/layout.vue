@@ -182,7 +182,7 @@ padding: 3px 11px;"> {{ settings.notice }}</marquee>
             </div>
             <footer>
                 <div class="footer_top_bg"
-                    style="background: url('/assets/img/footer_top_bg.png'); height: 93px; background-repeat: no-repeat; background-size: cover;">
+                    style="background: url('/public/assets/img/footer_top_bg.png'); height: 93px; background-repeat: no-repeat; background-size: cover;">
                 </div>
 
 
