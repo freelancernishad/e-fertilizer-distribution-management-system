@@ -178,7 +178,7 @@ a {
 
 
 
-    <script src="{{ asset('js/frontend.js?ver=2.3') }}" async ></script>
+    <script src="{{ asset('js/frontend.js?ver=2.4') }}" async ></script>
 {{--
 <script>
 
