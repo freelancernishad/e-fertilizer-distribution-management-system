@@ -21,7 +21,7 @@
 									</tr>
 								</thead>
 								<tbody>
-									<tr v-for="category in filtersearch" :key="category.id">
+									<tr v-for="category in categories" :key="category.id">
 										<!-- <td v-show="$localStorage.getItem('role')!='diller'">{{ category.dellars.organization }}</td> -->
 										<td>{{ category.category_name }}</td>
 										<td>{{ int_en_to_bn_fun(category.price) }} টাকা</td>
@@ -57,11 +57,11 @@ export default {
 		}
 	},
 	computed: {
-		filtersearch(){
-			return this.categories.filter(category => {
-				return category.category_name.match(this.searchTerm)
-			})
-		}
+		// filtersearch(){
+		// 	return this.categories.filter(category => {
+		// 		return category.category_name.match(this.searchTerm)
+		// 	})
+		// }
 	},
 	methods: {
 		allCategory(){
