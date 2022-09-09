@@ -92,13 +92,7 @@ export default {
 					axios.delete('/api/category/' + id)
 						 .then(() => {
                               Notification.customdelete('Category Deleted');
-						 	this.categories = this.categories.filter(category => {
-
-						 		return category.id != id
-
-
-
-						 	})
+					
 						 })
 						 .catch(() => {
 						 	this.$router.push({name: 'category'})

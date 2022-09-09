@@ -20,7 +20,7 @@
 
 
 												<label class="inputLabel" for="exampleFormControlSelect1">ডিলার</label>
-                                                <select v-model="form.dillerId" class="form-control float-right"  v-show="$localStorage.getItem('role')!='diller'">
+                                                <select v-model="form.dillerId" class="form-control float-right" @change="getCategory"  v-show="$localStorage.getItem('role')!='diller'">
                                                     <option value="">নির্বাচন করুন</option>
                                                     <option v-for="dd in dellers" :value="dd.dillerId">{{ dd.organization }}</option>
                                                 </select>
@@ -165,14 +165,29 @@ export default {
 
 
 		// Category Collected
-		axios.get('/api/category/')
-			 .then(({data}) => (this.categories = data))
+        var role = localStorage.getItem('role');
+            if(role=='diller'){
+                var dillerId = localStorage.getItem('dillerId');
+                this.categoriesfun(dillerId);
+            }else{
+                this.categoriesfun();
+            }
+
 
 		// Supplier Collected
 		axios.get('/api/supplier/')
 			 .then(({data}) => (this.suppliers = data))
 	},
 	methods:{
+
+
+        getCategory(){
+            this.categoriesfun(this.form.dillerId);
+        },
+        categoriesfun(deller=''){
+            axios.get(`/api/category?dillerId=${deller}`)
+			 .then(({data}) => (this.categories = data))
+        },
 
         list(){
          let id = this.$route.params.id
