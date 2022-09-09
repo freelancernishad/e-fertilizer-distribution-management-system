@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <link href="{{ asset('backend/img/logo/logo.png') }}" rel="icon">
+  <link href="{{ asset('assets/img/bangladesh-govt.png') }}" rel="icon">
   <title>ডিজিটাল সার ব্যবস্থাপনা</title>
 
 
@@ -127,7 +127,7 @@ span.money {
           <li class="nav-item active">
             <router-link class="nav-link" to="/admin/home">
               <i class="fas fa-fw fa-tachometer-alt"></i>
-              <span>Dashboard</span></router-link>
+              <span>ইউজার প্যানেল</span></router-link>
             </li>
 
 
@@ -155,10 +155,10 @@ span.money {
             </li>
 
 
-              <hr class="sidebar-divider">
+              {{-- <hr class="sidebar-divider">
               <div class="sidebar-heading">
                 Features
-              </div>
+              </div> --}}
 
 
 
@@ -279,7 +279,7 @@ span.money {
 <li class="nav-item active">
     <router-link class="nav-link" to="/admin/Settings">
       <i class="fas fa-fw fa-tachometer-alt"></i>
-      <span>Settings</span></router-link>
+      <span>স্ক্রল নোটিশ</span></router-link>
     </li>
 
 {{--
@@ -344,11 +344,11 @@ span.money {
   </div>
 </div>
 </li> --}}
-
+{{--
 <hr class="sidebar-divider">
 <div class="sidebar-heading">
   Developed By <a href="https://api.whatsapp.com/send?phone=8801909756552&text=I%27m%20interested%20in%20your%20services"> Freelancer Nishad</a> {{ date('Y') }}
-</div>
+</div> --}}
 </ul>
 </nav>
 <!-- Sidebar -->
@@ -365,8 +365,20 @@ span.money {
         <a class="nav-link dropdown-toggle" href="/" id="userDropdown" role="button" data-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false">
         <img class="img-profile rounded-circle" src="{{ asset('backend/img/boy.png') }}" style="max-width: 60px">
-        <span class="ml-2 d-none d-lg-inline text-white small">Admin</span>
-        <router-link to="/admin/logout" class="ml-2 d-none d-lg-inline text-white small">Logout</router-link>
+        <span class="ml-2 d-none d-lg-inline text-white small" style="border-right: 1px solid white;
+        padding: 0 8px 0px 1px;
+        text-align: right;">
+
+            <span  v-html="$localStorage.getItem('user')"></span> <br>
+
+            <span v-if="$localStorage.getItem('role')=='admin'">উপজেলা নির্বাহী অফিসার</span>
+            <span v-else-if="$localStorage.getItem('role')=='DC'">জেলা প্রশাসক</span>
+            <span v-else-if="$localStorage.getItem('role')=='Agriculture_Office'">উপজেলা কৃষি কর্মকর্তা</span>
+            <span v-else-if="$localStorage.getItem('role')=='diller'">ডিলার</span>
+
+
+        </span>
+        <router-link to="/admin/logout" class="btn ml-2 d-none d-lg-inline text-white small" style="background: #1e2124;">লগআউট</router-link>
       </a>
     </li>
   </ul>

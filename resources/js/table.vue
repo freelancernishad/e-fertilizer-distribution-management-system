@@ -125,7 +125,7 @@
 
                 <router-link size="sm" :to="{ name: ViewRoute, params: { id: row.item.id } }" v-if="ViewRoute != ''"
                     class="btn btn-info mr-1 mt-1">
-                    View
+                    Edit
                 </router-link>
 
                 <!-- <span size="sm" @click="info(row.item, row.index, $event.target)" v-if="ViewRoute != ''"

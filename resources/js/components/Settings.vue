@@ -1,14 +1,14 @@
 <template>
     <div>
         <div class="breadcrumbs-area">
-            <h3>Settings</h3>
+            <h3>স্ক্রল নোটিশ</h3>
         </div>
         <div class="row">
 
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title mb-50 border-bottom pb-2">Settings Information</h5>
+                        <h5 class="card-title mb-50 border-bottom pb-2">স্ক্রল নোটিশ </h5>
                         <form  @submit.stop.prevent="onSubmit">
                         <div class="row mt-4">
 

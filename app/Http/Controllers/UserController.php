@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Spatie\QueryBuilder\QueryBuilder;
@@ -25,7 +26,7 @@ class UserController extends Controller
 
             return User::where('role',$type)->get();
         }
-        return User::all();
+        return User::where('role','!=','diller')->get();
     }
 
 
@@ -61,7 +62,16 @@ class UserController extends Controller
         }
 
 
-        return User::create($data);
+        $delar =  User::create($data);
+
+        Category::create(['dillerId'=>$delar->dillerId,'category_name'=>'ইউরিয়া','price'=>'16','product_quantity'=>0]);
+        Category::create(['dillerId'=>$delar->dillerId,'category_name'=>'ডিএপি','price'=>'22','product_quantity'=>0]);
+        Category::create(['dillerId'=>$delar->dillerId,'category_name'=>'এমওপি','price'=>'15','product_quantity'=>0]);
+        Category::create(['dillerId'=>$delar->dillerId,'category_name'=>'টিএসপি','price'=>'16','product_quantity'=>0]);
+
+
+
+
     }
 
     /**
@@ -95,7 +105,14 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $user->update($request->all());
+        $data = $request->except('password');
+
+        $data = $request->all();
+        if($request->password){
+            $data['password'] =  Hash::make($request->password);
+        }
+
+        $user->update($data);
     }
 
     /**

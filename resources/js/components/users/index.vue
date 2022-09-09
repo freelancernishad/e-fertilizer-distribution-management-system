@@ -44,7 +44,23 @@ export default {
         this.fields =  [
 
                 { key: 'name', label: 'নাম', sortable: true },
-                { key: 'role', label: 'পদবি', sortable: true },
+                { key: 'role', label: 'পদবি', sortable: true,
+
+                formatter: (value, key, item) => {
+                        if(value=='admin'){
+                            return 'উপজেলা নির্বাহী অফিসার';
+                        }else
+                        if(value=='DC'){
+                            return 'জেলা প্রশাসক';
+                        }else
+                        if(value=='Agriculture_Office'){
+                            return 'উপজেলা কৃষি কর্মকর্তা';
+                        }else
+                        if(value=='diller'){
+                            return 'ডিলার';
+                        }
+                    }
+                },
 
 
             ]

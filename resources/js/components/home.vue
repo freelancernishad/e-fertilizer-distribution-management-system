@@ -1,21 +1,21 @@
 <template>
     <div>
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+            <h1 class="h3 mb-0 text-gray-800">সারসংক্ষেপ</h1>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="./">Home</a></li>
                 <li class="breadcrumb-item active" aria-current="page">
-                    Dashboard
+                    সারসংক্ষেপ
                 </li>
             </ol>
         </div>
-        <div class="row mb-3">
+        <!-- <div class="row mb-3">
 
             <div class="col-md-12">
                 <div class="card">
                     <div class="cord-body">
                         <div class="form-group pl-3">
-                            <label for="">Date</label>
+                            <label for="">তারিখ</label>
 
                             <input type="date" class="form-control" v-model="date" @change="datechange"
                                 style="width:200px">
@@ -24,7 +24,7 @@
                 </div>
 
             </div>
-        </div>
+        </div> -->
 
 
         <div class="row">

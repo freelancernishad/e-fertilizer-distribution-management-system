@@ -28,9 +28,9 @@
 
                                         <select class="form-control" v-model="form.role">
                                             <option value="">Select</option>
-                                            <option value="admin">UNO</option>
-                                            <option value="DC">DC</option>
-                                            <option value="Agriculture_Office">Agriculture Office</option>
+                                            <option value="admin">উপজেলা নির্বাহী অফিসার</option>
+                                            <option value="DC">জেলা প্রশাসক</option>
+                                            <option value="Agriculture_Office">উপজেলা কৃষি কর্মকর্তা</option>
                                             <!-- <option value="diller">Dilar</option> -->
                                         </select>
 
@@ -62,7 +62,7 @@
                                     <div class="col-md-6">
 									<div class="form-group">
                                         <label class="inputLabel" for="">ইউনিয়ন</label>
-										<input type="text" class="form-control" id="exampleInputFirstName" placeholder="ইউনিয়ন লিখুন" v-model="form.unioun">
+										<input type="text" class="form-control" id="exampleInputFirstName" placeholder="ইউনিয়নের নাম লিখুন" v-model="form.unioun">
 										<small class="text-danger" v-if="errors.unioun"> {{ errors.unioun[0] }} </small>
 									</div>
                                     </div>
@@ -71,7 +71,7 @@
                                     <div class="col-md-6">
 									<div class="form-group">
                                         <label class="inputLabel" for="">উপজেলা</label>
-										<input type="text" class="form-control" id="exampleInputFirstName" placeholder="উপজেলা লিখুন" v-model="form.thana">
+										<input type="text" class="form-control" id="exampleInputFirstName" placeholder="উপজেলার নাম লিখুন" v-model="form.thana">
 										<small class="text-danger" v-if="errors.thana"> {{ errors.thana[0] }} </small>
 									</div>
                                     </div>
@@ -80,7 +80,7 @@
                                     <div class="col-md-6">
 									<div class="form-group">
                                         <label class="inputLabel" for="">জেলা</label>
-										<input type="text" class="form-control" id="exampleInputFirstName" placeholder="জেলা লিখুন" v-model="form.Distric">
+										<input type="text" class="form-control" id="exampleInputFirstName" placeholder="জেলার নাম লিখুন" v-model="form.Distric">
 										<small class="text-danger" v-if="errors.Distric"> {{ errors.Distric[0] }} </small>
 									</div>
                                     </div>
@@ -95,7 +95,7 @@
                                     </div>
 
 
-                                    <div class="col-md-6" v-if="!this.$route.params.id">
+                                    <div class="col-md-6" >
 									<div class="form-group">
                                         <label class="inputLabel" for="">পাসওয়ার্ড</label>
 										<input type="text" class="form-control" id="exampleInputFirstName" placeholder="ইমেইল লিখুন" v-model="form.password">

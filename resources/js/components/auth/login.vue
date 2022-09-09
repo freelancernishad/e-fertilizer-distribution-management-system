@@ -2,14 +2,14 @@
 	<div class="row justify-content-center">
 		<div class="col-xl-10 col-lg-12 col-md-9">
 			<div class="card shadow-sm my-5" style="    max-width: 400px;
-    margin: 0 auto;">
+    margin: 0 auto;    border: 1px solid #227474;">
 				<div class="card-body p-0">
 					<div class="row">
 						<div class="col-lg-12">
 							<div class="login-form">
 								<div class="text-center">
-                                    <img width="50px" :src="$asseturl+'assets/img/bangladesh-govt.png'" alt="">
-									<h1 class="h4 text-gray-900 mb-4">লগইন</h1>
+
+									<h1 class="h4 text-gray-900 mb-4" style="font-size: 35px;">লগইন</h1>
 								</div>
 								<form class="user" @submit.prevent='login'>
 									<div class="form-group">
@@ -41,7 +41,9 @@
 								</div> -->
 
 								<div class="text-center">
-                                    উপজেলা প্রশাসন, তেঁতুলিয়া
+                                    <img width="50px" :src="$asseturl+'assets/img/bangladesh-govt.png'" alt="">
+                                    <h4 style="margin: 0;    margin-top: 10px;">উপজেলা প্রশাসন</h4>
+                                    তেঁতুলিয়া, পঞ্চগড়।
 								</div>
 							</div>
 						</div>
