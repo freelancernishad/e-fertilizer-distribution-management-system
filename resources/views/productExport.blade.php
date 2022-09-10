@@ -13,7 +13,7 @@
 
                 <td>{{ $Product->buying_date }}</td>
                 <td>{{ $Product->memoNong }}</td>
-                <td>{{ $Product->categorys->category_name }}</td>
+                <td>{{ $Product->category_name }}</td>
                 <td>{{ $Product->product_quantity }} {{ $Product->type }}</td>
 
 

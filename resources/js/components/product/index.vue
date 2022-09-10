@@ -13,7 +13,7 @@
 
                             <select v-model="search" class="form-control float-right"  v-show="$localStorage.getItem('role')!='diller'" style="width:200px" @change="filterdeller">
                                 <option value="">নির্বাচন করুন</option>
-                                <option v-for="dd in dellers" :value="dd.dillerId">{{ dd.organization }}</option>
+                                <option v-for="dd in dellers" :value="dd.dillerId" :key="dd.id">{{ dd.organization }}</option>
                             </select>
 		<!-- <router-link to="/store-product" class="btn btn-primary float-right" style="margin-top: 6px;margin-right: 6px;">Add Product</router-link> -->
 
@@ -23,7 +23,7 @@
 
                         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                             <div></div>
-							<a href="/product/export" class="btn btn-danger float-right" style="margin-top: 6px;margin-right: 6px;">Export Products</a>
+							<a href="/product/export" class="btn btn-danger float-right" style="margin-top: 6px;margin-right: 6px;">বরাদ্দের রিপোর্ট</a>
 						</div>
 
 

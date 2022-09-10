@@ -15,7 +15,7 @@
 							<h2 class="m-0 font-weight-bold text-primary">কৃষক তালিকা</h2>
 
 
-							<router-link to="/store-customer" class="btn btn-primary float-right" style="margin-top: 6px;margin-right: 6px;">Add Customer</router-link>
+							<!-- <router-link to="/store-customer" class="btn btn-primary float-right" style="margin-top: 6px;margin-right: 6px;">Add Customer</router-link> -->
 						</div>
 
 

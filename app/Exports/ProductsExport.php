@@ -14,6 +14,7 @@ class ProductsExport implements FromView
     * @return \Illuminate\Support\Collection
     */
 
+
     public function view(): View
     {
         return view('productExport', ['Products' =>  Product::with(['categorys'])->orderBy('id','desc')->get()
