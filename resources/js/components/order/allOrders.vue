@@ -44,7 +44,7 @@
                             :total-rows="TotalRows" :delete-route="deleteRoute" :edit-route="editRoute"
                             :application-route="applicationRoute" :view-route="viewRoute" :approve-route="approveRoute"
                             :pay-route="payRoute" :cancel-route="cancelRoute" :canceltext="canceltext"
-                            :approve-type="approveType" :approve-data="approveData" :Tableloader="tableloader"
+                            :approve-type="approveType" :approve-data="approveData"  :invoice-route="InvoiceRoute" :Tableloader="tableloader"
                             @event-name="allOrder">
                         </table-component>
 
@@ -99,6 +99,7 @@ export default {
             deleteRoute: '',
             AddNew: '',
             editRoute: '',
+            InvoiceRoute: '/invoice',
             applicationRoute: '/document',
             viewRoute: 'InvoiceDetails',
             approveRoute: '',

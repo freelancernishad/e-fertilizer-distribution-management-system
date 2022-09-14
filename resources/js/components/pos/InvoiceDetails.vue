@@ -10,7 +10,6 @@
           </div>
 
 
-<a :href="'/invoice/'+pramid" target="_blank" class="btn btn-sm btn-primary">Print</a>
 
           <div class="row mb-3">
             <!-- Table 1 -->
@@ -78,6 +77,8 @@
                     </div>
                 </div>
               </div>
+          <a :href="'/invoice/'+pramid" style="    padding: 5px 33px;font-size: 25px;" target="_blank" class="btn btn-sm btn-primary">প্রিন্ট</a>
+
             </div>
           </div>
           <!--Row-->
@@ -128,12 +129,12 @@ export default {
         this.pramid = id;
         axios.get(`/api/invoice/${id}`)
             .then(({data}) => {
-                
+
                 this.orders = data
                 this.districtsFun(data.customers.district);
                 this.upazilasFun(data.customers.thana);
                 this.unionsFun(data.customers.union);
-            
+
             })
             .catch(console.log('error'))
 

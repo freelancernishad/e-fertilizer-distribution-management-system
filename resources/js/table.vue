@@ -125,8 +125,13 @@
 
                 <router-link size="sm" :to="{ name: ViewRoute, params: { id: row.item.id } }" v-if="ViewRoute != ''"
                     class="btn btn-info mr-1 mt-1">
-                    Edit
+                    View
                 </router-link>
+
+                <a target="_blank" size="sm" :href="InvoiceRoute+'/'+row.item.id " v-if="InvoiceRoute != ''"
+                    class="btn btn-success mr-1 mt-1">
+                    রসিদ
+                </a>
 
                 <!-- <span size="sm" @click="info(row.item, row.index, $event.target)" v-if="ViewRoute != ''"
                     class="btn btn-info mr-1 mt-1">
@@ -151,7 +156,7 @@
                 </span>
                 <a :href="'/invoice/d/' + row.item.id" target="_blank" size="sm" v-if="row.item.stutus == 'approved'"
                     class="btn btn-info mr-1 mt-1">
-                    রশিদ
+                    রশিদ প্রিন্ট
                 </a>
                 <a :href="'/sonod/d/' + row.item.id" target="_blank" size="sm"
                     v-if="row.item.stutus == 'approved' && row.item.payment_status == 'Paid'"
@@ -266,6 +271,10 @@ export default {
             default: '',
         },
         ViewRoute: {
+            type: String,
+            default: '',
+        },
+        InvoiceRoute: {
             type: String,
             default: '',
         },

@@ -205,7 +205,7 @@ $amount = $numto->bnMoney($orders->totalAmount);
         $data['fileName'] = $fileName;
 
 //  echo $this->invoice1($orders,$orderDetails,$duepaymets,$amount,$custom_order_details,'left');
-        $mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => 'A4-L','default_font' => 'bangla',]);
+        $mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => 'A4-L','default_font' => 'nikosh',]);
 
         // $mpdf->WriteHTML( $this->invoice1($orders,$amount,'left'));
         $mpdf->WriteHTML( $this->invoice1($orders,$amount,$deller,'right'));

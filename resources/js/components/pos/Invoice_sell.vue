@@ -15,7 +15,7 @@
                     :per-page-data="PerPageData" :total-rows="TotalRows" :delete-route="deleteRoute"
                     :edit-route="editRoute" :application-route="applicationRoute" :view-route="viewRoute"
                     :approve-route="approveRoute" :pay-route="payRoute" :cancel-route="cancelRoute" :canceltext="canceltext"
-                    :approve-type="approveType" :approve-data="approveData" :Tableloader="tableloader" @event-name="allOrder">
+                    :approve-type="approveType" :approve-data="approveData" :Tableloader="tableloader" :invoice-route="InvoiceRoute" @event-name="allOrder">
                 </table-component>
 
 
@@ -40,18 +40,26 @@ export default {
                 { key: 'address', label: 'ঠিকানা', sortable: true },
                 { key: 'totalProduct', label: 'সারের পরিমাণ', sortable: true,
                 formatter: (value, key, item) => {
-                   return this.int_en_to_bn_fun(value)+' কেজি';
+                    // return value;
+                   return this.int_en_to_bn_fun(value.toString())+' কেজি';
                  }
                 },
                 { key: 'total_amount', label: 'মোট দাম', sortable: true,
                 formatter: (value, key, item) => {
-                   return this.int_en_to_bn_fun(value)+' টাকা';
+                    // return value
+                   return this.int_en_to_bn_fun(value.toString())+' টাকা';
                  }
                 },
                 { key: 'date', label: 'তারিখ', sortable: true,
 
                 formatter: (value, key, item) => {
-                   return this.int_en_to_bn_fun(value);
+
+                    // return value
+                    if(value){
+
+                        return this.int_en_to_bn_fun(value.toString());
+                    }
+                    return  value
                  }
              },
             ]
@@ -73,6 +81,7 @@ export default {
             AddNew: '',
             editRoute: '',
             applicationRoute: '/document',
+            InvoiceRoute: '/invoice',
             viewRoute: 'InvoiceDetails',
             approveRoute: '',
             cancelRoute: '',
@@ -101,11 +110,11 @@ export default {
 		}
 	},
 	computed: {
-		filtersearch(){
-			return this.orders.filter(order => {
-				return order.customer_name.match(this.searchTerm)
-			})
-		}
+		// filtersearch(){
+		// 	return this.orders.filter(order => {
+		// 		return order.customer_name.match(this.searchTerm)
+		// 	})
+		// }
 	},
 	methods: {
 		allOrder(){
@@ -120,7 +129,9 @@ export default {
 
 			axios.get(`/api/invoice?dillerId=${dillerId}`)
 			.then(({data}) => {
+                console.log(data)
                 this.items = data
+                this.TotalRows = `${data.length}`
                 this.tableloader = false;
             })
 			.catch()
