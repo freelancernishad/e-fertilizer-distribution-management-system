@@ -1,19 +1,19 @@
 class Notification{
 
     successSound(){
-        var data = {  soundurl : ASSETURL+'Single Audio.mp3'}
-        var audio = new Audio(data.soundurl);
-        audio.play();
+        // var data = {  soundurl : ASSETURL+'Single Audio.mp3'}
+        // var audio = new Audio(data.soundurl);
+        // audio.play();
     }
     deleteSound(){
-        var data = {  soundurl : ASSETURL+'Broke Glass.mp3'}
-        var audio = new Audio(data.soundurl);
-        audio.play();
+        // var data = {  soundurl : ASSETURL+'Broke Glass.mp3'}
+        // var audio = new Audio(data.soundurl);
+        // audio.play();
     }
     errorSound(){
-        var data = {  soundurl : ASSETURL+'Windows error.mp3'}
-        var audio = new Audio(data.soundurl);
-        audio.play();
+        // var data = {  soundurl : ASSETURL+'Windows error.mp3'}
+        // var audio = new Audio(data.soundurl);
+        // audio.play();
     }
 
 
